@@ -24,18 +24,6 @@ searchClose.addEventListener('click', () => {
     search.classList.remove('show-search')
 })
 
-const login = document.getElementById('login'),
-    loginBtn = document.getElementById('login-btn'),
-    loginClose = document.getElementById('login-close')
-
-loginBtn.addEventListener('click', () => {
-    login.classList.add('show-login')
-})
-
-loginClose.addEventListener('click', () => {
-    login.classList.remove('show-login')
-})
-
 const displayTime = document.querySelector(".display-time");
 // Time
 function showTime() {
@@ -127,3 +115,21 @@ function toggleComments() {
       }
   }
 }
+
+document.getElementById('logout-btn')?.addEventListener('click', function(event) {
+  event.preventDefault();
+  
+  // Perform the logout operation via an AJAX request or another method
+  // For example, making an AJAX call to the server to log out
+
+  // Simulate the AJAX call with a timeout
+  setTimeout(function() {
+      // Assuming the logout was successful
+      document.querySelector('.greeting').style.display = 'none';
+      document.getElementById('logout-btn').style.display = 'none';
+      const loginIcon = document.createElement('a');
+      loginIcon.href = 'login.php';
+      loginIcon.innerHTML = '<ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon>';
+      document.querySelector('nav').appendChild(loginIcon);
+  }, 1000); // Adjust the timeout duration as needed
+});
