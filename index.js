@@ -117,15 +117,14 @@ productContainers.forEach((item, i) => {
 })
 
 // COMMENT SECTION
-function toggleComments() {
-  var commentsContent = document.getElementsByClassName("comments-content");
-  for (var i = 0; i < commentsContent.length; i++) {
-      if (commentsContent[i].style.display === "none" || commentsContent[i].style.display === "") {
-          commentsContent[i].style.display = "block";
-      } else {
-          commentsContent[i].style.display = "none";
-      }
+function toggleComments(element) {
+  var commentsContent = element.nextElementSibling; // Get the next sibling element
+  if (commentsContent.style.display === "none" || commentsContent.style.display === "") {
+      commentsContent.style.display = "block"; // Show comments section
+  } else {
+      commentsContent.style.display = "none"; // Hide comments section
   }
+<<<<<<< HEAD
 }
 
 const form = document.querySelector(".contactUs form");
@@ -198,3 +197,10 @@ window.onclick = function(event) {
 function closeModal() {
   document.getElementById('myModal').style.display = "none";
 }
+=======
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 7e33fc25b7d3851e04152833d665511d2a3fa883
+>>>>>>> 799e18ee6b66fcffa7853fabdcf6cb1ec615aa41
