@@ -116,28 +116,12 @@ productContainers.forEach((item, i) => {
     })
 })
 
-<<<<<<< HEAD
 // COMMENT SECTION
-function toggleComments() {
-  var commentsContent = document.getElementsByClassName("comments-content");
-  for (var i = 0; i < commentsContent.length; i++) {
-      if (commentsContent[i].style.display === "none" || commentsContent[i].style.display === "") {
-          commentsContent[i].style.display = "block";
-      } else {
-          commentsContent[i].style.display = "none";
-      }
+function toggleComments(element) {
+  var commentsContent = element.nextElementSibling; // Get the next sibling element
+  if (commentsContent.style.display === "none" || commentsContent.style.display === "") {
+      commentsContent.style.display = "block"; // Show comments section
+  } else {
+      commentsContent.style.display = "none"; // Hide comments section
   }
-=======
-
-let signupBtn = document.getElementById("signupBtn");
-let signinBtn = document.getElementById("signinBtn");
-let nameField = document.getElementById("nameField");
-let title1 = document.getElementById("title1");
-
-signinBtn.onclick = function(){
-  nameField.style.maxHeight = "0";
-  title1.innerHTML = "Sign In";
-  signupBtn.classList.add("disable");
-  signinBtn.classList.remove("disable");
->>>>>>> 0426e43b31985ccfa788cdd45ce784153000c8de
 }

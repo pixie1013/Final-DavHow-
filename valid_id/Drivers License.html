@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DavHow: Driver's License</title>
     <link rel="stylesheet" href="styles_validid.css">
-    <link rel="stylesheet" href="/New DavHow/documents/header.css">
+    <link rel="stylesheet" href="/documents/header.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,108 +21,111 @@
     <!-- HEADER -->
     <header class="header1">
         <div class="top-bar">
-            <div class="socmeds">
-                <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-                <a href="https://x.com/ART_Solutions23" rel="noopener noreferrer" target="_blank"><i class="ri-twitter-x-line"></i></a>
-                <a href="#"><i class="ri-mail-fill"></i></a>
-            </div>
-            <div class="logo">
-                <img src="/New DavHow/photos/logo.png" alt="DavHow: Unsaon ni Bai?">
-                <p class="Brand">DavHow</p>
-                <p class="Tagline">UNSAON NI BAI?</p>
-            </div>
+          <div class="top-left">
             <div class="time">
-                <div class="display-date">
-                    <span id="day">day<br></span>
-                    <span id="month">month</span>
-                    <span id="daynum">00</span>
-                    <span id="year">0000</span>
-                </div>
-                <div class="display-time"></div>
+              <div class="display-time"></div>
+              <div class="display-date">
+                <span id="month">month</span>
+                <span id="daynum">00</span>
+                <span id="year">0000</span>
+                <span id="day">day</span>
+              </div>
+            </div>
+            <div class="socmeds">
+              <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+              <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
+              <a href="#"><i class="ri-mail-fill"></i></a>
+            </div>
+          </div>
+          
+          <div class="logo">
+            <img src="/New DavHow/photos/logo.png" alt="DavHow: Unsaon ni Bai?">
+            <p class="Brand">DavHow</p>
+            <p class="Tagline">UNSAON NI BAI?</p>
+          </div>
+          <!-- Login button -->
+          <i class="ri-user-line nav_login" id="login-btn"></i>
         </div>
-        </div>
-    </header>
-    <header class="header" id="header">
+      </header>
+      <header class="header" id="header">
         <nav class="nav container">
-            <p class="nav_tag"><em>Official website of ART Solutions</em></p>
-            <div class="nav_menu" id="nav-menu">
-                <ul class="nav_list">
-                    <li class="nav_item">
-                        <a href="#" class="nav_link">HOME</a>
-                    </li>
-        
-                    <li class="nav_item">
-                        <a href="#" class="nav_link">CATALOG</a>
-                    </li>
-        
-                    <li class="nav_item">
-                        <a href="#" class="nav_link">ABOUT US</a>
-                    </li>
-        
-                    <li class="nav_item">
-                        <a href="#" class="nav_link">DASHBOARD</a>
-                    </li>
-                </ul>
+           <p class="nav_tag"><em>Official website of ART Solutions</em></p>
     
-                <!-- Close button -->
-                <div class="nav_close" id="nav-close">
-                    <i class="ri-close-circle-line"></i>
-                </div>
-            </div>
+           <div class="nav_menu" id="nav-menu">
+              <ul class="nav_list">
+                 <li class="nav_item">
+                    <a href="#" class="nav_link">HOME</a>
+                 </li>
     
-            <div class="nav_actions">
-                <!-- Search button -->
-                <i class="ri-search-line nav_search" id="search-btn"></i>
+                 <li class="nav_item">
+                    <a href="catalog.html" class="nav_link">CATALOG</a>
+                 </li>
     
-                <!-- Login button -->
-                <i class="ri-user-line nav_login" id="login-btn"></i>
+                 <li class="nav_item">
+                    <a href="#" class="nav_link">ABOUT US</a>
+                 </li>
+              </ul>
     
-                <!-- Toggle button -->
-                <div class="nav_toggle" id="nav-toggle">
-                    <i class="ri-menu-line"></i>
-                </div>
-            </div>
+              <!-- Close button -->
+              <div class="nav_close" id="nav-close">
+                <i class="ri-close-circle-line"></i>
+              </div>
+           </div>
+    
+           <div class="nav_actions">
+              <!-- Search button -->
+              <i class="ri-search-line nav_search" id="search-btn"></i>
+    
+              <!-- Toggle button -->
+              <div class="nav_toggle" id="nav-toggle">
+                 <i class="ri-menu-line"></i>
+              </div>
+           </div>
         </nav>
-    </header>
+      </header>
     
       <!--==================== SEARCH ====================-->
-    <div class="search" id="search">
+      <div class="search" id="search">
         <form action="" class="search__form">
-            <i class="ri-search-line search__icon"></i>
-            <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input">
+           <i class="ri-search-line search__icon"></i>
+           <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input">
         </form>
-
-        <i class="ri-close-circle-line search__close" id="search-close"></i>
-    </div>
     
-    <!--==================== LOGIN ====================-->
-    <div class="login" id="login">
+        <i class="ri-close-circle-line search__close" id="search-close"></i>
+      </div>
+    
+      <!--==================== LOGIN ====================-->
+      <div class="login" id="login">
         <form action="" class="login__form">
-        <h2 class="login__title">Log In</h2>
-        
-        <div class="login__group">
+          <h2 class="login__title">Log In</h2>
+         
+          <div class="login__group">
             <div>
-                <label for="email" class="login__label">Email:</label>
-                <input type="email" placeholder="Write your email" id="email" class="login__input">
+               <label for="email" class="login__label">Email:</label>
+               <input type="email" placeholder="Write your email" id="email" class="login__input">
             </div>
             
             <div>
-                <label for="password" class="login__label">Password:</label>
-                <input type="password" placeholder="Enter your password" id="password" class="login__input">
+               <label for="password" class="login__label">Password:</label>
+               <input type="password" placeholder="Enter your password" id="password" class="login__input">
             </div>
-        </div>
-        
-        <div>
-            <p class="login__signup">Don't have an account? <a href="#">Sign up</a></p>
-        
+          </div>
+    
+         <div>
+            <p class="login__signup">
+               Don't have an account? <a href="#">Sign up</a>
+            </p>
+    
             <button type="submit" class="login__button">Log In</button>
-        
-            <a href="#" class="login__forgot">Forgot password?</a>
-        </div>
+    
+            <a href="#" class="login__forgot">
+               Forgot password?
+            </a>
+         </div>
         </form>
     
         <i class="ri-close-circle-line login__close" id="login-close"></i>
-    </div>
+      </div>
     <!-- Document-Area -->
     <div class="whole-document-area">   
         <section class="document-area">
