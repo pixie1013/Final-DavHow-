@@ -124,4 +124,8 @@ function toggleComments(element) {
   } else {
       commentsContent.style.display = "none"; // Hide comments section
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7e33fc25b7d3851e04152833d665511d2a3fa883
