@@ -1,49 +1,57 @@
-<?php
+<?php 
 session_start();
-require 'connection.php'; // Include your database connection file
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+include("connection.php");
+include("functions.php");
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $user_name = $_POST['user_name'];
     $password = $_POST['password'];
-    $login_as = $_POST['login_as'];
+    $login_as = $_POST['login_as']; // 'admin' or 'user'
 
-    // Sanitize input
-    $user_name = htmlspecialchars($user_name);
-    $password = htmlspecialchars($password);
-
-    // Hash the password if it is stored as a hash in the database
-    // $password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Prepare SQL based on the login type
-    if ($login_as == 'admin') {
-        $sql = "SELECT * FROM users WHERE user_name = ? AND is_admin = 1";
-    } else {
-        $sql = "SELECT * FROM users WHERE user_name = ? AND is_admin = 0";
-    }
-
-    // Connect to the database and prepare the statement
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('s', $user_name);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_name'] = $user['user_name'];
-        $_SESSION['is_admin'] = $user['is_admin'];
-
+    if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
+        // Determine the correct query based on the login type
         if ($login_as == 'admin') {
-            header('Location: admin_dashboard.php');
+            $query = "SELECT * FROM users WHERE user_name = ? AND is_admin = 1 LIMIT 1";
         } else {
-            header('Location: user_dashboard.php');
+            $query = "SELECT * FROM users WHERE user_name = ? AND is_admin = 0 LIMIT 1";
         }
-        exit();
+
+        if ($stmt = $con->prepare($query)) {
+            $stmt->bind_param('s', $user_name);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result && $result->num_rows > 0) {
+                $user_data = $result->fetch_assoc();
+
+                // Verify the password
+                if ($password === $user_data['password']) { // Check for plain password
+                    $_SESSION['user_id'] = $user_data['user_id'];
+                    $_SESSION['user_name'] = $user_data['user_name'];
+                    $_SESSION['is_admin'] = $user_data['is_admin'];
+
+                    if ($login_as == 'admin') {
+                        header("Location: admin_dashboard.php");
+                    } else {
+                        header("Location: homepage.php");
+                    }
+                    exit;
+                } else {
+                    echo "Invalid credentials.";
+                }
+            } else {
+                echo "Invalid credentials.";
+            }
+        } else {
+            echo "Query preparation failed.";
+        }
     } else {
-        echo "Invalid username or password";
+        echo "Please enter some valid information!";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,12 +66,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <title>Log In</title>
 </head>
 <body>
     <!--==================== LOGIN ====================-->
-    <div class="login" id="login">
+      <div class="login" id="login">
         <form method="post" action="" class="login__form">
           <h2 class="login__title">Log In</h2>
          
@@ -78,15 +86,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                <input type="password" placeholder="Enter your password" id="password" class="login__input" name="password">
             </div>
           </div>
+          <div class="login__group">
+            <label for="role" class="login__label">Select User Type:</label>
+            <select id="login_as" class="login__input" name="login_as">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+          </div>
+          
     
          <div>
             <p class="login__signup">
                 Don't have an account? <a href="signup.php">Sign Up</a>
             </p>
-            <div class="loginCreds">
-                <button class="login__button" type="submit" name="login_as" value="admin">Login as Admin</button>
-                <button class="login__button" type="submit" name="login_as" value="user">Login as User</button>
-            </div>
+    
+            <button type="submit" class="login__button" value="login">Log In</button>
+    
             <a href="#" class="login__forgot">
                Forgot password?
             </a>

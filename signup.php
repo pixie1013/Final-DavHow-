@@ -8,16 +8,21 @@
         // something was posted
         $user_name = $_POST['user_name'];
         $password = $_POST['password'];
+        $role = $_POST['role'];
 
-        if(!empty($user_name) && !empty($password) && !is_numeric($user_name)){
+        if(!empty($user_name) && !empty($password) && $role !== ''){ // Check if role is set
             
-            //Save to database
-            $user_id = random_num(20);
-            $query = "insert into users (user_id, user_name, password) values ('$user_id', '$user_name', '$password')";
+            // Save to database
+            $user_id = random_num(10);
+            $query = "INSERT INTO users (user_id, user_name, password, is_admin) VALUES ('$user_id', '$user_name', '$password', '$role')";
 
-            mysqli_query($con, $query);
-            header("Location: login.php");
-            die;
+            if(mysqli_query($con, $query)){
+                // Redirect to login page after successful signup
+                header("Location: login.php");
+                die;
+            } else {
+                echo "Error: " . mysqli_error($con);
+            }
         } else{
             echo "Please enter some valid information!";
         }
@@ -57,6 +62,13 @@
                <label for="password" class="login__label" >Password:</label>
                <input type="password" placeholder="Enter your password" id="password" class="login__input" name="password">
             </div>
+          </div>
+          <div class="login__group">
+            <label for="role" class="login__label">Select User Type:</label>
+            <select id="role" class="login__input" name="role">
+                <option value="0">User</option>
+                <option value="1">Admin</option>
+            </select>
           </div>
     
          <div>
