@@ -116,7 +116,6 @@ productContainers.forEach((item, i) => {
     })
 })
 
-<<<<<<< HEAD
 // COMMENT SECTION
 function toggleComments() {
   var commentsContent = document.getElementsByClassName("comments-content");
@@ -127,17 +126,4 @@ function toggleComments() {
           commentsContent[i].style.display = "none";
       }
   }
-=======
-
-let signupBtn = document.getElementById("signupBtn");
-let signinBtn = document.getElementById("signinBtn");
-let nameField = document.getElementById("nameField");
-let title1 = document.getElementById("title1");
-
-signinBtn.onclick = function(){
-  nameField.style.maxHeight = "0";
-  title1.innerHTML = "Sign In";
-  signupBtn.classList.add("disable");
-  signinBtn.classList.remove("disable");
->>>>>>> 0426e43b31985ccfa788cdd45ce784153000c8de
 }
