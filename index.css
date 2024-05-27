@@ -1224,8 +1224,8 @@ hr {
 }
 
 .teams img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: auto;
 }
 
 .name {
@@ -1242,7 +1242,6 @@ hr {
 
 .about {
     margin: 20px 0;
-    font-weight: lighter;
     color: #4e4e4e;
 }
 
