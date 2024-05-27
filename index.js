@@ -105,14 +105,17 @@ productContainers.forEach((item, i) => {
 })
 
 // COMMENT SECTION
-function toggleComments(element) {
-  var commentsContent = element.nextElementSibling; // Get the next sibling element
-  if (commentsContent.style.display === "none" || commentsContent.style.display === "") {
-      commentsContent.style.display = "block"; // Show comments section
+function toggleComments(postId) {
+  var commentContent = document.getElementById('comments-content-' + postId);
+  if (commentContent.style.display === 'none' || commentContent.style.display === '') {
+      commentContent.style.display = 'block';
   } else {
-      commentsContent.style.display = "none"; // Hide comments section
+      commentInput.style.display = "none"; // Hide the comment input when it's visible
   }
 }
+
+
+
 
 const form = document.querySelector(".contactUs form");
 const statusTxt = form.querySelector(".send-button span");
