@@ -244,7 +244,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
         </article>
       </div>
-    </div>
+    </div>  
   </section>
 
   <footer>

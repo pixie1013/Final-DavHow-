@@ -48,15 +48,14 @@ if (isset($_SESSION['user_id'])) {
       </div>
       
       <div class="logo">
-        <img src="/photos/logo.png" alt="DavHow: Unsaon ni Bai?">
+        <img src="photos/logo.png" alt="DavHow: Unsaon ni Bai?">
         <p class="Brand">DavHow</p>
         <p class="Tagline">UNSAON NI BAI?</p>
       </div>
       <nav class="nav1">
-          <!-- Other navigation links can go here -->
           <?php if (isset($user_data)): ?>
               <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
-              <a href="#" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
+        <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
           <?php else: ?>
               <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
           <?php endif; ?>
@@ -241,7 +240,8 @@ if (isset($_SESSION['user_id'])) {
               <div class="row100">
                 <div class="inputBox">
                   <span>Message</span>
-                  <textarea placeholder="Write your message here..."></textarea>
+                  <textarea placeholder="Write your message here..." name="message"></textarea>
+
                 </div>
               </div>
 
@@ -264,7 +264,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div>
               <span><ion-icon name="mail"></ion-icon></span>
-              <a href="mailto:pependepen16@gmail.com">artsolutions@gmail.com</a>
+              <a href="mailto:pependepen16@gmail.com">artsolutions23@gmail.com</a>
             </div>
             <div>
               <span><ion-icon name="call"></ion-icon></span>
