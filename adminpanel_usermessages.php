@@ -29,6 +29,7 @@ $user_data = check_login($con);
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/x-icon" href="./photos/logo.png">
   <title>DavHow: Admin Inbox</title>
 </head>
 <body>
@@ -150,7 +151,7 @@ $user_data = check_login($con);
                     <th>Date</th>
                     <th>Sender</th>
                     <th>Title</th>
-                    <th colspan="2">Action</th>
+                    <th colspan="3">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -167,23 +168,28 @@ $user_data = check_login($con);
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-
-                    $sql = "SELECT * FROM contact";
+              
+                    $sql = "SELECT * FROM user_messages ORDER BY created_at DESC";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
+                        // Inside the loop that fetches and displays messages
                         while ($row = $result->fetch_assoc()) {
+                            $statusClass = $row['is_read'] ? 'read-message' : 'unread-message';
+                            $toggleStatus = $row['is_read'] ? 'Mark as Unread' : 'Mark as Read';
                             echo "
-                            <tr>
+                            <tr class='{$statusClass}'>
                                 <td>{$row['created_at']}</td>
                                 <td>{$row['first_name']} {$row['last_name']}</td>
                                 <td>{$row['title']}</td>
                                 <td>
                                     <button class='view-button' onclick='viewMessage({$row['message_id']})'>View</button>
                                     <button class='delete-button' onclick='deleteMessage({$row['message_id']})'>Delete</button>
+                                    <button class='status-button' onclick='toggleReadStatus({$row['message_id']})'>{$toggleStatus}</button>
                                 </td>
                             </tr>";
                         }
+
                     } else {
                         echo "<tr><td colspan='4'>No messages found</td></tr>";
                     }
@@ -244,6 +250,8 @@ $user_data = check_login($con);
         <hr>
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
+    <!-- Back to Top Button -->
+    <a href="#"><button id="back-to-top-btn" title="Back to top"><i class="ri-arrow-up-s-fill"></i></button></a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="index.js"></script>
 </body>

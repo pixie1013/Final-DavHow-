@@ -32,6 +32,7 @@ $user_data = check_login($con);
     <link rel="stylesheet" href="forum.css">
     <link rel="stylesheet" href="/New DavHow/documents/header.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="./photos/logo.png">
     <title>DavHow: Discussion Forum</title>
 </head>
 <body>
@@ -573,6 +574,8 @@ $user_data = check_login($con);
         <hr>
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
+    <!-- Back to Top Button -->
+    <a href="#"><button id="back-to-top-btn" title="Back to top"><i class="ri-arrow-up-s-fill"></i></button></a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="index.js"></script>
     <script src="script.js"></script>

@@ -17,6 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../photos/logo.png">
     <title>DavHow: Death Certificate - Delayed Registration</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="header.css">
@@ -535,7 +536,8 @@
         <hr>
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
-
+    <!-- Back to Top Button -->
+    <a href="#"><button id="back-to-top-btn" title="Back to top"><i class="ri-arrow-up-s-fill"></i></button></a>
     <script src="script.js"></script>
 </body>
 </html>

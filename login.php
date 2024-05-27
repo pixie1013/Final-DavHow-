@@ -20,7 +20,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <title>DavHow: Log In</title>
+    <link rel="icon" type="image/x-icon" href="../photos/logo.png">
+    <title>Log In</title>
 </head>
 <body>
     <div class="login" id="login">
@@ -41,7 +42,8 @@
             
             <div class="login__group">
                 <label for="login_as" class="login__label">Select User Type:</label>
-                <select id="login_as" class="login__input" name="login_as">
+                <select id="login_as" class="login__input" name="login_as" required>
+                    <option value="" disabled selected>Select Role</option>
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
                 </select>
@@ -108,6 +110,10 @@
             </div>
         </form>
     </div>
+    <!-- Home button -->
+    <a href="homepage.php" class="home-button">
+        <ion-icon name="home-outline"></ion-icon>
+    </a>
 </body>
 </html>
 

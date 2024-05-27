@@ -17,6 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../photos/logo.png">
     <title>DavHow: Annual Income Tax for Corporations and Partnerships</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="header.css">
@@ -140,39 +141,6 @@
             </div>
         </nav>
     </header>
-    
-      <!--==================== LOGIN ====================-->
-      <div class="login" id="login">
-        <form action="" class="login__form">
-          <h2 class="login__title">Log In</h2>
-         
-          <div class="login__group">
-            <div>
-               <label for="email" class="login__label">Email:</label>
-               <input type="email" placeholder="Write your email" id="email" class="login__input">
-            </div>
-            
-            <div>
-               <label for="password" class="login__label">Password:</label>
-               <input type="password" placeholder="Enter your password" id="password" class="login__input">
-            </div>
-          </div>
-    
-         <div>
-            <p class="login__signup">
-               Don't have an account? <a href="#">Sign up</a>
-            </p>
-    
-            <button type="submit" class="login__button">Log In</button>
-    
-            <a href="#" class="login__forgot">
-               Forgot password?
-            </a>
-         </div>
-        </form>
-    
-        <i class="ri-close-circle-line login__close" id="login-close"></i>
-      </div>
     <div class="whole-document-area">
         <!-- Document-Area -->
         <section class="document-area">
@@ -644,6 +612,8 @@
         <hr>
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
+    <!-- Back to Top Button -->
+    <a href="#"><button id="back-to-top-btn" title="Back to top"><i class="ri-arrow-up-s-fill"></i></button></a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
 </body>
