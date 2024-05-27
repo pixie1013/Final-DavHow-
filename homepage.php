@@ -62,26 +62,7 @@ if (isset($_SESSION['user_id'])) {
             <?php endif; ?>
         </nav>
         </div>
-        <div class="socmeds">
-          <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-          <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-          <a href="#"><i class="ri-mail-fill"></i></a>
-        </div>
       </div>
-      
-      <div class="logo">
-        <img src="photos/logo.png" alt="DavHow: Unsaon ni Bai?">
-        <p class="Brand">DavHow</p>
-        <p class="Tagline">UNSAON NI BAI?</p>
-      </div>
-      <nav class="nav1">
-          <?php if (isset($user_data)): ?>
-          <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
-          <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
-          <?php else: ?>
-          <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
-          <?php endif; ?>
-      </nav>
     </div>
   </header>
   <header class="header" id="header">
