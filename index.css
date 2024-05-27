@@ -1908,3 +1908,35 @@ hr {
 .nav1 {
     display: flex;
 }
+
+#back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none; 
+    outline: none; 
+    background-color: var(--container-color);
+    color: var(--first-color);
+    text-align: center; 
+    text-decoration: none; 
+    cursor: pointer; 
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+#back-to-top-btn a{
+    text-decoration: none;
+    color: var(--first-color);
+}
+
+#back-to-top-btn:hover,
+#back-to-top-btn a:hover  {
+    background-color: var(--second-color);
+    color: var(--third-color);
+}
+
+.scrollable-section {
+    scroll-margin-top: 20rem; 
+}

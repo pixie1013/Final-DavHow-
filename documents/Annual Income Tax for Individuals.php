@@ -565,7 +565,8 @@
         </section>
     </div>
 
-
+    <!-- Back to Top Button -->
+    <a href="#"><button id="back-to-top-btn" title="Back to top"><i class="ri-arrow-up-s-fill"></i></button></a>
     <script src="script.js"></script>
 </body>
 </html>

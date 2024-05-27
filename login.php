@@ -41,7 +41,8 @@
             
             <div class="login__group">
                 <label for="login_as" class="login__label">Select User Type:</label>
-                <select id="login_as" class="login__input" name="login_as">
+                <select id="login_as" class="login__input" name="login_as" required>
+                    <option value="" disabled selected>Select Role</option>
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
                 </select>
@@ -108,6 +109,10 @@
             </div>
         </form>
     </div>
+    <!-- Home button -->
+    <a href="homepage.php" class="home-button">
+        <ion-icon name="home-outline"></ion-icon>
+    </a>
 </body>
 </html>
 

@@ -25,6 +25,7 @@ if (isset($_SESSION['user_id'])) {
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../index.css">
   <link rel="stylesheet" href="search.css">
+  <link rel="icon" type="image/x-icon" href="/photos/logo.png">
   <title>DavHow: Search</title>
 </head>
 <body>
