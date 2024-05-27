@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+
+    include("../connection.php");
+    include("../functions.php");
+
+    $user_data = null;
+    if (isset($_SESSION['user_id'])) {
+        $user_data = check_login($con);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,101 +32,114 @@
 
 <body>
     <header class="header1">
-          <div class="top-left">
-            <div class="time">
-              <div class="display-time"></div>
-              <div class="display-date">
-                <span id="month">month</span>
-                <span id="daynum">00</span>
-                <span id="year">0000</span>
-                <span id="day">day</span>
-              </div>
+        <div class="top-bar">
+            <div class="top-left">
+                <div class="time">
+                    <div class="display-time"></div>
+                    <div class="display-date">
+                        <span id="month">month</span>
+                        <span id="daynum">00</span>
+                        <span id="year">0000</span>
+                        <span id="day">day</span>
+                    </div>
+                </div>
+                <div class="socmeds">
+                    <a href="https://www.facebook.com/profile.php?id=61560047196528" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+                    <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
+                    <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
+                </div>
             </div>
-            <div class="socmeds">
-              <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-              <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-              <a href="#"><i class="ri-mail-fill"></i></a>
-            </div>
-          </div>
           
-          <div class="logo">
-            <img src="/New DavHow/photos/logo.png" alt="DavHow: Unsaon ni Bai?">
-            <p class="Brand">DavHow</p>
-            <p class="Tagline">UNSAON NI BAI?</p>
-          </div>
-          <!-- Login button -->
-          <i class="ri-user-line nav_login" id="login-btn"></i>
+            <div class="logo">
+                <img src="../photos/logo.png" alt="DavHow: Unsaon ni Bai?">
+                <p class="Brand">DavHow</p>
+                <p class="Tagline">UNSAON NI BAI?</p>
+            </div>
+            <nav class="nav1">
+                <?php if (isset($user_data)): ?>
+                <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
+                <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
+                <?php else: ?>
+                <a href="../login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
+                <?php endif; ?>
+            </nav>
         </div>
-      </header>
-      <header class="header" id="header">
+    </header>
+    <header class="header" id="header">
         <nav class="nav container">
-           <p class="nav_tag"><em>Official website of ART Solutions</em></p>
+        <p class="nav_tag"><em>Official website of ART Solutions</em></p>
+        <div class="nav_menu" id="nav-menu">
+           <ul class="nav_list">
+                <?php
+                    // Assume $isLoggedIn and $isAdmin are set based on authentication logic
+                    $isLoggedIn = isset($_SESSION['user_id']); // Check if user is logged in
+                    $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1; // Check if user is logged in as admin
+
+                    // Check if the user is logged in as admin, user, or not logged in
+                    if ($isAdmin) {
+                        echo '
+                        <li class="nav_item">
+                            <a href="../homepage.php" class="nav_link">HOME</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../catalog.php" class="nav_link">CATALOG</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../about_us.php" class="nav_link">ABOUT US</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../discussionforum.php" class="nav_link">FORUM</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                        </li>';
+                    } elseif ($isLoggedIn) {
+                        echo '
+                        <li class="nav_item">
+                            <a href="../homepage.php" class="nav_link">HOME</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../catalog.php" class="nav_link">CATALOG</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../about_us.php" class="nav_link">ABOUT US</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../discussionforum.php" class="nav_link">FORUM</a>
+                        </li>';
+                    } else {
+                        echo '
+                        <li class="nav_item">
+                            <a href="../homepage.php" class="nav_link">HOME</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../catalog.php" class="nav_link">CATALOG</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="../about_us.php" class="nav_link">ABOUT US</a>
+                        </li>';
+                    }
+                ?>
+
+            </ul>
     
-           <div class="nav_menu" id="nav-menu">
-              <ul class="nav_list">
-                 <li class="nav_item">
-                    <a href="#" class="nav_link">HOME</a>
-                 </li>
+                <!-- Close button -->
+                <div class="nav_close" id="nav-close">
+                    <i class="ri-close-circle-line"></i>
+                </div>
+            </div>
     
-                 <li class="nav_item">
-                    <a href="../catalog.php" class="nav_link">CATALOG</a>
-                 </li>
+            <div class="nav_actions">
+                <!-- Search button -->
+                <a href="../search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
     
-                 <li class="nav_item">
-                    <a href="#" class="nav_link">ABOUT US</a>
-                 </li>
-              </ul>
-    
-              <!-- Close button -->
-              <div class="nav_close" id="nav-close">
-                <i class="ri-close-circle-line"></i>
-              </div>
-           </div>
-    
-           <div class="nav_actions">
-              <!-- Search button -->
-              <a href="../search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
-    
-              <!-- Toggle button -->
-              <div class="nav_toggle" id="nav-toggle">
-                 <i class="ri-menu-line"></i>
-              </div>
-           </div>
+                <!-- Toggle button -->
+                <div class="nav_toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
         </nav>
-      </header>
-    
-      <!--==================== LOGIN ====================-->
-      <div class="login" id="login">
-        <form action="" class="login__form">
-          <h2 class="login__title">Log In</h2>
-         
-          <div class="login__group">
-            <div>
-               <label for="email" class="login__label">Email:</label>
-               <input type="email" placeholder="Write your email" id="email" class="login__input">
-            </div>
-            
-            <div>
-               <label for="password" class="login__label">Password:</label>
-               <input type="password" placeholder="Enter your password" id="password" class="login__input">
-            </div>
-          </div>
-    
-         <div>
-            <p class="login__signup">
-               Don't have an account? <a href="#">Sign up</a>
-            </p>
-    
-            <button type="submit" class="login__button">Log In</button>
-    
-            <a href="#" class="login__forgot">
-               Forgot password?
-            </a>
-         </div>
-        </form>
-    
-        <i class="ri-close-circle-line login__close" id="login-close"></i>
-      </div>
+    </header>
 
     <div class="whole-document-area">
     <!-- Document-Area -->
@@ -528,56 +553,18 @@
             </div>            
         </div>
 
-        <!--References-->
-        <div class="reference-info">
-            <div class="article-reference">
-                <a href="https://www.bir.gov.ph/index.php/bir-forms/income-tax-return.html" target="_blank">Income Tax Return Description</a>
+            <!--References-->
+            <div class="reference-info">
+                <div class="article-reference">
+                    <a href="https://www.bir.gov.ph/index.php/bir-forms/income-tax-return.html" target="_blank">Income Tax Return Description</a>
+                </div>
+                <div class="article-reference">
+                    <a href="httpswww.bir.gov.phimagesbir_filest" target="_blank">Sample Annual Income Tax for Individuals Earning Purely Compensation Income</a>
+                </div>
             </div>
-            <div class="article-reference">
-                <a href="httpswww.bir.gov.phimagesbir_filest" target="_blank">Sample Annual Income Tax for Individuals Earning Purely Compensation Income</a>
-            </div>
-        </div>
-    </section>
-</div>
-    <footer>
-        <div class="footerrow">
-        <div class="col">
-            <h3>What is Davhow?</h3>
-            <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
-            <div class="socmeds1">
-            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
-            <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
-            </div>
-        </div>
-        <div class="col">
-            <h3>Visit Us</h3>
-            <p>University of the Philippines Mindanao</p>
-            <p>Tugbok, Davao City</p>
-            <p>8000 Philippines</p>
-        </div>
-        <div class="col">
-            <h3>Links</h3>
-            <ul>
-            <li><a href="homepage.php">Home</a></li>
-            <li><a href="catalog.php">Catalog</a></li>
-            <li><a href="about_us.php">About Us</a></li>
-            <li><a href="discussionforum.php">Forum</a></li>
-            </ul>
-        </div>
-        <div class="col">
-            <h3>About DavHow</h3>
-            <ul>
-                <li><a href="homepage.php#services1">Our Services</a></li>
-                <li><a href="homepage.php#rationale">Rationale</a></li>
-                <li><a href="homepage.php#vision">Vision and Mission</a></li>
-                <li><a href="homepage.php#objectives">Objectives</a></li>
-            </ul>
-        </div>
-        </div>
-        <hr>
-        <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
-    </footer>
+        </section>
+    </div>
+
 
     <script src="script.js"></script>
 </body>

@@ -29,115 +29,115 @@ if (isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-  <header class="header1">
-    <div class="top-bar">
-      <div class="top-left">
-        <div class="time">
-          <div class="display-time"></div>
-          <div class="display-date">
-            <span id="month">month</span>
-            <span id="daynum">00</span>
-            <span id="year">0000</span>
-            <span id="day">day</span>
+<header class="header1">
+        <div class="top-bar">
+          <div class="top-left">
+            <div class="time">
+              <div class="display-time"></div>
+              <div class="display-date">
+                <span id="month">month</span>
+                <span id="daynum">00</span>
+                <span id="year">0000</span>
+                <span id="day">day</span>
+              </div>
+            </div>
+            <div class="socmeds">
+              <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+              <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
+              <a href="#"><i class="ri-mail-fill"></i></a>
+            </div>
           </div>
+          
+          <div class="logo">
+            <img src="photos/logo.png" alt="DavHow: Unsaon ni Bai?">
+            <p class="Brand">DavHow</p>
+            <p class="Tagline">UNSAON NI BAI?</p>
+          </div>
+          <nav class="nav1">
+            <?php if (isset($user_data)): ?>
+            <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
+            <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
+            <?php else: ?>
+            <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
+            <?php endif; ?>
+        </nav>
         </div>
-        <div class="socmeds">
-          <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-          <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-          <a href="#"><i class="ri-mail-fill"></i></a>
-        </div>
-      </div>
-      
-      <div class="logo">
-        <img src="photos/logo.png" alt="DavHow: Unsaon ni Bai?">
-        <p class="Brand">DavHow</p>
-        <p class="Tagline">UNSAON NI BAI?</p>
-      </div>
-      <nav class="nav1">
-          <?php if (isset($user_data)): ?>
-          <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
-          <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
-          <?php else: ?>
-          <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
-          <?php endif; ?>
-      </nav>
-    </div>
   </header>
   <header class="header" id="header">
-    <nav class="nav container">
-       <p class="nav_tag"><em>Official website of ART Solutions</em></p>
+        <nav class="nav container">
+           <p class="nav_tag"><em>Official website of ART Solutions</em></p>
+    
+           <div class="nav_menu" id="nav-menu">
+           <ul class="nav_list">
+           <?php
+                // Assume $isLoggedIn and $isAdmin are set based on authentication logic
+                $isLoggedIn = isset($_SESSION['user_id']); // Check if user is logged in
+                $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1; // Check if user is logged in as admin
 
-       <div class="nav_menu" id="nav-menu">
-          <ul class="nav_list">
-          <?php
+                // Check if the user is logged in as admin, user, or not logged in
+                if ($isAdmin) {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="discussionforum.php" class="nav_link">FORUM</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                    </li>';
+                } elseif ($isLoggedIn) {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="discussionforum.php" class="nav_link">FORUM</a>
+                    </li>';
+                } else {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>';
+                }
+                ?>
 
-            // Assume $isLoggedIn and $isAdmin are set based on authentication logic
-            $isLoggedIn = isset($_SESSION['user_id']); // Check if user is logged in
-            $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1; // Check if user is logged in as admin
-
-            // Check if the user is logged in as admin, user, or not logged in
-            if ($isAdmin) {
-                echo '
-                <li class="nav_item">
-                    <a href="homepage.php" class="nav_link">HOME</a>
-                </li>
-                <li class="nav_item">
-                    <a href="catalog.php" class="nav_link">CATALOG</a>
-                </li>
-                <li class="nav_item">
-                    <a href="about_us.php" class="nav_link">ABOUT US</a>
-                </li>
-                <li class="nav_item">
-                    <a href="discussionforum.php" class="nav_link">FORUM</a>
-                </li>
-                <li class="nav_item">
-                    <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
-                </li>';
-            } elseif ($isLoggedIn) {
-                echo '
-                <li class="nav_item">
-                    <a href="homepage.php" class="nav_link">HOME</a>
-                </li>
-                <li class="nav_item">
-                    <a href="catalog.php" class="nav_link">CATALOG</a>
-                </li>
-                <li class="nav_item">
-                    <a href="about_us.php" class="nav_link">ABOUT US</a>
-                </li>
-                <li class="nav_item">
-                    <a href="discussionforum.php" class="nav_link">FORUM</a>
-                </li>';
-            } else {
-                echo '
-                <li class="nav_item">
-                    <a href="homepage.php" class="nav_link">HOME</a>
-                </li>
-                <li class="nav_item">
-                    <a href="catalog.php" class="nav_link">CATALOG</a>
-                </li>
-                <li class="nav_item">
-                    <a href="about_us.php" class="nav_link">ABOUT US</a>
-                </li>';
-            }
-            ?>
           </ul>
-
-          <!-- Close button -->
-          <div class="nav_close" id="nav-close">
-            <i class="ri-close-circle-line"></i>
-          </div>
-       </div>
-
-       <div class="nav_actions">
-          <!-- Search button -->
-          <i class="ri-search-line nav_search" id="search-btn"></i>
-
-          <!-- Toggle button -->
-          <div class="nav_toggle" id="nav-toggle">
-             <i class="ri-menu-line"></i>
-          </div>
-       </div>
-    </nav>
+    
+              <!-- Close button -->
+              <div class="nav_close" id="nav-close">
+                <i class="ri-close-circle-line"></i>
+              </div>
+           </div>
+    
+           <div class="nav_actions">
+              <!-- Search button -->
+              <a href="search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
+    
+              <!-- Toggle button -->
+              <div class="nav_toggle" id="nav-toggle">
+                 <i class="ri-menu-line"></i>
+              </div>
+           </div>
+        </nav>
   </header>
 
   <!--==================== SEARCH ====================-->
