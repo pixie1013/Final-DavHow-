@@ -11,19 +11,6 @@ navClose.addEventListener('click', () => {
     navMenu.classList.remove('show-menu')
 })
 
-// //Search
-// const search = document.getElementById('search'),
-//     searchBtn = document.getElementById('search-btn'),
-//     searchClose = document.getElementById('search-close')
-
-// searchBtn.addEventListener('click', () => {
-//     search.classList.add('show-search')
-// })
-
-// searchClose.addEventListener('click', () => {
-//     search.classList.remove('show-search')
-// })
-
 const displayTime = document.querySelector(".display-time");
 // Time
 function showTime() {
@@ -160,20 +147,15 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function logout() {
-    // Perform logout actions here, such as clearing session data
-    // For example:
-    // window.location.href = 'logout.php';
-    // Or you can use AJAX to handle logout without page refresh
-    // For simplicity, let's just reload the page after clearing the session
-    fetch('logout.php')
-        .then(response => {
-            if (response.ok) {
-                window.location.reload();
-            } else {
-                console.error('Logout request failed.');
-            }
-        })
-        .catch(error => {
-            console.error('Error during logout:', error);
-        });
+    fetch('../logout.php')
+    .then(response => {
+      if (response.ok) {
+        window.location.reload();
+      } else {
+        console.error('Logout request failed.');
+      }
+  })
+  .catch(error => {
+      console.error('Error during logout:', error);
+  });
 }
