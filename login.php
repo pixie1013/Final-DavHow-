@@ -35,19 +35,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         header("Location: homepage.php");
                         exit;
                     } else {
-                        echo "Invalid login type for the provided credentials.";
+                        echo "<script>alert('Invalid login type for the provided credentials.');</script>";
                     }
                 } else {
-                    echo "Invalid credentials.";
+                    echo "<script>alert('Invalid credentials.');</script>";
                 }
             } else {
-                echo "Invalid credentials.";
+                echo "<script>alert('Invalid credentials.');</script>";
             }
         } else {
-            echo "Query preparation failed.";
+            echo "<script>alert('Query preparation failed.');</script>";
         }
     } else {
-        echo "Please enter some valid information!";
+        echo "<script>alert('Please enter some valid information!');</script>";
     }
 }
 ?>
@@ -107,4 +107,3 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </div>
 </body>
 </html>
-

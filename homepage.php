@@ -42,9 +42,9 @@ if (isset($_SESSION['user_id'])) {
               </div>
             </div>
             <div class="socmeds">
-              <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61560047196528" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
               <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-              <a href="#"><i class="ri-mail-fill"></i></a>
+              <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
             </div>
           </div>
           
@@ -279,9 +279,9 @@ if (isset($_SESSION['user_id'])) {
             <h3>What is Davhow?</h3>
             <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
             <div class="socmeds1">
-            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560047196528" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
+            <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
         <div class="col">

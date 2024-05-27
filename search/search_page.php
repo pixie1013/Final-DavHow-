@@ -57,7 +57,7 @@ if (isset($_SESSION['user_id'])) {
             <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
             <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
             <?php else: ?>
-            <a href="../login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
+            <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
             <?php endif; ?>
         </nav>
         </div>
@@ -167,8 +167,8 @@ if (isset($_SESSION['user_id'])) {
         <p>Try searching again.</p>
     </div>
     <section class="product"> 
-      <button class="pre-btn"><img src="photos/arrow.png" alt=""></button>
-      <button class="nxt-btn"><img src="photos/arrow.png" alt=""></button>
+      <button class="pre-btn"><img src="../photos/arrow.png" alt=""></button>
+      <button class="nxt-btn"><img src="../photos/arrow.png" alt=""></button>
       <div class="product-container">
         <div class="product-card" data-id="1">
             <div class="product-image">
@@ -735,43 +735,44 @@ if (isset($_SESSION['user_id'])) {
     </div>
     <footer>
         <div class="footerrow">
-            <div class="col">
-                <h3>What is Davhow?</h3>
-                <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
-                <div class="socmeds1">
-                <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-                <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-                <a href="#"><i class="ri-mail-fill"></i></a>
-                </div>
-            </div>
-            <div class="col">
-                <h3>Visit Us</h3>
-                <p>University of the Philippines Mindanao</p>
-                <p>Tugbok, Davao City</p>
-                <p>8000 Philippines</p>
-            </div>
-            <div class="col">
-                <h3>Links</h3>
-                <ul>
-                <li><a href="homepage.php">Home</a></li>
-                <li><a href="catalog.php">Catalog</a></li>
-                <li><a href="about_us.php">About Us</a></li>
-                <li><a href="discussionforum.php">Forum</a></li>
-                </ul>
-            </div>
-            <div class="col">
-            <h3>About DavHow</h3>
-            <ul>
-                <li><a href="#services1">Our Services</a></li>
-                <li><a href="#rationale">Rationale</a></li>
-                <li><a href="#vision">Vision and Mission</a></li>
-                <li><a href="#objectives">Objectives</a></li>
-            </ul>
+        <div class="col">
+            <h3>What is Davhow?</h3>
+            <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
+            <div class="socmeds1">
+            <a href="https://www.facebook.com/profile.php?id=61560047196528" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
+            <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
-       <hr>
-      <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
+        <div class="col">
+            <h3>Visit Us</h3>
+            <p>University of the Philippines Mindanao</p>
+            <p>Tugbok, Davao City</p>
+            <p>8000 Philippines</p>
+        </div>
+        <div class="col">
+            <h3>Links</h3>
+            <ul>
+            <li><a href="homepage.php">Home</a></li>
+            <li><a href="catalog.php">Catalog</a></li>
+            <li><a href="about_us.php">About Us</a></li>
+            <li><a href="discussionforum.php">Forum</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>About DavHow</h3>
+            <ul>
+                <li><a href="homepage.php#services1">Our Services</a></li>
+                <li><a href="homepage.php#rationale">Rationale</a></li>
+                <li><a href="homepage.php#vision">Vision and Mission</a></li>
+                <li><a href="homepage.php#objectives">Objectives</a></li>
+            </ul>
+        </div>
+        </div>
+        <hr>
+        <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="search.js"></script>
 </body>
 </html>
