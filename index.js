@@ -118,14 +118,25 @@ productContainers.forEach((item, i) => {
 
 // COMMENT SECTION
 function toggleComments(postId) {
-  var commentInput = document.getElementById('comment-input-' + postId);
-
-  if (commentInput.style.display === "none" || commentInput.style.display === "") {
-      commentInput.style.display = "block"; // Show the comment input when it's hidden
+  var commentContent = document.getElementById('comments-content-' + postId);
+  if (commentContent.style.display === 'none' || commentContent.style.display === '') {
+      commentContent.style.display = 'block';
   } else {
-      commentInput.style.display = "none"; // Hide the comment input when it's visible
+      commentContent.style.display = 'none';
   }
 }
+
+// Function to handle form submission
+function submitCommentForm(postId) {
+  // Submit the form
+  document.getElementById('comment-form-' + postId).submit();
+  
+  // Hide comments after submitting
+  toggleComments(postId);
+}
+
+
+
 
 const form = document.querySelector(".contactUs form");
 const statusTxt = form.querySelector(".send-button span");
