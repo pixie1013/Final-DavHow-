@@ -288,9 +288,9 @@ if (isset($_SESSION['user_id'])) {
             <h3>What is Davhow?</h3>
             <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
             <div class="socmeds1">
-            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560047196528" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
+            <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
         <div class="col">
@@ -321,7 +321,6 @@ if (isset($_SESSION['user_id'])) {
         <hr>
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="index.js"></script>
   

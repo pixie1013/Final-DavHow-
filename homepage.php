@@ -181,8 +181,8 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="card">
           <i class="ri-list-check-3"></i>
-          <h2>Necessity Tracker</h2>
-          <p>DavHow helps users to effortlessly track and manage the documents they plan to acquire in the future. By simply listing the desired documents on our platform, users can organize their needs and stay on top of their document requirements. Whether it's for professional, academic, or personal purposes, this website ensures you to never lose track of important documents you need to retrieve.</p>
+          <h2>Discussion Forum</h2>
+          <p>DavHow's forum feature allows users to engage in discussions, share insights, and seek advice on document management and acquisition. Connect with a community of like-minded individuals to exchange tips, troubleshoot issues, and stay updated on the latest best practices.</p>
       </div>
     </div>
   </section>
@@ -279,9 +279,9 @@ if (isset($_SESSION['user_id'])) {
             <h3>What is Davhow?</h3>
             <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
             <div class="socmeds1">
-            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560047196528" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
+            <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
         <div class="col">

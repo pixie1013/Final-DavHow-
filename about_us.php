@@ -25,6 +25,7 @@ if (isset($_SESSION['user_id'])) {
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/x-icon" href="./photos/logo.png">
   <title>DavHow: About Us</title>
 </head>
 <body>
@@ -153,51 +154,48 @@ if (isset($_SESSION['user_id'])) {
     <div class="containerAboutUs">
       <div class="sub-container">
           <div class="teams">
-              <img src="svg/profile1.svg" alt="">
-              <div class="name">Esmay Stace</div>
-              <div class="desig">Developer</div>
-              <div class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam
-                  reprehenderit
-                  vitae aliquam dicta! </div>
-
+              <img src="/photos/1.png" alt="">
+              <div class="name">Prescious Apple D. Sangria</div>
+              <div class="desig">1st Year BS Computer Science</div>
               <div class="social-links">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
-                  <a href="#"><i class="fa fa-github"></i></a>
+                  <a href="https://web.facebook.com/presciousapple.sangria/"><i class="fa fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/sciousday/"><i class="fa fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/prescious-apple-sangria-a59535309/"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://github.com/PASangria"><i class="fa fa-github"></i></a>
               </div>
+              <div class="about">Apple is a first-year BS Computer Science student with a passion for innovation and problem-solving. She actively participates in computer science clubs and organizations, always seeking opportunities to collaborate with peers in the same field. She envisions a future where technology plays a vital role in addressing real-world challenges, and she is determined to make a positive impact through her work. </div>
+
+              
           </div>
 
           <div class="teams">
-              <img src="svg/profile2.svg" alt="">
-              <div class="name">Cloe Cisneros </div>
-              <div class="desig">Designer</div>
-              <div class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam
-                  reprehenderit
-                  vitae aliquam dicta! </div>
-
+              <img src="/photos/2.png" alt="">
+              <div class="name">Trixie Nicole A. Organiza</div>
+              <div class="desig">1st Year BS Computer Science</div>
               <div class="social-links">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
-                  <a href="#"><i class="fa fa-github"></i></a>
+                  <a href="https://www.facebook.com/trickseekneecoal"><i class="fa fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/trickslcn/"><i class="fa fa-instagram"></i></a>
+                  <a href="www.linkedin.com/in/trixie-nicole-organiza-2a115a2aa"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://github.com/pixie1013"><i class="fa fa-github"></i></a>
               </div>
+              <div class="about">Trixie is a first-year computer science student specializing in cybersecurity and blockchain. She has a keen interest in ethical hacking and spends her free time participating in attending workshops to enhance her skills. Trixie is meticulous about keeping up with the latest cybersecurity trends and vulnerabilities, aiming to contribute to the development of secure software systems.</div>
+
+              
           </div>
 
           <div class="teams">
-              <img src="svg/profile3.svg" alt="">
-              <div class="name">Sanjay Mullen </div>
-              <div class="desig">Manager</div>
-              <div class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam
-                  reprehenderit
-                  vitae aliquam dicta! </div>
-
+              <img src="/photos/3.png" alt="">
+              <div class="name">Roslyn Faith U. Guillermo</div>
+              <div class="desig">1st Year BS Computer Science</div>
               <div class="social-links">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
-                  <a href="#"><i class="fa fa-github"></i></a>
+                  <a href="https://www.facebook.com/rfugxx"><i class="fa fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/roslennnn_16/"><i class="fa fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/roslynfaith16/"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://github.com/png16"><i class="fa fa-github"></i></a>
               </div>
+              <div class="about">Roslyn is a first-year computer science student with a focus on game development. She is passionate about designing user-friendly interfaces and improving the overall user experience in software applications. Roslyn envisions a career in UX/UI design, where she can contribute to the development of technology that positively impacts users' lives.</div>
+
+              
           </div>
       </div>
     </div>
@@ -209,7 +207,7 @@ if (isset($_SESSION['user_id'])) {
         <h1 class="anim">Among Hinungdan</h1>
         <p class="anim">ART Solutions, comprised of Apple, Roslyn, and Trixie, embodies the fusion of creativity and technical prowess, as they embark on a mission to revolutionize problem-solving in the tech sphere. As Bachelor of Science in Computer Science students at the University of the Philippines Mindanao, their shared passion for innovation drives them to craft ingenious solutions that seamlessly blend artistry with technology. With Roslyn's design finesse, Trixie's coding expertise, Apple's intuitive user-centric approach, the team leverages their diverse skill set to tackle even the most complex tech challenges. Fueled by their unwavering commitment to excellence, ART Solutions is not just a team—it's a beacon of ingenuity, shaping the future of technology one creative solution at a time.</p>
     </div>
-    <img src="photos/pexels-cottonbro-5077393.jpg" alt="" class="feature-img anim">
+    <img src="/photos/445573797_1637200113760498_9054673228171122051_n.jpg" alt="ART Solutions Team Photo" class="feature-img anim">
   </div>
 
   <div class="hero1">
@@ -222,7 +220,7 @@ if (isset($_SESSION['user_id'])) {
           <br><br>
           This is more than just a website; it's a practical solution at the intersection of legal documentation and computer science. Step into a world where accessing guidelines is intuitive, and requirements are presented with clarity.</p>
     </div>
-    <img src="photos/pexels-cottonbro-5077393.jpg" alt="" class="feature-img anim">
+    <img src="/photos/why.png" alt="Why DavHow?" class="feature-img anim">
   </div>
 
   <section>
@@ -238,18 +236,18 @@ if (isset($_SESSION['user_id'])) {
               <div class="row50">
                 <div class="inputBox">
                   <span>First Name</span>
-                  <input type="text" placeholder="John" name="first-name">
+                  <input type="text" placeholder="Juan" name="first-name">
                 </div>
                 <div class="inputBox">
                   <span>Last Name</span>
-                  <input type="text" placeholder="John" name="last-name">
+                  <input type="text" placeholder="Dela Cruz" name="last-name">
                 </div>
               </div>
 
               <div class="row50">
                 <div class="inputBox">
                   <span>Email Address</span>
-                  <input type="text" placeholder="johndoe@email.com" name="email">
+                  <input type="text" placeholder="juandelacruz@email.com" name="email">
                 </div>
                 <div class="inputBox">
                   <span>Mobile</span>
@@ -289,15 +287,15 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div>
               <span><ion-icon name="mail"></ion-icon></span>
-              <a href="mailto:pependepen16@gmail.com">artsolutions@gmail.com</a>
+              <a href="mailto:pependepen16@gmail.com">artsolutions24@gmail.com</a>
             </div>
             <div>
               <span><ion-icon name="call"></ion-icon></span>
               <a href="tel:+639123456789">+639 12 345 6789</a>
             </div>
             <ul class="sci">
-              <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-              <li><a href="#"><i class="ri-twitter-x-line"></i></a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61560047196528"><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li><a href="https://x.com/ART_Solutions23"><i class="ri-twitter-x-line"></i></a></li>
             </ul>
           </div>
         </div>
@@ -315,9 +313,9 @@ if (isset($_SESSION['user_id'])) {
             <h3>What is Davhow?</h3>
             <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
             <div class="socmeds1">
-            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560047196528" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
+            <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
         <div class="col">
@@ -347,9 +345,8 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <hr>
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
-    </footer>
-
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="index.js"></script>
-  <script src="script.js"></script>
 </body>
 </php>

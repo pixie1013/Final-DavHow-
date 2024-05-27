@@ -620,16 +620,6 @@ if (isset($_SESSION['user_id'])) {
                 <div class="letter-section">
                     <h2>C</h2>
                     <ul>
-                        <li><a href="documents/Certificate of Death - DROD.php">Certificate of Death</a></li>
-                        <li><a href="documents/PSA Issued Death Certificate.php">Certificate of Death (PSA)</a></li>
-                        <li><a href="documents/Certificate of Exemption.php">Certificate of Exemption</a></li>
-                        <li><a href="documents/Certificate of Indigency.php">Certificate of Indigency</a></li>
-                        <li><a href="documents/Certificate Of Live Birth - DROB.php">Certificate of Live Birth</a></li>
-                        <li><a href="documents/PSA Issued Birth Certififcate.php">Certificate of Live Birth (PSA)</a></li>
-                        <li><a href="documents/Certificate of Marriage - DROM.php">Certificate of Marriage</a></li>
-                        <li><a href="documents/PSA Issued CENOMAR.php">Certificate of No Marriage Record (CENOMAR)</a></li>
-                        <li><a href="documents/Certificate of Residency.php">Certificate of Residency</a></li>
-                        <li><a href="documents/Community Tax Certificate.php">Community Tax Certificate (CEDULA)</a></li>
                         <li><a href="documents/Certificate of Death - DROD.php">Certificate of Death - Delayed Registration</a></li>
                         <li><a href="documents/Certificate of Death - TROD.php">Certificate of Death - Timely Registration</a></li>
                         <li><a href="documents/PSA Issued Death Certificate.php">Certificate of Death (PSA)</a></li>
@@ -740,9 +730,9 @@ if (isset($_SESSION['user_id'])) {
             <h3>What is Davhow?</h3>
             <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
             <div class="socmeds1">
-            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560047196528" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
+            <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
         <div class="col">
@@ -773,7 +763,7 @@ if (isset($_SESSION['user_id'])) {
         <hr>
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
