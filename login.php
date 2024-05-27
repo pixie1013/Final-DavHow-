@@ -1,55 +1,9 @@
 <?php 
-session_start();
+    session_start();
 
-include("connection.php");
-include("functions.php");
+    include("connection.php");
+    include("functions.php");
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $user_name = $_POST['user_name'];
-    $password = $_POST['password'];
-    $login_as = $_POST['login_as']; // 'admin' or 'user'
-
-    if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
-        // Determine the correct query
-        $query = "SELECT * FROM users WHERE user_name = ? LIMIT 1";
-
-        if ($stmt = $con->prepare($query)) {
-            $stmt->bind_param('s', $user_name);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result && $result->num_rows > 0) {
-                $user_data = $result->fetch_assoc();
-
-                // Verify the password (consider using password_hash and password_verify in real applications)
-                if ($password === $user_data['password']) {
-                    $_SESSION['user_id'] = $user_data['user_id'];
-                    $_SESSION['user_name'] = $user_data['user_name'];
-                    $_SESSION['is_admin'] = $user_data['is_admin'];
-
-                    // Redirect based on role and login type
-                    if ($user_data['is_admin'] == 1 && $login_as == 'admin') {
-                        header("Location: admin_dashboard.php");
-                        exit;
-                    } elseif ($user_data['is_admin'] == 0 && $login_as == 'user') {
-                        header("Location: homepage.php");
-                        exit;
-                    } else {
-                        echo "<script>alert('Invalid login type for the provided credentials.');</script>";
-                    }
-                } else {
-                    echo "<script>alert('Invalid credentials.');</script>";
-                }
-            } else {
-                echo "<script>alert('Invalid credentials.');</script>";
-            }
-        } else {
-            echo "<script>alert('Query preparation failed.');</script>";
-        }
-    } else {
-        echo "<script>alert('Please enter some valid information!');</script>";
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -66,10 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <title>Log In</title>
+    <title>DavHow: Log In</title>
 </head>
 <body>
-    <!--==================== LOGIN ====================-->
     <div class="login" id="login">
         <form method="post" action="login.php" class="login__form">
             <h2 class="login__title">Log In</h2>
@@ -101,9 +54,60 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 <button type="submit" class="login__button">Log In</button>
 
-                <a href="#" class="login__forgot">Forgot password?</a>
+                <!-- Center message container -->
+                <div class="center-message">
+                    <?php
+                        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                            $user_name = $_POST['user_name'];
+                            $password = $_POST['password'];
+                            $login_as = $_POST['login_as']; // 'admin' or 'user'
+                        
+                            if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
+                                // Determine the correct query
+                                $query = "SELECT * FROM users WHERE user_name = ? LIMIT 1";
+                        
+                                if ($stmt = $con->prepare($query)) {
+                                    $stmt->bind_param('s', $user_name);
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+                        
+                                    if ($result && $result->num_rows > 0) {
+                                        $user_data = $result->fetch_assoc();
+                        
+                                        // Verify the password (consider using password_hash and password_verify in real applications)
+                                        if ($password === $user_data['password']) {
+                                            $_SESSION['user_id'] = $user_data['user_id'];
+                                            $_SESSION['user_name'] = $user_data['user_name'];
+                                            $_SESSION['is_admin'] = $user_data['is_admin'];
+                        
+                                            // Redirect based on role and login type
+                                            if ($user_data['is_admin'] == 1 && $login_as == 'admin') {
+                                                header("Location: admin_dashboard.php");
+                                                exit;
+                                            } elseif ($user_data['is_admin'] == 0 && $login_as == 'user') {
+                                                header("Location: homepage.php");
+                                                exit;
+                                            } else {
+                                                echo "<div class='center-message'>Invalid login type for the provided credentials.</div>";
+                                            }
+                                        } else {
+                                            echo "<div class='center-message'>Invalid credentials.</div>";
+                                        }
+                                    } else {
+                                        echo "<div class='center-message'>Invalid credentials.</div>";
+                                    }
+                                } else {
+                                    echo "<div class='center-message'>Query preparation failed.</div>";
+                                }
+                            } else {
+                                echo "<div class='center-message'>Please enter some valid information!</div>";
+                            }
+                        }
+                    ?>
+                </div>
             </div>
         </form>
     </div>
 </body>
 </html>
+

@@ -206,3 +206,28 @@ function logout() {
             console.error('Error during logout:', error);
         });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get the popup and close button elements
+  const popup = document.getElementById("popup");
+  const closeButton = document.getElementById("popup-close");
+
+  // Function to show the popup with a message
+  function showPopup(message) {
+      document.getElementById("popup-message").textContent = message;
+      popup.style.display = "block";
+  }
+
+  // Function to hide the popup
+  function hidePopup() {
+      popup.style.display = "none";
+  }
+
+  // Event listener for the close button
+  closeButton.addEventListener("click", hidePopup);
+
+  // Example usage:
+  // Call showPopup with a message when an error occurs
+  // Replace this with your actual error handling logic
+  showPopup("Invalid credentials. Please try again.");
+});

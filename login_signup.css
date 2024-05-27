@@ -85,7 +85,7 @@ text-decoration: none;
 
 .login{
 width: 500px;
-margin: 0 auto;
+margin: -60px auto;
 translate: 0 30%;
 }
 
@@ -174,4 +174,11 @@ translate: 0 30%;
 
 .show-login .login__form {
     transform: translateY(-1rem);
+}
+
+.center-message {
+    text-align: center;
+    color: var(--container-color);
+    font-size: 1.05em;
+    margin-top: 10px;
 }
