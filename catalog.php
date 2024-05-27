@@ -67,23 +67,59 @@ if (isset($_SESSION['user_id'])) {
            <p class="nav_tag"><em>Official website of ART Solutions</em></p>
     
            <div class="nav_menu" id="nav-menu">
-              <ul class="nav_list">
-                 <li class="nav_item">
-                    <a href="homepage.php" class="nav_link">HOME</a>
-                 </li>
-    
-                 <li class="nav_item">
-                    <a href="catalog.php" class="nav_link">CATALOG</a>
-                 </li>
-    
-                 <li class="nav_item">
-                    <a href="about_us.php" class="nav_link">ABOUT US</a>
-                 </li>
+           <ul class="nav_list">
+           <?php
+                // Assume $isLoggedIn and $isAdmin are set based on authentication logic
+                $isLoggedIn = isset($_SESSION['user_id']); // Check if user is logged in
+                $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1; // Check if user is logged in as admin
 
-                 <li class="nav_item">
-                    <a href="discussionforum.php" class="nav_link">FORUM</a>
-                 </li>
-              </ul>
+                // Check if the user is logged in as admin, user, or not logged in
+                if ($isAdmin) {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="discussionforum.php" class="nav_link">FORUM</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                    </li>';
+                } elseif ($isLoggedIn) {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="discussionforum.php" class="nav_link">FORUM</a>
+                    </li>';
+                } else {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>';
+                }
+                ?>
+
+          </ul>
     
               <!-- Close button -->
               <div class="nav_close" id="nav-close">
@@ -631,42 +667,42 @@ if (isset($_SESSION['user_id'])) {
     </div>
     <footer>
         <div class="footerrow">
-        <div class="col">
-            <h3>What is Davhow?</h3>
-            <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
-            <div class="socmeds1">
-            <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-            <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="#"><i class="ri-mail-fill"></i></a>
+            <div class="col">
+                <h3>What is Davhow?</h3>
+                <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
+                <div class="socmeds1">
+                <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+                <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
+                <a href="#"><i class="ri-mail-fill"></i></a>
+                </div>
             </div>
-        </div>
-        <div class="col">
-            <h3>Visit Us</h3>
-            <p>University of the Philippines Mindanao</p>
-            <p>Tugbok, Davao City</p>
-            <p>8000 Philippines</p>
-        </div>
-        <div class="col">
-            <h3>Links</h3>
-            <ul>
-            <li><a href="homepage.html">Home</a></li>
-            <li><a href="#">Catalog</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Dashboard</a></li>
-            </ul>
-        </div>
-        <div class="col">
+            <div class="col">
+                <h3>Visit Us</h3>
+                <p>University of the Philippines Mindanao</p>
+                <p>Tugbok, Davao City</p>
+                <p>8000 Philippines</p>
+            </div>
+            <div class="col">
+                <h3>Links</h3>
+                <ul>
+                <li><a href="homepage.php">Home</a></li>
+                <li><a href="catalog.php">Catalog</a></li>
+                <li><a href="about_us.php">About Us</a></li>
+                <li><a href="discussionforum.php">Forum</a></li>
+                </ul>
+            </div>
+            <div class="col">
             <h3>About DavHow</h3>
             <ul>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Rationale</a></li>
-                <li><a href="#">Vision and Mission</a></li>
-                <li><a href="#">Objectives</a></li>
+                <li><a href="#services1">Our Services</a></li>
+                <li><a href="#rationale">Rationale</a></li>
+                <li><a href="#vision">Vision and Mission</a></li>
+                <li><a href="#objectives">Objectives</a></li>
             </ul>
+            </div>
         </div>
-        </div>
-        <hr>
-        <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
+       <hr>
+      <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
     <script src="index.js"></script>
 </body>

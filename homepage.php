@@ -53,15 +53,14 @@ if (isset($_SESSION['user_id'])) {
         <p class="Brand">DavHow</p>
         <p class="Tagline">UNSAON NI BAI?</p>
       </div>
-        <nav class="nav1">
-          <!-- Other navigation links can go here -->
+      <nav class="nav1">
           <?php if (isset($user_data)): ?>
-              <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
-              <a href="#" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
+          <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
+          <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
           <?php else: ?>
-              <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
+          <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
           <?php endif; ?>
-        </nav>
+      </nav>
     </div>
   </header>
   <header class="header" id="header">
@@ -70,21 +69,57 @@ if (isset($_SESSION['user_id'])) {
 
        <div class="nav_menu" id="nav-menu">
           <ul class="nav_list">
-            <li class="nav_item">
-              <a href="homepage.php" class="nav_link">HOME</a>
-            </li>
+            <?php
+              // Assume $isLoggedIn and $isAdmin are set based on authentication logic
+              $isLoggedIn = isset($_SESSION['user_id']); // Check if user is logged in
+              $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1; // Check if user is logged in as admin
 
-            <li class="nav_item">
-              <a href="catalog.php" class="nav_link">CATALOG</a>
-            </li>
+              // Check if the user is logged in as admin, user, or not logged in
+              if ($isAdmin) {
+                  echo '
+                  <li class="nav_item">
+                      <a href="homepage.php" class="nav_link">HOME</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="catalog.php" class="nav_link">CATALOG</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="about_us.php" class="nav_link">ABOUT US</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="discussionforum.php" class="nav_link">FORUM</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                  </li>';
+              } elseif ($isLoggedIn) {
+                  echo '
+                  <li class="nav_item">
+                      <a href="homepage.php" class="nav_link">HOME</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="catalog.php" class="nav_link">CATALOG</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="about_us.php" class="nav_link">ABOUT US</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="discussionforum.php" class="nav_link">FORUM</a>
+                  </li>';
+              } else {
+                  echo '
+                  <li class="nav_item">
+                      <a href="homepage.php" class="nav_link">HOME</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="catalog.php" class="nav_link">CATALOG</a>
+                  </li>
+                  <li class="nav_item">
+                      <a href="about_us.php" class="nav_link">ABOUT US</a>
+                  </li>';
+              }
+            ?>
 
-            <li class="nav_item">
-              <a href="about_us.php" class="nav_link">ABOUT US</a>
-            </li>
-
-            <li class="nav_item">
-              <a href="discussionforum.php" class="nav_link">FORUM</a>
-            </li>
           </ul>
 
           <!-- Close button -->
@@ -162,7 +197,7 @@ if (isset($_SESSION['user_id'])) {
   </section>
 
   <!-- Rationale, Vision, Mission -->
-  <section class="rationale">
+  <section class="rationale" id="rationale">
     <div class="skewed" data-aos="fade-up">
       <div class="text">
         <h1>Rationale</h1>
@@ -185,7 +220,7 @@ if (isset($_SESSION['user_id'])) {
           <img src="photos/pexels-fauxels-3183197.jpg" alt="DavHow Vision">
         </div>
       </div>
-      <div class="text">
+      <div class="text" id="vision">
         <h1>Vision</h1>
         <p>We envision a future where legal document acquisition is seamlessly facilitated through an innovative online
         platform. Our goal is to redefine industry standards by providing an easily accessible resource that transforms
@@ -194,7 +229,7 @@ if (isset($_SESSION['user_id'])) {
     </div>
 
     <div class="skewed" data-aos="fade-up">
-      <div class="text">
+      <div class="text" id="mission">
         <h1>Mission</h1>
         <p>Our mission is to develop a user-friendly online environment that makes acquiring legal documents easier. We intend to empower the citizens by providing a resource that is not only simple to use but also sets new
           standards for clarity in conveying the needs and norms for various sorts of legal papers.</p>
@@ -207,7 +242,7 @@ if (isset($_SESSION['user_id'])) {
     </div>
   </section>
 
-  <section class="objectives">
+  <section class="objectives" id="objectives">
     <div class="card__container">
       <h1>Objectives</h1>
       <div class="card__content">
@@ -267,19 +302,19 @@ if (isset($_SESSION['user_id'])) {
       <div class="col">
         <h3>Links</h3>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="catalog.html">Catalog</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Dashboard</a></li>
+          <li><a href="homepage.php">Home</a></li>
+          <li><a href="catalog.php">Catalog</a></li>
+          <li><a href="about_us.php">About Us</a></li>
+          <li><a href="discussionforum.php">Forum</a></li>
         </ul>
       </div>
       <div class="col">
         <h3>About DavHow</h3>
           <ul>
             <li><a href="#services1">Our Services</a></li>
-            <li><a href="#">Rationale</a></li>
-            <li><a href="#">Vision and Mission</a></li>
-            <li><a href="#">Objectives</a></li>
+            <li><a href="#rationale">Rationale</a></li>
+            <li><a href="#vision">Vision and Mission</a></li>
+            <li><a href="#objectives">Objectives</a></li>
           </ul>
       </div>
     </div>

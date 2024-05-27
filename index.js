@@ -112,7 +112,6 @@ function toggleComments(element) {
   } else {
       commentsContent.style.display = "none"; // Hide comments section
   }
-<<<<<<< HEAD
 }
 
 const form = document.querySelector(".contactUs form");
@@ -185,10 +184,23 @@ window.onclick = function(event) {
 function closeModal() {
   document.getElementById('myModal').style.display = "none";
 }
-=======
-<<<<<<< HEAD
+
+
+function logout() {
+    // Perform logout actions here, such as clearing session data
+    // For example:
+    // window.location.href = 'logout.php';
+    // Or you can use AJAX to handle logout without page refresh
+    // For simplicity, let's just reload the page after clearing the session
+    fetch('logout.php')
+        .then(response => {
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                console.error('Logout request failed.');
+            }
+        })
+        .catch(error => {
+            console.error('Error during logout:', error);
+        });
 }
-=======
-}
->>>>>>> 7e33fc25b7d3851e04152833d665511d2a3fa883
->>>>>>> 799e18ee6b66fcffa7853fabdcf6cb1ec615aa41

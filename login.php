@@ -10,12 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $login_as = $_POST['login_as']; // 'admin' or 'user'
 
     if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
-        // Determine the correct query based on the login type
-        if ($login_as == 'admin') {
-            $query = "SELECT * FROM users WHERE user_name = ? AND is_admin = 1 LIMIT 1";
-        } else {
-            $query = "SELECT * FROM users WHERE user_name = ? AND is_admin = 0 LIMIT 1";
-        }
+        // Determine the correct query
+        $query = "SELECT * FROM users WHERE user_name = ? LIMIT 1";
 
         if ($stmt = $con->prepare($query)) {
             $stmt->bind_param('s', $user_name);
@@ -25,18 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($result && $result->num_rows > 0) {
                 $user_data = $result->fetch_assoc();
 
-                // Verify the password
-                if ($password === $user_data['password']) { // Check for plain password
+                // Verify the password (consider using password_hash and password_verify in real applications)
+                if ($password === $user_data['password']) {
                     $_SESSION['user_id'] = $user_data['user_id'];
                     $_SESSION['user_name'] = $user_data['user_name'];
                     $_SESSION['is_admin'] = $user_data['is_admin'];
 
-                    if ($login_as == 'admin') {
+                    // Redirect based on role and login type
+                    if ($user_data['is_admin'] == 1 && $login_as == 'admin') {
                         header("Location: admin_dashboard.php");
-                    } else {
+                        exit;
+                    } elseif ($user_data['is_admin'] == 0 && $login_as == 'user') {
                         header("Location: homepage.php");
+                        exit;
+                    } else {
+                        echo "Invalid login type for the provided credentials.";
                     }
-                    exit;
                 } else {
                     echo "Invalid credentials.";
                 }
@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,42 +70,41 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 <body>
     <!--==================== LOGIN ====================-->
-      <div class="login" id="login">
-        <form method="post" action="" class="login__form">
-          <h2 class="login__title">Log In</h2>
-         
-          <div class="login__group">
-            <div>
-               <label for="user_name" class="login__label" >Username:</label>
-               <input type="text" placeholder="Write your username" id="email" class="login__input" name="user_name">
+    <div class="login" id="login">
+        <form method="post" action="login.php" class="login__form">
+            <h2 class="login__title">Log In</h2>
+
+            <div class="login__group">
+                <div>
+                    <label for="user_name" class="login__label">Username:</label>
+                    <input type="text" placeholder="Write your username" id="user_name" class="login__input" name="user_name" required>
+                </div>
+
+                <div>
+                    <label for="password" class="login__label">Password:</label>
+                    <input type="password" placeholder="Enter your password" id="password" class="login__input" name="password" required>
+                </div>
             </div>
             
-            <div>
-               <label for="password" class="login__label" >Password:</label>
-               <input type="password" placeholder="Enter your password" id="password" class="login__input" name="password">
+            <div class="login__group">
+                <label for="login_as" class="login__label">Select User Type:</label>
+                <select id="login_as" class="login__input" name="login_as">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
             </div>
-          </div>
-          <div class="login__group">
-            <label for="role" class="login__label">Select User Type:</label>
-            <select id="login_as" class="login__input" name="login_as">
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-            </select>
-          </div>
-          
-    
-         <div>
-            <p class="login__signup">
-                Don't have an account? <a href="signup.php">Sign Up</a>
-            </p>
-    
-            <button type="submit" class="login__button" value="login">Log In</button>
-    
-            <a href="#" class="login__forgot">
-               Forgot password?
-            </a>
-         </div>
+
+            <div>
+                <p class="login__signup">
+                    Don't have an account? <a href="signup.php">Sign Up</a>
+                </p>
+
+                <button type="submit" class="login__button">Log In</button>
+
+                <a href="#" class="login__forgot">Forgot password?</a>
+            </div>
         </form>
-      </div>
+    </div>
 </body>
 </html>
+
