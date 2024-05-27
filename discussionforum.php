@@ -158,26 +158,63 @@ $user_data = check_login($con);
                     </div>
                     <div class="input">
                         <div class="dropdown">
-                            <select id="idType" name="idType" required>
-                              <option value="" selected disabled>Select ID Type</option>
-                              <option value="Integrated Bar of the Philippines">Integrated Bar of the Philippines</option>
-                              <option value="Barangay ID">Barangay ID</option>
-                              <option value="Driver’s License from Land Transportation Office (LTO)">Driver’s License from Land Transportation Office (LTO)</option>
-                              <option value="Firearms License from Philippine National Police (PNP)">Firearms License from Philippine National Police (PNP)</option>
-                              <option value="GSIS ID or GSIS UMID Card Government Service Insurance System (GSIS)">GSIS ID or GSIS UMID Card Government Service Insurance System (GSIS)</option>
-                              <option value="iDOLE Card from Department of Labor and Employment (iDOLE)">iDOLE Card from Department of Labor and Employment (iDOLE)</option>
-                              <option value="NBI Clearance from National Bureau of Investigation (NBI)">NBI Clearance from National Bureau of Investigation (NBI)</option>
-                              <option value="OWWA ID Overseas Workers Welfare Administration (OWWA)">OWWA ID Overseas Workers Welfare Administration (OWWA)</option>
-                              <option value="Persons with Disabilities (PWD) ID from Local Government Unit (LGU)">Persons with Disabilities (PWD) ID from Local Government Unit (LGU)</option>
-                              <option value="PhilHealth ID (digitized PVC)">PhilHealth ID (digitized PVC)</option>
-                              <option value="Philippine Passport from Department of Foreign Affairs">Philippine Passport from Department of Foreign Affairs</option>
-                              <option value="Postal ID">Postal ID</option>
-                              <option value="PRC ID from Professional Regulatory Commission (PRC)">PRC ID from Professional Regulatory Commission (PRC)</option>
-                              <option value="Senior Citizen ID from Local Government Unit (LGU)">Senior Citizen ID from Local Government Unit (LGU)</option>
-                              <option value="SSS ID or SSS UMID Card from Social Security System (SSS)">SSS ID or SSS UMID Card from Social Security System (SSS)</option>
-                              <option value="TIN ID">TIN ID</option>
-                              <option value="Voter’s Certification from the Officer of Election with Dry Seal">Voter’s Certification from the Officer of Election with Dry Seal</option>
-                            </select>
+                        <select id="idType" name="idType" required>
+                        <option value="" selected disabled>Select document or ID Type</option>
+                        <option value="General">General</option>
+                        <optgroup label="Documents">
+                            <option value="Affidavit to Use Surname of Father">Affidavit to Use Surname of Father</option>
+                            <option value="Annual Income Tax for Individuals Earning Solely From Compensation (Including Non-Business and Non-Profession Related)">Annual Income Tax for Individuals Earning Solely From Compensation (Including Non-Business and Non-Profession Related)</option>
+                            <option value="Annual Income Tax for Individuals, Estates, and Trusts">Annual Income Tax for Individuals, Estates, and Trusts</option>
+                            <option value="Annual Income Tax for Partnerships and Corporations">Annual Income Tax for Partnerships and Corporations</option>
+                            <option value="Barangay Certificate">Barangay Certificate</option>
+                            <option value="Business Permit - Issuance">Business Permit - Issuance</option>
+                            <option value="Business Permit - Renewal">Business Permit - Renewal</option>
+                            <option value="Certificate of Death - Delayed Registration">Certificate of Death - Delayed Registration</option>
+                            <option value="Certificate of Death - Timely Registration">Certificate of Death - Timely Registration</option>
+                            <option value="Certificate of Death (PSA)">Certificate of Death (PSA)</option>
+                            <option value="Certificate of Indigency">Certificate of Indigency</option>
+                            <option value="Certificate of Live Birth - Delayed Registration">Certificate of Live Birth - Delayed Registration</option>
+                            <option value="Certificate of Live Birth - Out of Town Registration">Certificate of Live Birth - Out of Town Registration</option>
+                            <option value="Certificate of Live Birth - Timely Registration">Certificate of Live Birth - Timely Registration</option>
+                            <option value="Certificate of Live Birth (PSA)">Certificate of Live Birth (PSA)</option>
+                            <option value="Certificate of Marriage - Delayed Registration">Certificate of Marriage - Delayed Registration</option>
+                            <option value="Certificate of Marriage (PSA)">Certificate of Marriage (PSA)</option>
+                            <option value="Certificate of Marriage - Timely Registration">Certificate of Marriage - Timely Registration</option>
+                            <option value="Certificate of No Marriage Record (CENOMAR)">Certificate of No Marriage Record (CENOMAR)</option>
+                            <option value="Certificate of Residency">Certificate of Residency</option>
+                            <option value="Certificate of Tax Exemption">Certificate of Tax Exemption</option>
+                            <option value="Community Tax Certificate (CEDULA)">Community Tax Certificate (CEDULA)</option>
+                            <option value="Full Retirement of Business Permit">Full Retirement of Business Permit</option>
+                            <option value="Legal Instruments for Legitimation">Legal Instruments for Legitimation</option>
+                            <option value="Manual Tax Declaration">Manual Tax Declaration</option>
+                            <option value="Marriage License">Marriage License</option>
+                            <option value="NBI Clearance">NBI Clearance</option>
+                            <option value="Occupational Permit">Occupational Permit</option>
+                            <option value="Police Clearance Certificate">Police Clearance Certificate</option>
+                            <option value="Tax Clearance Certificate">Tax Clearance Certificate</option>
+                        </optgroup>
+                        <optgroup label="Valid IDs">
+                            <option value="Barangay ID">Barangay ID</option>
+                            <option value="GSIS Unified Multi-Purpose ID">GSIS Unified Multi-Purpose ID</option>
+                            <option value="Integrated Bar of the Philippines ID (IBP)">Integrated Bar of the Philippines ID (IBP)</option>
+                            <option value="License to Own and Possess Firearms (LTOPF)">License to Own and Possess Firearms (LTOPF)</option>
+                            <option value="Non-Professional Driver's License">Non-Professional Driver's License</option>
+                            <option value="Overseas Workers Welfare Administration Card (OWWA)">Overseas Workers Welfare Administration Card (OWWA)</option>
+                            <option value="Pantawid Pamilyang Pilipino Program I (4Ps)">Pantawid Pamilyang Pilipino Program I (4Ps)</option>
+                            <option value="Passport ID">Passport ID</option>
+                            <option value="Persons with Disabilities ID (PWD)">Persons with Disabilities ID (PWD)</option>
+                            <option value="PhilHealth ID">PhilHealth ID</option>
+                            <option value="Philippine Regulation Commission ID (PRC)">Philippine Regulation Commission ID (PRC)</option>
+                            <option value="Philippine System ID">Philippine System ID</option>
+                            <option value="Postal ID">Postal ID</option>
+                            <option value="Professional Driver's License">Professional Driver's License</option>
+                            <option value="Senior Citizen ID">Senior Citizen ID</option>
+                            <option value="Solo Parent ID">Solo Parent ID</option>
+                            <option value="Student Driver's Permit">Student Driver's Permit</option>
+                            <option value="Taxpayer Identification Number ID (TIN)">Taxpayer Identification Number ID (TIN)</option>
+                        </optgroup>
+                    </select>
+
                           </div>
                         <textarea placeholder="What is your concern?" name="content"></textarea>
                         <button type="submit" name="submit">POST</button>
@@ -296,6 +333,8 @@ $user_data = check_login($con);
                     // Display admin tag if user is admin
                     if ($is_admin) {
                         echo '<p class="admin"> ADMIN </p>';
+                    } else {
+                        echo '<p class="admin"> USER </p>';
                     }
 
                     echo '</div>'; // Close username-container
@@ -401,6 +440,8 @@ $user_data = check_login($con);
                             // Display admin tag if user is admin
                             if ($is_admin) {
                                 echo '<p class="admin"> ADMIN </p>';
+                            } else {
+                                echo '<p class="admin"> USER </p>';
                             }
                             echo '</div>'; // Close username-container
                 
