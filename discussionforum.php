@@ -214,12 +214,12 @@ $user_data = check_login($con);
 
                                     // Retrieve username from the users table
                                     $user_name = $_SESSION['user_name'];
-                                    $username = getUsername($conn, $user_name);
-                                    
+                                    $is_admin = $_SESSION['is_admin'];
+
                                     // Insert data into the database
-                                    $sql = "INSERT INTO posts (username, specified_concern, content, timestamp) VALUES (?, ?, ?, NOW())";
+                                    $sql = "INSERT INTO posts (username, is_admin, specified_concern, content, timestamp) VALUES (?, ?, ?, ?, NOW())";
                                     $stmt = $conn->prepare($sql);
-                                    $stmt->bind_param("sss", $username, $idType, $content);
+                                    $stmt->bind_param("siss", $user_name, $is_admin, $idType, $content);
                                     
                                     if ($stmt->execute()) {
                                         // Data inserted successfully
@@ -260,7 +260,7 @@ $user_data = check_login($con);
             <!-- POST AREA -->
             <div class="post-area">
             <?php
-                $sql = "SELECT post_id, username, content, specified_concern, timestamp, time 
+                $sql = "SELECT post_id, username, content, specified_concern, timestamp, time, is_admin 
                 FROM posts 
                 ORDER BY time DESC";        
                 $result = $conn->query($sql);
@@ -275,17 +275,40 @@ $user_data = check_login($con);
 
                 // Function to fetch posts
                 function fetchPosts($conn, $row) {
+                    // Check if user is admin based on the is_admin attribute in the posts table
+                    $is_admin = $row['is_admin'] == 1 ? true : false;
                     echo '<div class="post-area">';
                     echo '<div class="post">';
                     echo '<div class="specified-concern">';
                     echo '<strong><em><p>r/' . $row['specified_concern'] . ' </p></em></strong>';
                     echo '<em><p class="date">•' . $row['timestamp'] . '</p></em>';
                     echo '</div>';
+                    // Check if user is admin and provide delete option
+                    if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
+                        echo '<div class="delete">';
+                        echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
+                        echo '<input type="hidden" name="post_id" value="' . $row['post_id'] . '">';
+                        echo '<button type="submit" name="delete_post" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">';
+                        echo '<img src="valid_id/icons/remove.svg" alt="Delete">';
+                        echo '</button>';
+                        echo '</form>';
+                        echo '</div>'; //div for delete
+                    }
                     echo '<div class="user-info">';
                     echo '<div class="user-icon">';
                     echo '<img src="valid_id/icons/user-icon.svg" alt="" style="width: 35px; height: 35px;">';
                     echo '</div>';
-                    echo '<p class="username">' . $row['username'] . '</p>';
+                    
+                    // Display username
+                    echo '<div class="username-container">';
+                    echo '<p class="username">@' . $row['username'] . '</p>';
+                    
+                    // Display admin tag if user is admin
+                    if ($is_admin) {
+                        echo '<p class="admin"> ADMIN </p>';
+                    }
+
+                    echo '</div>'; // Close username-container
                     echo '</div>';
                     echo '<p class="content">' . $row['content'] . '</p>';
 
@@ -313,66 +336,96 @@ $user_data = check_login($con);
                     echo '</div>';
                 }
 
+                // Process post deletion
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_post'])) {
+                    $postId = $_POST['post_id'];
+                    
+                    // Delete the post from the database
+                    $sql = "DELETE FROM posts WHERE post_id = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("i", $postId);
+                    
+                    if ($stmt->execute()) {
+                        echo '<p class="verify-post">Post deleted successfully!</p>';
+                    } else {
+                        echo "Error: " . $conn->error;
+                    }
+                    
+                    $stmt->close();
+                }
 
-                // Process comment submission
+
                 // Process comment submission
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_comment'])) {
                     // Retrieve data from the form
                     $postId = $_POST['post_id'];
                     
-                    // Retrieve the username of the logged-in user from the session or from wherever it's stored
-                    session_start();
-                    $username = $_SESSION['user_name']; // Assuming the username is stored in the session
-                    
+                    // Retrieve username from the users table
+                    $username = $_SESSION['user_name'];
+                    $is_admin = $_SESSION['is_admin'];
+
                     $commentContent = $_POST['comment_content'];
 
                     // Insert the comment into the database
-                    $sql = "INSERT INTO comments (post_id, username, comment_text, timestamp) VALUES (?, ?, ?, NOW())";
+                    $sql = "INSERT INTO comments (post_id, username, comment_text, timestamp, is_admin) VALUES (?, ?, ?, NOW(), ?)";
                     $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("iss", $postId, $username, $commentContent);
+                    $stmt->bind_param("isss", $postId, $username, $commentContent, $is_admin);
                     
-                    if ($stmt->execute()) {
-                        // Comment inserted successfully
-                        echo '<p class="verify-comment">Comment submitted successfully!</p>';
-                    } else {
-                        // Error inserting comment
-                        echo "Error: " . $conn->error;
+                    // Execute the statement
+                    if (!$stmt->execute()) {
+                        echo "Commenting error: " . $conn->error;
                     }
 
                     // Close the statement
                     $stmt->close();
                 }
 
-
                 // Function to fetch comments for a post
                 function fetchComments($conn, $postId) {
-                    // Initialize username variable
-                    $username = "";
-                
                     // Check if user is logged in
-                    if(isset($_SESSION['user_name'])) {
-                        $username = $_SESSION['user_name'];
-                    } else {
+                    if (!isset($_SESSION['user_name'])) {
                         echo '<p class="error">Error: User not logged in.</p>';
                         return;
                     }
-                    
+                
                     // Fetch comments for the post
-                    $sql_comments = "SELECT comment_text, timestamp FROM comments WHERE post_id = ? ORDER BY timestamp DESC";
+                    $sql_comments = "SELECT comment_id, comment_text, timestamp, username, is_admin FROM comments WHERE post_id = ? ORDER BY timestamp DESC";
                     $stmt_comments = $conn->prepare($sql_comments);
                     $stmt_comments->bind_param("i", $postId);
                     $stmt_comments->execute();
                     $result_comments = $stmt_comments->get_result();
-                    
+                
                     // Display comments
                     if ($result_comments->num_rows > 0) {
                         while ($row = $result_comments->fetch_assoc()) {
+                            $is_admin = $row['is_admin'] == 1;
                             echo '<hr><div class="comment">';
                             echo '<div class="user-info">';
                             echo '<div class="user-icon">';
                             echo '<img src="valid_id/icons/user-icon.svg" alt="">';
                             echo '</div>';
-                            echo '<strong><p class="username">' . htmlspecialchars($username) . '</p></strong>'; // htmlspecialchars for safety
+                            // Display username
+                            echo '<div class="username-container">';
+                            echo '<strong><p class="username">' . htmlspecialchars($row['username']) . '</p></strong>'; // htmlspecialchars for safety
+                
+                            // Display admin tag if user is admin
+                            if ($is_admin) {
+                                echo '<p class="admin"> ADMIN </p>';
+                            }
+                            echo '</div>'; // Close username-container
+                
+                            // Check if user is admin and provide delete option
+                            if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
+                                echo '<div class="comment-delete">';
+                                echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
+                                echo '<input type="hidden" name="comment_id" value="' . $row['comment_id'] . '">';
+                                echo '<input type="hidden" name="post_id" value="' . $postId . '">';
+                                echo '<button type="submit" name="delete_comment" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">';
+                                echo '<img src="valid_id/icons/remove.svg" alt="Delete">';
+                                echo '</button>';
+                                echo '</form>';
+                                echo '</div>'; //div for delete
+                            }
                             echo '</div>';
                             echo '<div class="content">';
                             echo '<p>' . htmlspecialchars($row['comment_text']) . '</p>'; // htmlspecialchars for safety
@@ -382,9 +435,25 @@ $user_data = check_login($con);
                     } else {
                         echo '<hr><p class="error">No comments found.</p>';
                     }
-                }
-                
-                
+
+                    // Process comment deletion
+                    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_comment'])) {
+                        $commentId = $_POST['comment_id'];
+                        
+                        // Delete the comment from the database
+                        $sql = "DELETE FROM comments WHERE comment_id = ?";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("i", $commentId);
+                        
+                        if (!$stmt->execute()) {
+                            echo '<p class="verify-comment">Comment deleted successfully!</p>';
+                        } else {
+                            echo "Error: " . $conn->error;
+                        }
+                        
+                        $stmt->close();
+                    }
+                }                
             ?>
             </div>
         </div>
