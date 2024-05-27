@@ -74,8 +74,7 @@
     
            <div class="nav_actions">
               <!-- Search button -->
-              <i class="ri-search-line nav_search" id="search-btn"></i>
-    
+              <a href="../search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
               <!-- Toggle button -->
               <div class="nav_toggle" id="nav-toggle">
                  <i class="ri-menu-line"></i>
@@ -84,15 +83,6 @@
         </nav>
       </header>
     
-      <!--==================== SEARCH ====================-->
-      <div class="search" id="search">
-        <form action="" class="search__form">
-           <i class="ri-search-line search__icon"></i>
-           <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input">
-        </form>
-    
-        <i class="ri-close-circle-line search__close" id="search-close"></i>
-      </div>
     
       <!--==================== LOGIN ====================-->
       <div class="login" id="login">

@@ -435,7 +435,7 @@ $user_data = check_login($con);
                             echo '</div>';
                             // Display username
                             echo '<div class="username-container">';
-                            echo '<strong><p class="username">' . htmlspecialchars($row['username']) . '</p></strong>'; // htmlspecialchars for safety
+                            echo '<strong><p class="username">@' . htmlspecialchars($row['username']) . '</p></strong>'; // htmlspecialchars for safety
                 
                             // Display admin tag if user is admin
                             if ($is_admin) {
