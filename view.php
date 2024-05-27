@@ -17,7 +17,7 @@ $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $response = [];
 
 if ($id > 0) {
-    $sql = "SELECT * FROM user_messages WHERE id = ?";
+    $sql = "SELECT * FROM user_messages WHERE message_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();

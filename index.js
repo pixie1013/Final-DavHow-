@@ -11,19 +11,6 @@ navClose.addEventListener('click', () => {
     navMenu.classList.remove('show-menu')
 })
 
-//Search
-const search = document.getElementById('search'),
-    searchBtn = document.getElementById('search-btn'),
-    searchClose = document.getElementById('search-close')
-
-searchBtn.addEventListener('click', () => {
-    search.classList.add('show-search')
-})
-
-searchClose.addEventListener('click', () => {
-    search.classList.remove('show-search')
-})
-
 const displayTime = document.querySelector(".display-time");
 // Time
 function showTime() {
@@ -209,25 +196,4 @@ function logout() {
         .catch(error => {
             console.error('Error during logout:', error);
         });
-}
-
-// Search filter function
-const search1 = () => {
-  const searchbox = document.getElementById("searchInput").value.toUpperCase();
-  const storeitems = document.getElementById("product-list");
-  const products = storeitems.getElementsByClassName("product1");
-
-  for (let i = 0; i < products.length; i++) {
-    let h2 = products[i].getElementsByTagName('h2')[0];
-
-    if (h2) {
-      let textValue = h2.textContent || h2.innerText;
-
-      if (textValue.toUpperCase().indexOf(searchbox) > -1) {
-        products[i].style.display = "";
-      } else {
-        products[i].style.display = "none";
-      }
-    }
-  }
 }

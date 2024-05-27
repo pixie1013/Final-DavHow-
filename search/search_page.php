@@ -1,8 +1,8 @@
 <?php 
 session_start();
 
-include("connection.php");
-include("functions.php");
+include("../connection.php");
+include("../functions.php");
 
 $user_data = null;
 if (isset($_SESSION['user_id'])) {
@@ -23,11 +23,12 @@ if (isset($_SESSION['user_id'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="search.css">
   <title>DavHow: Catalog</title>
 </head>
 <body>
-<header class="header1">
+    <header class="header1">
         <div class="top-bar">
           <div class="top-left">
             <div class="time">
@@ -47,7 +48,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
           
           <div class="logo">
-            <img src="photos/logo.png" alt="DavHow: Unsaon ni Bai?">
+            <img src="../photos/logo.png" alt="DavHow: Unsaon ni Bai?">
             <p class="Brand">DavHow</p>
             <p class="Tagline">UNSAON NI BAI?</p>
           </div>
@@ -60,8 +61,8 @@ if (isset($_SESSION['user_id'])) {
             <?php endif; ?>
         </nav>
         </div>
-  </header>
-  <header class="header" id="header">
+      </header>
+      <header class="header" id="header">
         <nav class="nav container">
            <p class="nav_tag"><em>Official website of ART Solutions</em></p>
     
@@ -76,44 +77,44 @@ if (isset($_SESSION['user_id'])) {
                 if ($isAdmin) {
                     echo '
                     <li class="nav_item">
-                        <a href="homepage.php" class="nav_link">HOME</a>
+                        <a href="../homepage.php" class="nav_link">HOME</a>
                     </li>
                     <li class="nav_item">
-                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                        <a href="../catalog.php" class="nav_link">CATALOG</a>
                     </li>
                     <li class="nav_item">
-                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                        <a href="../about_us.php" class="nav_link">ABOUT US</a>
                     </li>
                     <li class="nav_item">
-                        <a href="discussionforum.php" class="nav_link">FORUM</a>
+                        <a href="../discussionforum.php" class="nav_link">FORUM</a>
                     </li>
                     <li class="nav_item">
-                        <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                        <a href="../adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
                     </li>';
                 } elseif ($isLoggedIn) {
                     echo '
                     <li class="nav_item">
-                        <a href="homepage.php" class="nav_link">HOME</a>
+                        <a href="../homepage.php" class="nav_link">HOME</a>
                     </li>
                     <li class="nav_item">
-                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                        <a href="../catalog.php" class="nav_link">CATALOG</a>
                     </li>
                     <li class="nav_item">
-                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                        <a href="../about_us.php" class="nav_link">ABOUT US</a>
                     </li>
                     <li class="nav_item">
-                        <a href="discussionforum.php" class="nav_link">FORUM</a>
+                        <a href="../discussionforum.php" class="nav_link">FORUM</a>
                     </li>';
                 } else {
                     echo '
                     <li class="nav_item">
-                        <a href="homepage.php" class="nav_link">HOME</a>
+                        <a href="../homepage.php" class="nav_link">HOME</a>
                     </li>
                     <li class="nav_item">
-                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                        <a href="../catalog.php" class="nav_link">CATALOG</a>
                     </li>
                     <li class="nav_item">
-                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                        <a href="../about_us.php" class="nav_link">ABOUT US</a>
                     </li>';
                 }
                 ?>
@@ -128,7 +129,7 @@ if (isset($_SESSION['user_id'])) {
     
            <div class="nav_actions">
               <!-- Search button -->
-              <a href="search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
+              <i class="ri-search-line nav_search" id="search-btn"></i>
     
               <!-- Toggle button -->
               <div class="nav_toggle" id="nav-toggle">
@@ -136,104 +137,123 @@ if (isset($_SESSION['user_id'])) {
               </div>
            </div>
         </nav>
-  </header>
+      </header>
 
     <div class="banner">
-      <div class="content">
-          <h1><a class="a1">Discover.</a><a class="a2"> Navigate.</a><a class="a3"> Secure.</a></h1>
-          <p>DavHow provides seamless navigation to your legal queries.</p>
-      </div>
-  </div>
-
+        <div class="content">
+            <h1>
+                <a class="a1">Explore</a>
+                <a class="a1"> and</a>
+                <a class="a1"> Discover</a>
+            </h1>
+            <form id="form">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="text" id="form1" class="form-control" placeholder="What are you looking for?"/>
+                        <button type="submit" class="btn btn-primary" id="searchButton">
+                            <div class="search-label">
+                                <label class="form-label" for="form1">Search</label>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="message_result">
+        <img src="../photos/no-results-found.svg">
+        <h2>No Results Found</h2>
+        <p>We couldn't find what you're searching for.</p>
+        <p>Try searching again.</p>
+    </div>
     <section class="product"> 
-      <h2 class="product-category">Documents</h2>
       <button class="pre-btn"><img src="photos/arrow.png" alt=""></button>
       <button class="nxt-btn"><img src="photos/arrow.png" alt=""></button>
       <div class="product-container">
-        <div class="product-card">
+        <div class="product-card" data-id="1">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Affidavit to Use Surname of Father.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Affidavit to Use Surname of Father.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
-                <h2 class="product-brand">Affidavit to Use Surname of Father</h2>
+                <h2 class="product-brand" >Affidavit to Use Surname of Father</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="2">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Annual Income Tax for Individuals Earning Solely from Compensation (Including Non-BusinessNon-Profession Related Income).png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Annual Income Tax for Individuals Earning Solely from Compensation (Including Non-BusinessNon-Profession Related Income).png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Annual Income Tax for Individuals Earning Solely From Compensation (Including Non-Business and Non-Profession Related)</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="3">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Annual Income Tax for Individuals, Estates, and Trusts.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Annual Income Tax for Individuals, Estates, and Trusts.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Annual Income Tax for Individuals, Estates, and Trusts</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="4">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Annual Income Tax for Partnerships and Corporations.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Annual Income Tax for Partnerships and Corporations.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
-            <div class="product-info">
+            <div class="product-info" data-id="5">
                 <h2 class="product-brand">Annual Income Tax for Partnerships and Corporations</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="5">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Barangay Certificate.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Barangay Certificate.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Barangay Certificate</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="6">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Business Permit.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Business Permit.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Business Permit - Issuance</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="7">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Business Permit.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Business Permit.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Business Permit - Renewal</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="8">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Death.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Death.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Death - Delayed Registration</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="9">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Death.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Death.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Death - Timely Registration</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="10">
             <div class="product-image">
-                <img src="photos/DOCS Photos/PSA Death Certificate.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/PSA Death Certificate.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
@@ -241,347 +261,341 @@ if (isset($_SESSION['user_id'])) {
             </div>
         </div>
         <div class="product-card">
-            <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Indigency.png" class="product-thumb" alt="">
+            <div class="product-image" data-id="11">
+                <img src="../photos/DOCS Photos/Certificate of Indigency.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Indigency</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="12">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Live Birth - Delayed Registration</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="13">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Live Birth - Out of Town Registration</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="14">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
-            <div class="product-info">
+            <div class="product-info" data-id="15">
                 <h2 class="product-brand">Certificate of Live Birth - Timely Registration</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="15">
             <div class="product-image">
-                <img src="photos/DOCS Photos/PSA Birth Certificate.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/PSA Birth Certificate.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Live Birth (PSA)</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="16">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Marriage - Delayed Registration</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="17">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Marriage (PSA)</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="18">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Marriage - Timely Registration</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="19">
             <div class="product-image">
-                <img src="photos/DOCS Photos/CENOMAR.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/CENOMAR.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of No Marriage Record (CENOMAR)</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="20">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Residency.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Residency.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Residency</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="21">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Exemption.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Certificate of Exemption.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Tax Exemption</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="22">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Cedula.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Cedula.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Community Tax Certificate (CEDULA)</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="23">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Full Retirement of Business Permit.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Full Retirement of Business Permit.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Full Retirement of Business Permit</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="24">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Legal Instruments for Legitimation.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Legal Instruments for Legitimation.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Legal Instruments for Legitimation</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="25">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Manual Tax Declaration.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Manual Tax Declaration.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Manual Tax Declaration</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="26">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Marriage License.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Marriage License.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Marriage License</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="27">
             <div class="product-image">
-                <img src="photos/DOCS Photos/NBI Clearance.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/NBI Clearance.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">NBI Clearance</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="28">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Occupational Permit.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Occupational Permit.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Occupational Permit</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="29">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Police Clearance.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Police Clearance.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Police Clearance Certificate</h2>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card" data-id="30">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Tax Clearance Certificate.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Tax Clearance Certificate.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Tax Clearance Certificate</h2>
             </div>
         </div>
-    </section>
-    <section class="product"> 
-        <h2 class="product-category">Valid IDs</h2>
-        <button class="pre-btn"><img src="photos/arrow.png" alt=""></button>
-        <button class="nxt-btn"><img src="photos/arrow.png" alt=""></button>
-        <div class="product-container">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="photos/ID Photos/BRGYID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
-                </div>
-                <div class="product-info">
+        <div class="product-card" data-id="31">
+            <div class="product-image">
+                <img src="../photos/ID Photos/BRGYID.png" class="product-thumb" alt="">
+                <a href="#"><button class="card-btn">Know More</button></a>
+            </div>
+            <div class="product-info">
                     <h2 class="product-brand">Barangay ID</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="32">
                 <div class="product-image">
-                    <img src="photos/ID Photos/GSIS ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/GSIS ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">GSIS Unified Multi-Purpose ID</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="33">
                 <div class="product-image">
-                    <img src="photos/ID Photos/IBP ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/IBP ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Integrated Bar of the Philippines ID (IBP)</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="34">
                 <div class="product-image">
-                    <img src="photos/ID Photos/FIREARMS ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/FIREARMS ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
-                <div class="product-info">
+                <div class="product-info" data-id="35">
                     <h2 class="product-brand">License to Own and Possess Firearms (LTOPF)</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="35">
                 <div class="product-image">
-                    <img src="photos/ID Photos/NON PROF  DL.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/NON PROF  DL.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Non-Professional Driver's License</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="36">
                 <div class="product-image">
-                    <img src="photos/ID Photos/OWWA ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/OWWA ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Overseas Workers Welfare Administration Card (OWWA)</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="37">
                 <div class="product-image">
-                    <img src="photos/ID Photos/4Ps ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/4Ps ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Pantawid Pamilyang Pilipino Program I (4Ps)</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="38">
                 <div class="product-image">
-                    <img src="photos/ID Photos/PASSPORT ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/PASSPORT ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Passport ID</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="39">
                 <div class="product-image">
-                    <img src="photos/ID Photos/PWD ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/PWD ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Persons with Disabilities ID (PWD)</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="40">
                 <div class="product-image">
-                    <img src="photos/ID Photos/PhilHealth ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/PhilHealth ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">PhilHealth ID</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="41">
                 <div class="product-image">
-                    <img src="photos/ID Photos/PRC ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/PRC ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Philippine Regulation Commission ID (PRC)</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="42">
                 <div class="product-image">
-                    <img src="photos/ID Photos/PhilSys ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/PhilSys ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Philippine System ID</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="43">
                 <div class="product-image">
-                    <img src="photos/ID Photos/POSTAL ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/POSTAL ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Postal ID</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="44">
                 <div class="product-image">
-                    <img src="photos/ID Photos/PROF DL.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/PROF DL.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Professional Driver's License</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="45">
                 <div class="product-image">
-                    <img src="photos/ID Photos/SNCT ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/SNCT ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Senior Citizen ID</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="46">
                 <div class="product-image">
-                    <img src="photos/ID Photos/SOLO PARENT ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/SOLO PARENT ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Solo Parent ID</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="47">
                 <div class="product-image">
-                    <img src="photos/ID Photos/STUDENT PERMIT.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/STUDENT PERMIT.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Student Driver's Permit</h2>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-id="48">
                 <div class="product-image">
-                    <img src="photos/ID Photos/TIN ID.png" class="product-thumb" alt="">
+                    <img src="../photos/ID Photos/TIN ID.png" class="product-thumb" alt="">
                     <a href="#"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
@@ -758,6 +772,6 @@ if (isset($_SESSION['user_id'])) {
        <hr>
       <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
-    <script src="index.js"></script>
+    <script src="search.js"></script>
 </body>
 </html>
