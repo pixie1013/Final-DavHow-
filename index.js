@@ -124,12 +124,10 @@ function toggleComments(element) {
   } else {
       commentsContent.style.display = "none"; // Hide comments section
   }
-<<<<<<< HEAD
 }
-
 const form = document.querySelector(".contactUs form");
 const statusTxt = form.querySelector(".send-button span");
-
+  
 form.onsubmit = (e) => {
   e.preventDefault();
   statusTxt.style.display = "block";
@@ -142,19 +140,25 @@ form.onsubmit = (e) => {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         let response = xhr.responseText;
-        if (response.indexOf("Email, name, and message fields are required") != 1 || response.indexOf("Enter a valid email address!") != 1){
-            statusTxt.style.color = "red";
-            statusTxt.innerText = response;
+        if (response.indexOf("Email, name, title and message fields are required") !== -1 || response.indexOf("Enter a valid email address!") !== -1) {
+          console.log("Bye");
+          statusTxt.style.color = "red"; 
+          statusTxt.innerText = response;
         } else {
-          form.reset();
+          console.log("Hey");
+          statusTxt.style.color = "#023047"; 
+          statusTxt.innerText = response;
+          form.reset(); 
+          console.log("Hello");
         }
       } else {
-        statusTxt.innerText = response;
-        statusTxt.style.color = "#023047";
+        statusTxt.style.color = "red"; 
+        statusTxt.innerText = "An error occurred. Please try again.";
       }
     }
   };
   xhr.onerror = () => {
+    statusTxt.style.color = "red"; 
     statusTxt.innerText = "An error occurred. Please check your internet connection.";
   };
   let formData = new FormData(form);
@@ -197,10 +201,3 @@ window.onclick = function(event) {
 function closeModal() {
   document.getElementById('myModal').style.display = "none";
 }
-=======
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 7e33fc25b7d3851e04152833d665511d2a3fa883
->>>>>>> 799e18ee6b66fcffa7853fabdcf6cb1ec615aa41
