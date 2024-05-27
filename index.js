@@ -117,15 +117,15 @@ productContainers.forEach((item, i) => {
 })
 
 // COMMENT SECTION
-function toggleComments(element) {
-  var commentsContent = element.nextElementSibling; // Get the next sibling element
-  if (commentsContent.style.display === "none" || commentsContent.style.display === "") {
-      commentsContent.style.display = "block"; // Show comments section
+function toggleComments(postId) {
+  var commentInput = document.getElementById('comment-input-' + postId);
+
+  if (commentInput.style.display === "none" || commentInput.style.display === "") {
+      commentInput.style.display = "block"; // Show the comment input when it's hidden
   } else {
-      commentsContent.style.display = "none"; // Hide comments section
+      commentInput.style.display = "none"; // Hide the comment input when it's visible
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7e33fc25b7d3851e04152833d665511d2a3fa883
+
+
+
