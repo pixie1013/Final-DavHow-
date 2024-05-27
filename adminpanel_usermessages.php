@@ -12,8 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="admin.css">
-  <title>DavHow: Catalog</title>
+  <title>DavHow: Admin Inbox</title>
 </head>
 <body>
     <header class="header1">
@@ -49,27 +48,56 @@
            <p class="nav_tag"><em>Official website of ART Solutions</em></p>
     
            <div class="nav_menu" id="nav-menu">
-              <ul class="nav_list">
-                 <li class="nav_item">
-                    <a href="homepage.html" class="nav_link">HOME</a>
-                 </li>
-    
-                 <li class="nav_item">
-                    <a href="catalog.html" class="nav_link">CATALOG</a>
-                 </li>
-    
-                 <li class="nav_item">
-                    <a href="about_us.html" class="nav_link">ABOUT US</a>
-                 </li>
+            <ul class="nav_list">
+            <?php
+                  $isAdmin = true;
+                  $isLoggedIn = false;
 
-                 <li class="nav_item">
-                    <a href="#" class="nav_link">FORUM</a>
-                 </li>
-
-                 <li class="nav_item">
-                    <a href="#" class="nav_link">MESSAGE</a>
-                 </li>
-              </ul>
+                  if ($isAdmin) {
+                      echo '
+                      <li class="nav_item">
+                          <a href="homepage.html" class="nav_link">HOME</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="catalog.html" class="nav_link">CATALOG</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="about_us.html" class="nav_link">ABOUT US</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="discussionforum.php" class="nav_link">FORUM</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                      </li>';
+                  } else if ($isLoggedIn) {
+                      echo '
+                      <li class="nav_item">
+                          <a href="homepage.html" class="nav_link">HOME</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="catalog.html" class="nav_link">CATALOG</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="about_us.html" class="nav_link">ABOUT US</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="#" class="nav_link">FORUM</a>
+                      </li>';
+                  } else {
+                      echo '
+                      <li class="nav_item">
+                          <a href="homepage.html" class="nav_link">HOME</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="catalog.html" class="nav_link">CATALOG</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="about_us.html" class="nav_link">ABOUT US</a>
+                      </li>';
+                  }
+                  ?>
+            </ul>
     
               <!-- Close button -->
               <div class="nav_close" id="nav-close">
@@ -144,44 +172,56 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $servername = "localhost";
-                $username = "root"; 
-                $password = ""; 
-                $dbname = "davhow"; 
-    
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-    
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-    
-                $sql = "SELECT * FROM messages";
-                $result = $conn->query($sql);
-    
-                if ($result->num_rows > 0) {
-                  while ($row = $result->fetch_assoc()) {
-                      echo "
-                      <tr>
-                          <td>{$row['created_at']}</td>
-                          <td>{$row['first_name']} {$row['last_name']}</td>
-                          <td>{$row['title']}</td>
-                          <td>
-                            <a class='view-button' href='view.php?id=" . $row['id'] . "'>View</a>
-                            <a class='delete-button' href='delete.php?id=" . $row['id'] . "'>Delete</a>
-                          </td>
-                      </tr>";
-                  }
-              } else {
-                  echo "<tr><td colspan='4'>No messages found</td></tr>";
-              }
-                $conn->close();
-                ?>
+            <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "davhow"; 
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    $sql = "SELECT * FROM user_messages";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "
+                            <tr>
+                                <td>{$row['created_at']}</td>
+                                <td>{$row['first_name']} {$row['last_name']}</td>
+                                <td>{$row['title']}</td>
+                                <td>
+                                    <button class='view-button' onclick='viewMessage({$row['id']})'>View</button>
+                                    <button class='delete-button' onclick='deleteMessage({$row['id']})'>Delete</button>
+                                </td>
+                            </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>No messages found</td></tr>";
+                    }
+
+                    $conn->close();
+                    ?>
             </tbody>
         </table>
       </div>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <p><strong>Date and Time:</strong> <span id="modal-date"></span></p>
+              <p><strong>Name:</strong> <span id="modal-first-name"></span> <span id="modal-last-name"></</span></p>
+              <p><strong>Email:</strong> <span id="modal-email"></span></p>
+              <p><strong>Mobile Number:</strong> <span id="modal-mobile-number"></span></p><br><br>
+              <p><strong>Title:</strong> <span id="modal-title"></span></p><br><br>
+              <p><strong>Message:</strong><br><br><span id="modal-message"></span></p>
+          </div>
+        </div>
     </section>    
     <footer>
         <div class="footerrow">

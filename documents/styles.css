@@ -469,7 +469,7 @@ img{
     max-width: 100%;
 }
 
-.fee-type:hover {
+.fee-type.fee.business-permit:hover {
     background-color: #003676;
     color: #ECECEC;cursor: pointer;
     font-size: large;

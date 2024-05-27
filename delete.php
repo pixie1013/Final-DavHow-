@@ -14,29 +14,23 @@ if ($conn->connect_error) {
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-$response = [];
-
 if ($id > 0) {
-    $sql = "SELECT * FROM user_messages WHERE id = ?";
+    $sql = "DELETE FROM user_messages WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
 
-    if ($row) {
-        $response = $row;
+    if ($stmt->affected_rows > 0) {
+        header("Location: adminpanel_usermessages.php");
+        exit();
     } else {
-        $response['error'] = "No data found.";
+        echo "Error deleting record.";
     }
 
     $stmt->close();
 } else {
-    $response['error'] = "Invalid ID.";
+    echo "Invalid ID.";
 }
 
 $conn->close();
-
-header('Content-Type: application/json');
-echo json_encode($response);
 ?>
