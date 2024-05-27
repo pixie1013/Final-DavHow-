@@ -154,7 +154,7 @@ if (isset($_SESSION['user_id'])) {
     <div class="containerAboutUs">
       <div class="sub-container">
           <div class="teams">
-              <img src="/photos/1.png" alt="">
+              <img src="photos/1.png" alt="">
               <div class="name">Prescious Apple D. Sangria</div>
               <div class="desig">1st Year BS Computer Science</div>
               <div class="social-links">
@@ -169,7 +169,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
 
           <div class="teams">
-              <img src="/photos/2.png" alt="">
+              <img src="photos/2.png" alt="">
               <div class="name">Trixie Nicole A. Organiza</div>
               <div class="desig">1st Year BS Computer Science</div>
               <div class="social-links">
@@ -184,7 +184,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
 
           <div class="teams">
-              <img src="/photos/3.png" alt="">
+              <img src="photos/3.png" alt="">
               <div class="name">Roslyn Faith U. Guillermo</div>
               <div class="desig">1st Year BS Computer Science</div>
               <div class="social-links">
@@ -207,7 +207,7 @@ if (isset($_SESSION['user_id'])) {
         <h1 class="anim">Among Hinungdan</h1>
         <p class="anim">ART Solutions, comprised of Apple, Roslyn, and Trixie, embodies the fusion of creativity and technical prowess, as they embark on a mission to revolutionize problem-solving in the tech sphere. As Bachelor of Science in Computer Science students at the University of the Philippines Mindanao, their shared passion for innovation drives them to craft ingenious solutions that seamlessly blend artistry with technology. With Roslyn's design finesse, Trixie's coding expertise, Apple's intuitive user-centric approach, the team leverages their diverse skill set to tackle even the most complex tech challenges. Fueled by their unwavering commitment to excellence, ART Solutions is not just a team—it's a beacon of ingenuity, shaping the future of technology one creative solution at a time.</p>
     </div>
-    <img src="/photos/445573797_1637200113760498_9054673228171122051_n.jpg" alt="ART Solutions Team Photo" class="feature-img anim">
+    <img src="photos/445573797_1637200113760498_9054673228171122051_n.jpg" alt="ART Solutions Team Photo" class="feature-img anim">
   </div>
 
   <div class="hero1">
@@ -220,7 +220,7 @@ if (isset($_SESSION['user_id'])) {
           <br><br>
           This is more than just a website; it's a practical solution at the intersection of legal documentation and computer science. Step into a world where accessing guidelines is intuitive, and requirements are presented with clarity.</p>
     </div>
-    <img src="/photos/why.png" alt="Why DavHow?" class="feature-img anim">
+    <img src="photos/why.png" alt="Why DavHow?" class="feature-img anim">
   </div>
 
   <section>
