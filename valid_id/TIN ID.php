@@ -15,6 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../photos/logo.png">
     <title>DavHow: TIN ID</title>
     <link rel="stylesheet" href="styles_validid.css">
     <link rel="stylesheet" href="/New DavHow/documents/header.css">

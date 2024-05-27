@@ -17,20 +17,33 @@ $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $response = [];
 
 if ($id > 0) {
-    $sql = "SELECT * FROM user_messages WHERE message_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $selectSql = "SELECT * FROM user_messages WHERE message_id = ?";
+    $updateSql = "UPDATE user_messages SET is_read = 1 WHERE message_id = ?";
+    
+    // Prepare and execute SELECT query
+    $stmtSelect = $conn->prepare($selectSql);
+    $stmtSelect->bind_param("i", $id);
+    $stmtSelect->execute();
+    $result = $stmtSelect->get_result();
     $row = $result->fetch_assoc();
+
+    // Mark the message as read
+    $stmtUpdate = $conn->prepare($updateSql);
+    $stmtUpdate->bind_param("i", $id);
+    $stmtUpdate->execute();
+    
+    // Close the statement for UPDATE query
+    $stmtUpdate->close();
 
     if ($row) {
         $response = $row;
+        $response['message_id'] = $id; // Add message ID to the response
     } else {
         $response['error'] = "No data found.";
     }
 
-    $stmt->close();
+    // Close the statement for SELECT query
+    $stmtSelect->close();
 } else {
     $response['error'] = "Invalid ID.";
 }

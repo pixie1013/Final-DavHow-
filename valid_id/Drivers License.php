@@ -17,6 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../photos/logo.png">
     <title>DavHow: Driver's License</title>
     <link rel="stylesheet" href="styles_validid.css">
     <link rel="stylesheet" href="/New DavHow/documents/header.css">
@@ -47,6 +48,7 @@
                     <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
                     <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
                 </div>
+            </div>
           
             <div class="logo">
                 <img src="../photos/logo.png" alt="DavHow: Unsaon ni Bai?">

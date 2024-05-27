@@ -25,7 +25,7 @@ if (isset($_SESSION['user_id'])) {
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../index.css">
   <link rel="stylesheet" href="search.css">
-  <link rel="icon" type="image/x-icon" href="/photos/logo.png">
+  <link rel="icon" type="image/x-icon" href="../photos/logo.png">
   <title>DavHow: Search</title>
 </head>
 <body>
@@ -77,44 +77,44 @@ if (isset($_SESSION['user_id'])) {
                     if ($isAdmin) {
                         echo '
                         <li class="nav_item">
-                            <a href="homepage.php" class="nav_link">HOME</a>
+                            <a href="../homepage.php" class="nav_link">HOME</a>
                         </li>
                         <li class="nav_item">
-                            <a href="catalog.php" class="nav_link">CATALOG</a>
+                            <a href="../catalog.php" class="nav_link">CATALOG</a>
                         </li>
                         <li class="nav_item">
-                            <a href="about_us.php" class="nav_link">ABOUT US</a>
+                            <a href="../about_us.php" class="nav_link">ABOUT US</a>
                         </li>
                         <li class="nav_item">
-                            <a href="discussionforum.php" class="nav_link">FORUM</a>
+                            <a href="../discussionforum.php" class="nav_link">FORUM</a>
                         </li>
                         <li class="nav_item">
-                            <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                            <a href="../adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
                         </li>';
                     } elseif ($isLoggedIn) {
                         echo '
                         <li class="nav_item">
-                            <a href="homepage.php" class="nav_link">HOME</a>
+                            <a href="../homepage.php" class="nav_link">HOME</a>
                         </li>
                         <li class="nav_item">
-                            <a href="catalog.php" class="nav_link">CATALOG</a>
+                            <a href="../catalog.php" class="nav_link">CATALOG</a>
                         </li>
                         <li class="nav_item">
-                            <a href="about_us.php" class="nav_link">ABOUT US</a>
+                            <a href="../about_us.php" class="nav_link">ABOUT US</a>
                         </li>
                         <li class="nav_item">
-                            <a href="discussionforum.php" class="nav_link">FORUM</a>
+                            <a href="../discussionforum.php" class="nav_link">FORUM</a>
                         </li>';
                     } else {
                         echo '
                         <li class="nav_item">
-                            <a href="homepage.php" class="nav_link">HOME</a>
+                            <a href="../homepage.php" class="nav_link">HOME</a>
                         </li>
                         <li class="nav_item">
-                            <a href="catalog.php" class="nav_link">CATALOG</a>
+                            <a href="../catalog.php" class="nav_link">CATALOG</a>
                         </li>
                         <li class="nav_item">
-                            <a href="about_us.php" class="nav_link">ABOUT US</a>
+                            <a href="../about_us.php" class="nav_link">ABOUT US</a>
                         </li>';
                     }
                 ?>
@@ -129,7 +129,7 @@ if (isset($_SESSION['user_id'])) {
     
             <div class="nav_actions">
                 <!-- Search button -->
-                <a href="search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
+                <a href="search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
     
                 <!-- Toggle button -->
                 <div class="nav_toggle" id="nav-toggle">
