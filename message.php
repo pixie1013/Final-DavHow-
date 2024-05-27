@@ -42,4 +42,3 @@ if (!empty($email) && !empty($message)  && !empty($title) && (!empty($fname) || 
 
 $conn->close();
 
-?>
