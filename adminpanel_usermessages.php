@@ -168,7 +168,7 @@ $user_data = check_login($con);
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
-
+              
                     $sql = "SELECT * FROM user_messages ORDER BY created_at DESC";
                     $result = $conn->query($sql);
 

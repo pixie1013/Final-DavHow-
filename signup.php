@@ -78,10 +78,6 @@
             </p>
     
             <button type="submit" class="login__button" value="signup">Sign Up</button>
-    
-            <a href="#" class="login__forgot">
-               Forgot password?
-            </a>
          </div>
         </form>
       </div>
