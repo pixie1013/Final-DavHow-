@@ -121,56 +121,8 @@ $user_data = check_login($con);
                         <a href="about_us.php" class="nav_link">ABOUT US</a>
                     </li>';
                 }
-                ?>
-              
-                  $isAdmin = true;
-                  $isLoggedIn = false;
-
-                  if ($isAdmin) {
-                      echo '
-                      <li class="nav_item">
-                          <a href="homepage.html" class="nav_link">HOME</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="catalog.html" class="nav_link">CATALOG</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="about_us.html" class="nav_link">ABOUT US</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="discussionforum.php" class="nav_link">FORUM</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
-                      </li>';
-                  } else if ($isLoggedIn) {
-                      echo '
-                      <li class="nav_item">
-                          <a href="homepage.html" class="nav_link">HOME</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="catalog.html" class="nav_link">CATALOG</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="about_us.html" class="nav_link">ABOUT US</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="#" class="nav_link">FORUM</a>
-                      </li>';
-                  } else {
-                      echo '
-                      <li class="nav_item">
-                          <a href="homepage.html" class="nav_link">HOME</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="catalog.html" class="nav_link">CATALOG</a>
-                      </li>
-                      <li class="nav_item">
-                          <a href="about_us.html" class="nav_link">ABOUT US</a>
-                      </li>';
-                  }
-                  ?>
-             </ul>
+              ?>
+            </ul>
     
               <!-- Close button -->
               <div class="nav_close" id="nav-close">
@@ -236,8 +188,8 @@ $user_data = check_login($con);
                                 <td>{$row['first_name']} {$row['last_name']}</td>
                                 <td>{$row['title']}</td>
                                 <td>
-                                    <button class='view-button' onclick='viewMessage({$row['id']})'>View</button>
-                                    <button class='delete-button' onclick='deleteMessage({$row['id']})'>Delete</button>
+                                    <button class='view-button' onclick='viewMessage({$row['message_id']})'>View</button>
+                                    <button class='delete-button' onclick='deleteMessage({$row['message_id']})'>Delete</button>
                                 </td>
                             </tr>";
                         }
@@ -262,16 +214,16 @@ $user_data = check_login($con);
           </div>
         </div>
     </section>    
-      <footer>
-      <div class="footerrow">
+    <footer>
+        <div class="footerrow">
         <div class="col">
-          <h3>What is Davhow?</h3>
-          <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
-          <div class="socmeds1">
+            <h3>What is Davhow?</h3>
+            <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
+            <div class="socmeds1">
             <a href="#"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
             <a href="#"><i class="ri-mail-fill"></i></a>
-          </div>
+            </div>
         </div>
         <div class="col">
             <h3>Visit Us</h3>
@@ -280,26 +232,26 @@ $user_data = check_login($con);
             <p>8000 Philippines</p>
         </div>
         <div class="col">
-          <h3>Links</h3>
-          <ul>
+            <h3>Links</h3>
+            <ul>
             <li><a href="homepage.php">Home</a></li>
             <li><a href="catalog.php">Catalog</a></li>
             <li><a href="about_us.php">About Us</a></li>
             <li><a href="discussionforum.php">Forum</a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <h3>About DavHow</h3>
-            <ul>
-              <li><a href="homepage.php#services1">Our Services</a></li>
-              <li><a href="homepage.php#rationale">Rationale</a></li>
-              <li><a href="homepage.php#vision1">Vision and Mission</a></li>
-              <li><a href="homepage.php#objectives">Objectives</a></li>
             </ul>
         </div>
-      </div>
-      <hr>
-      <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
+        <div class="col">
+            <h3>About DavHow</h3>
+            <ul>
+                <li><a href="homepage.php#services1">Our Services</a></li>
+                <li><a href="homepage.php#rationale">Rationale</a></li>
+                <li><a href="homepage.php#vision1">Vision and Mission</a></li>
+                <li><a href="homepage.php#objectives">Objectives</a></li>
+            </ul>
+        </div>
+        </div>
+        <hr>
+        <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
     <script src="index.js"></script>
 </body>
