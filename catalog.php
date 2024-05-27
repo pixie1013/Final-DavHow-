@@ -51,15 +51,14 @@ if (isset($_SESSION['user_id'])) {
             <p class="Brand">DavHow</p>
             <p class="Tagline">UNSAON NI BAI?</p>
           </div>
-          <nav class="nav1">
-            <!-- Other navigation links can go here -->
-            <?php if (isset($user_data)): ?>
+            <nav class="nav1">
+                <?php if (isset($user_data)): ?>
                 <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
-                <a href="#" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
-            <?php else: ?>
+                <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
+                <?php else: ?>
                 <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
-            <?php endif; ?>
-          </nav>
+                <?php endif; ?>
+            </nav>
         </div>
       </header>
       <header class="header" id="header">
@@ -164,7 +163,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Affidavit to Use Surname of Father.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Affidavit to Use the Surname of the Father.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Affidavit to Use Surname of Father</h2>
@@ -173,7 +172,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Annual Income Tax for Individuals Earning Solely from Compensation (Including Non-BusinessNon-Profession Related Income).png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Annual Income Tax for Individuals.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Annual Income Tax for Individuals Earning Solely From Compensation (Including Non-Business and Non-Profession Related)</h2>
@@ -182,7 +181,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Annual Income Tax for Individuals, Estates, and Trusts.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Annual Income Tax for Inviduals, Estates and Trusts.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Annual Income Tax for Individuals, Estates, and Trusts</h2>
@@ -191,7 +190,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Annual Income Tax for Partnerships and Corporations.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Annual Income Tax for Corporations and Partnerships.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Annual Income Tax for Partnerships and Corporations</h2>
@@ -200,7 +199,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Barangay Certificate.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Barangay Certificate.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Barangay Certificate</h2>
@@ -209,7 +208,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Business Permit.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Issuance of Business Permit.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Business Permit</h2>
@@ -218,7 +217,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Certificate of Death.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Certificate of Death - DROD.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Death</h2>
@@ -227,7 +226,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/PSA Death Certificate.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/PSA Issued Death Certificate.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Death (PSA)</h2>
@@ -236,7 +235,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Certificate of Indigency.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Certificate of Indigency.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Indigency</h2>
@@ -245,7 +244,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Certificate Of Live Birth - DROB.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Live Birth</h2>
@@ -254,7 +253,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/PSA Birth Certificate.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/PSA Issued Birth Certififcate.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Live Birth (PSA)</h2>
@@ -263,7 +262,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Certificate of Marriage - DROM.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Marriage</h2>
@@ -272,7 +271,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/CENOMAR.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/PSA Issued CENOMAR.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of No Marriage Record (CENOMAR)</h2>
@@ -281,7 +280,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Certificate of Residency.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Certificate of Residency.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Residency</h2>
@@ -290,7 +289,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Certificate of Exemption.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Certificate of Exemption.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Tax Exemption</h2>
@@ -299,7 +298,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Cedula.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Community Tax Certificate.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Community Tax Certificate (CEDULA)</h2>
@@ -308,7 +307,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Full Retirement of Business Permit.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Full Retirement of Business Permit.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Full Retirement of Business Permit</h2>
@@ -317,7 +316,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Legal Instruments for Legitimation.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Legal Instruments for Legitimation.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Legal Instruments for Legitimation</h2>
@@ -326,7 +325,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Manual Tax Declaration.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Manual Tax Declaration.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Manual Tax Declaration</h2>
@@ -335,7 +334,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Marriage License.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Marriage License.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Marriage License</h2>
@@ -344,7 +343,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/NBI Clearance.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/NBI Clearance.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">NBI Clearance</h2>
@@ -353,7 +352,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Occupational Permit.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Occupational Permit.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Occupational Permit</h2>
@@ -362,7 +361,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Police Clearance.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Police Clearance.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Police Clearance Certificate</h2>
@@ -371,7 +370,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Tax Clearance Certificate.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="/documents/Tax Clearance Certificate.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Tax Clearance Certificate</h2>
@@ -554,33 +553,33 @@ if (isset($_SESSION['user_id'])) {
                 <div class="letter-section">
                     <h2>A</h2>
                     <ul>
-                        <li><a href="#apple">Affidavit to Use Surname of Father</a></li>
-                        <li><a href="#avocado">Annual Income Tax for Individuals Earning Solely From Compensation (Including Non-Business and Non-Profession Related)</a></li>
-                        <li><a href="#avocado">Annual Income Tax for Individuals, Estates, and Trusts</a></li>
-                        <li><a href="#avocado">Annual Income Tax for Partnerships and Corporations</a></li>
+                        <li><a href="/documents/Affidavit to Use the Surname of the Father.php">Affidavit to Use Surname of Father</a></li>
+                        <li><a href="/documents/Annual Income Tax for Individuals.php">Annual Income Tax for Individuals Earning Solely From Compensation (Including Non-Business and Non-Profession Related)</a></li>
+                        <li><a href="/documents/Annual Income Tax for Inviduals, Estates and Trusts.php">Annual Income Tax for Individuals, Estates, and Trusts</a></li>
+                        <li><a href="/documents/Annual Income Tax for Corporations and Partnerships.php">Annual Income Tax for Partnerships and Corporations</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
                     <h2>B</h2>
                     <ul>
-                        <li><a href="#banana">Barangay Certificate</a></li>
-                        <li><a href="#">Barangay ID</a></li>
-                        <li><a href="#blueberry">Business Permit</a></li>
+                        <li><a href="/documents/Barangay Certificate.php">Barangay Certificate</a></li>
+                        <li><a href="/valid_id/BARANGAY ID.php">Barangay ID</a></li>
+                        <li><a href="/documents/Issuance of Business Permit.php">Business Permit</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
                     <h2>C</h2>
                     <ul>
-                        <li><a href="#cucumber">Certificate of Death</a></li>
-                        <li><a href="#cucumber">Certificate of Death (PSA)</a></li>
-                        <li><a href="#cucumber">Certificate of Exemption</a></li>
-                        <li><a href="#cucumber">Certificate of Indigency</a></li>
-                        <li><a href="#cucumber">Certificate of Live Birth</a></li>
-                        <li><a href="#">Certificate of Live Birth (PSA)</a></li>
-                        <li><a href="#">Certificate of Marriage</a></li>
-                        <li><a href="#cherry">Certificate of No Marriage Record (CENOMAR)</a></li>
-                        <li><a href="#">Certificate of Residency</a></li>
-                        <li><a href="#cucumber">Community Tax Certificate (CEDULA)</a></li>
+                        <li><a href="/documents/Certificate of Death - DROD.php">Certificate of Death</a></li>
+                        <li><a href="/documents/PSA Issued Death Certificate.php">Certificate of Death (PSA)</a></li>
+                        <li><a href="/documents/Certificate of Exemption.php">Certificate of Exemption</a></li>
+                        <li><a href="/documents/Certificate of Indigency.php">Certificate of Indigency</a></li>
+                        <li><a href="/documents/Certificate Of Live Birth - DROB.php">Certificate of Live Birth</a></li>
+                        <li><a href="/documents/PSA Issued Birth Certififcate.php">Certificate of Live Birth (PSA)</a></li>
+                        <li><a href="/documents/Certificate of Marriage - DROM.php">Certificate of Marriage</a></li>
+                        <li><a href="/documents/PSA Issued CENOMAR.php">Certificate of No Marriage Record (CENOMAR)</a></li>
+                        <li><a href="/documents/Certificate of Residency.php">Certificate of Residency</a></li>
+                        <li><a href="/documents/Community Tax Certificate.php">Community Tax Certificate (CEDULA)</a></li>
                     </ul>
                 </div>
             </div>
@@ -588,33 +587,33 @@ if (isset($_SESSION['user_id'])) {
                 <div class="letter-section">
                     <h2>F</h2>
                     <ul>
-                        <li><a href="#date">Full Retirement of Business Permit</a></li>
+                        <li><a href="/documents/Full Retirement of Business Permit.php">Full Retirement of Business Permit</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
                     <h2>G</h2>
                     <ul>
-                        <li><a href="#">GSIS Unified Multi-Purpose ID</a></li>
+                        <li><a href="/valid_id/GSIS UMID ID.php">GSIS Unified Multi-Purpose ID</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
                     <h2>I</h2>
                     <ul>
-                        <li><a href="#">Integrated Bar of the Philippines ID (IBP)</a></li>
+                        <li><a href="/valid_id/IBP ID.php">Integrated Bar of the Philippines ID (IBP)</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
                     <h2>L</h2>
                     <ul>
-                        <li><a href="#">Legal Instruments for Legitimation</a></li>
-                        <li><a href="#">License to Own and Possess Firearms (LTOPF)</a></li>
+                        <li><a href="/documents/Legal Instruments for Legitimation.php">Legal Instruments for Legitimation</a></li>
+                        <li><a href="/valid_id/Firearms License.php">License to Own and Possess Firearms (LTOPF)</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
                     <h2>M</h2>
                     <ul>
-                        <li><a href="#">Manual Tax Declaration</a></li>
-                        <li><a href="#">Marriage License</a></li>
+                        <li><a href="/documents/Manual Tax Declaration.php">Manual Tax Declaration</a></li>
+                        <li><a href="/documents/Marriage License.php">Marriage License</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
@@ -627,8 +626,8 @@ if (isset($_SESSION['user_id'])) {
                 <div class="letter-section">
                     <h2>O</h2>
                     <ul>
-                        <li><a href="#">Occupational Permit</a></li>
-                        <li><a href="#">Overseas Workers Welfare Administration Card (OWWA)</a></li>
+                        <li><a href="/documents/Occupational Permit.php">Occupational Permit</a></li>
+                        <li><a href="/valid_id/OWWA ID.php">Overseas Workers Welfare Administration Card (OWWA)</a></li>
                     </ul>
                 </div>
             </div>
@@ -636,30 +635,30 @@ if (isset($_SESSION['user_id'])) {
                 <div class="letter-section">
                     <h2>P</h2>
                     <ul>
-                        <li><a href="#">Pantawid Pamilyang Pilipino Program ID (4Ps)</a></li>
-                        <li><a href="#">Passport ID</a></li>
-                        <li><a href="#">Persons with Disasbilities ID (PWD)</a></li>
-                        <li><a href="#">PhilHealth ID</a></li>
-                        <li><a href="#">Philippine Regulation Commission ID</a></li>
-                        <li><a href="#">Philippine System ID</a></li>
-                        <li><a href="#">Police Clearance Certificate</a></li>
-                        <li><a href="#">Postal ID</a></li>
-                        <li><a href="#">Professional Driver's License</a></li>
+                        <li><a href="/valid_id/4Ps ID.php">Pantawid Pamilyang Pilipino Program ID (4Ps)</a></li>
+                        <li><a href="/valid_id/Passport ID.php">Passport ID</a></li>
+                        <li><a href="/valid_id/PWD ID.php">Persons with Disasbilities ID (PWD)</a></li>
+                        <li><a href="/valid_id/PhilHealth ID.php">PhilHealth ID</a></li>
+                        <li><a href="/valid_id/PRC ID.php">Philippine Regulation Commission ID</a></li>
+                        <li><a href="/valid_id/PhilSys ID.php">Philippine System ID</a></li>
+                        <li><a href="/documents/Police Clearance.php">Police Clearance Certificate</a></li>
+                        <li><a href="/valid_id/POSTAL ID.php">Postal ID</a></li>
+                        <li><a href="/valid_id/Drivers License.php">Professional Driver's License</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
                     <h2>S</h2>
                     <ul>
-                        <li><a href="#">Senior Citizen ID</a></li>
-                        <li><a href="#">Solo Parent ID</a></li>
-                        <li><a href="#">Student Driver's Permit</a></li>
+                        <li><a href="/valid_id/Senior Citizen ID.php">Senior Citizen ID</a></li>
+                        <li><a href="/valid_id/Solo Parent ID.php">Solo Parent ID</a></li>
+                        <li><a href="/valid_id/Drivers License.php">Student Driver's Permit</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
                     <h2>T</h2>
                     <ul>
-                        <li><a href="#">Tax Clearance Certificate</a></li>
-                        <li><a href="#">Taxpayer Identification Number ID (TIN)</a></li>
+                        <li><a href="/documents/Tax Clearance Certificate.php">Tax Clearance Certificate</a></li>
+                        <li><a href="/valid_id/TIN ID.php">Taxpayer Identification Number ID (TIN)</a></li>
                     </ul>
                 </div>
             </div>
@@ -671,9 +670,9 @@ if (isset($_SESSION['user_id'])) {
             <h3>What is Davhow?</h3>
             <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
             <div class="socmeds1">
-            <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="#"><i class="ri-mail-fill"></i></a>
+            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
         <div class="col">
@@ -696,7 +695,7 @@ if (isset($_SESSION['user_id'])) {
             <ul>
                 <li><a href="homepage.php#services1">Our Services</a></li>
                 <li><a href="homepage.php#rationale">Rationale</a></li>
-                <li><a href="homepage.php#vision1">Vision and Mission</a></li>
+                <li><a href="homepage.php#vision">Vision and Mission</a></li>
                 <li><a href="homepage.php#objectives">Objectives</a></li>
             </ul>
         </div>

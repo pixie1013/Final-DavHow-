@@ -436,45 +436,45 @@
             </div>
         </section>
       </div>
-<footer>
-    <div class="footerrow">
-      <div class="col">
-        <h3>What is Davhow?</h3>
-        <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
-        <div class="socmeds1">
-          <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-          <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-          <a href="#"><i class="ri-mail-fill"></i></a>
+      <footer>
+        <div class="footerrow">
+        <div class="col">
+            <h3>What is Davhow?</h3>
+            <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
+            <div class="socmeds1">
+            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
+            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
+            </div>
         </div>
-      </div>
-      <div class="col">
-          <h3>Visit Us</h3>
-          <p>University of the Philippines Mindanao</p>
-          <p>Tugbok, Davao City</p>
-          <p>8000 Philippines</p>
-      </div>
-      <div class="col">
-        <h3>Links</h3>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Catalog</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Dashboard</a></li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>About DavHow</h3>
-          <ul>
-            <li><a href="#">Our Services</a></li>
-            <li><a href="#">Rationale</a></li>
-            <li><a href="#">Vision and Mission</a></li>
-            <li><a href="#">Objectives</a></li>
-          </ul>
-      </div>
-    </div>
-    <hr>
-    <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
-  </footer>
+        <div class="col">
+            <h3>Visit Us</h3>
+            <p>University of the Philippines Mindanao</p>
+            <p>Tugbok, Davao City</p>
+            <p>8000 Philippines</p>
+        </div>
+        <div class="col">
+            <h3>Links</h3>
+            <ul>
+            <li><a href="homepage.php">Home</a></li>
+            <li><a href="catalog.php">Catalog</a></li>
+            <li><a href="about_us.php">About Us</a></li>
+            <li><a href="discussionforum.php">Forum</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>About DavHow</h3>
+            <ul>
+                <li><a href="homepage.php#services1">Our Services</a></li>
+                <li><a href="homepage.php#rationale">Rationale</a></li>
+                <li><a href="homepage.php#vision">Vision and Mission</a></li>
+                <li><a href="homepage.php#objectives">Objectives</a></li>
+            </ul>
+        </div>
+        </div>
+        <hr>
+        <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
