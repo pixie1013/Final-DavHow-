@@ -69,3 +69,7 @@
 .message_result h2, .message-result p {
     color: #023047;
 }
+
+footer {
+    border-top-left-radius: 0px !important;
+}

@@ -574,10 +574,8 @@ footer {
     background-color: var(--first-color);
     color: var(--third-color);
     padding: 50px 0 12px;
-    border-top-left-radius: 125px;
     font-size: 14px;
     line-height: 20px;
-
 }
 
 .footertag {
