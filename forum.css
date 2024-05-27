@@ -250,8 +250,8 @@
     margin: 2px 0 0 25px;
 }
 
-.comment .username-container .admin{
-    margin-top: -4px;
+.comment .username-container .admin {
+    margin-top: 0px;
 }
 
 .comment-delete {

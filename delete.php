@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 if ($id > 0) {
-    $sql = "DELETE FROM user_messages WHERE message_id = ?";
+    $sql = "DELETE FROM contact WHERE message_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
