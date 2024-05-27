@@ -141,58 +141,14 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!--==================== SEARCH ====================-->
-    <div class="search" id="search">
-      <form action="" class="search__form">
-        <i class="ri-search-line search__icon"></i>
-        <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input" onkeyup="search()">
-      </form>
-      
-      <i class="ri-close-circle-line search__close" id="search-close"></i>
-      <div class="container4">
-        <div class="product-list" id="product-list">
-          <div class="product1">
-            <div class="p-details">
-              <h2>Affidavit</h2>
-            </div>
-          </div>
-          <div class="product1">
-            <div class="p-details">
-              <h2>Affidavit1</h2>
-            </div>
-          </div>
-          <div class="product1">
-            <div class="p-details">
-              <h2>Affidavit2</h2>
-            </div>
-          </div>
-          <div class="product1">
-            <div class="p-details">
-              <h2>Affidavit</h2>
-            </div>
-          </div>
-          <div class="product1">
-            <div class="p-details">
-              <h2>Affidavit</h2>
-            </div>
-          </div>
-          <div class="product1">
-            <div class="p-details">
-              <h2>Affidavit</h2>
-            </div>
-          </div>
-          <div class="product1">
-            <div class="p-details">
-              <h2>Affidavit</h2>
-            </div>
-          </div>
-          <div class="product1">
-            <div class="p-details">
-              <h2>Affidavit</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="search" id="search">
+    <form action="" class="search__form">
+       <i class="ri-search-line search__icon"></i>
+       <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input">
+    </form>
+
+    <i class="ri-close-circle-line search__close" id="search-close"></i>
+  </div>
 
   
   <!-- Welcoming Section -->
@@ -216,7 +172,7 @@ if (isset($_SESSION['user_id'])) {
   </section>
 
   <!-- Services -->
-  <section class="services-wrapper" id="services1">
+  <section class="services-wrapper scrollable-section" id="services1">
     <div class="service">
       <h1>Our Services</h1>
       <div class="cards">
@@ -241,7 +197,7 @@ if (isset($_SESSION['user_id'])) {
   </section>
 
   <!-- Rationale, Vision, Mission -->
-  <section class="rationale" id="rationale">
+  <section class="rationale scrollable-section" id="rationale">
     <div class="skewed" data-aos="fade-up">
       <div class="text">
         <h1>Rationale</h1>
@@ -264,7 +220,7 @@ if (isset($_SESSION['user_id'])) {
           <img src="photos/pexels-fauxels-3183197.jpg" alt="DavHow Vision">
         </div>
       </div>
-      <div class="text" id="vision">
+      <div class="text scrollable-section" id="vision">
         <h1>Vision</h1>
         <p>We envision a future where legal document acquisition is seamlessly facilitated through an innovative online
         platform. Our goal is to redefine industry standards by providing an easily accessible resource that transforms
@@ -286,7 +242,7 @@ if (isset($_SESSION['user_id'])) {
     </div>
   </section>
 
-  <section class="objectives" id="objectives">
+  <section class="objectives scrollable-section" id="objectives">
     <div class="card__container">
       <h1>Objectives</h1>
       <div class="card__content">
