@@ -27,7 +27,7 @@ if (isset($_SESSION['user_id'])) {
   <title>DavHow: Catalog</title>
 </head>
 <body>
-    <header class="header1">
+<header class="header1">
         <div class="top-bar">
           <div class="top-left">
             <div class="time">
@@ -47,7 +47,7 @@ if (isset($_SESSION['user_id'])) {
           </div>
           
           <div class="logo">
-            <img src="/photos/logo.png" alt="DavHow: Unsaon ni Bai?">
+            <img src="photos/logo.png" alt="DavHow: Unsaon ni Bai?">
             <p class="Brand">DavHow</p>
             <p class="Tagline">UNSAON NI BAI?</p>
           </div>
@@ -60,8 +60,8 @@ if (isset($_SESSION['user_id'])) {
                 <?php endif; ?>
             </nav>
         </div>
-      </header>
-      <header class="header" id="header">
+  </header>
+  <header class="header" id="header">
         <nav class="nav container">
            <p class="nav_tag"><em>Official website of ART Solutions</em></p>
     
@@ -128,7 +128,7 @@ if (isset($_SESSION['user_id'])) {
     
            <div class="nav_actions">
               <!-- Search button -->
-              <i class="ri-search-line nav_search" id="search-btn"></i>
+              <a href="search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
     
               <!-- Toggle button -->
               <div class="nav_toggle" id="nav-toggle">
@@ -136,17 +136,7 @@ if (isset($_SESSION['user_id'])) {
               </div>
            </div>
         </nav>
-      </header>
-    
-      <!--==================== SEARCH ====================-->
-      <div class="search" id="search">
-        <form action="" class="search__form">
-           <i class="ri-search-line search__icon"></i>
-           <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input">
-        </form>
-    
-        <i class="ri-close-circle-line search__close" id="search-close"></i>
-      </div>
+  </header>
 
     <div class="banner">
       <div class="content">
@@ -211,7 +201,25 @@ if (isset($_SESSION['user_id'])) {
                 <a href="/documents/Issuance of Business Permit.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
-                <h2 class="product-brand">Business Permit</h2>
+                <h2 class="product-brand">Business Permit - Issuance</h2>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="photos/DOCS Photos/Business Permit.png" class="product-thumb" alt="">
+                <a href="#"><button class="card-btn">Know More</button></a>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Business Permit - Renewal</h2>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="photos/DOCS Photos/Certificate of Death.png" class="product-thumb" alt="">
+                <a href="#"><button class="card-btn">Know More</button></a>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Certificate of Death - Delayed Registration</h2>
             </div>
         </div>
         <div class="product-card">
@@ -220,7 +228,7 @@ if (isset($_SESSION['user_id'])) {
                 <a href="/documents/Certificate of Death - DROD.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
-                <h2 class="product-brand">Certificate of Death</h2>
+                <h2 class="product-brand">Certificate of Death - Timely Registration</h2>
             </div>
         </div>
         <div class="product-card">
@@ -247,7 +255,25 @@ if (isset($_SESSION['user_id'])) {
                 <a href="/documents/Certificate Of Live Birth - DROB.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
-                <h2 class="product-brand">Certificate of Live Birth</h2>
+                <h2 class="product-brand">Certificate of Live Birth - Delayed Registration</h2>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
+                <a href="#"><button class="card-btn">Know More</button></a>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Certificate of Live Birth - Out of Town Registration</h2>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="photos/DOCS Photos/Certificate of Live Birth.png" class="product-thumb" alt="">
+                <a href="#"><button class="card-btn">Know More</button></a>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Certificate of Live Birth - Timely Registration</h2>
             </div>
         </div>
         <div class="product-card">
@@ -265,7 +291,25 @@ if (isset($_SESSION['user_id'])) {
                 <a href="/documents/Certificate of Marriage - DROM.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
-                <h2 class="product-brand">Certificate of Marriage</h2>
+                <h2 class="product-brand">Certificate of Marriage - Delayed Registration</h2>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <a href="#"><button class="card-btn">Know More</button></a>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Certificate of Marriage (PSA)</h2>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <a href="#"><button class="card-btn">Know More</button></a>
+            </div>
+            <div class="product-info">
+                <h2 class="product-brand">Certificate of Marriage - Timely Registration</h2>
             </div>
         </div>
         <div class="product-card">
@@ -565,6 +609,10 @@ if (isset($_SESSION['user_id'])) {
                         <li><a href="/documents/Barangay Certificate.php">Barangay Certificate</a></li>
                         <li><a href="/valid_id/BARANGAY ID.php">Barangay ID</a></li>
                         <li><a href="/documents/Issuance of Business Permit.php">Business Permit</a></li>
+                        <li><a href="#banana">Barangay Certificate</a></li>
+                        <li><a href="#">Barangay ID</a></li>
+                        <li><a href="#blueberry">Business Permit - Issuance</a></li>
+                        <li><a href="#blueberry">Business Permit - Renewal</a></li>
                     </ul>
                 </div>
                 <div class="letter-section">
@@ -580,10 +628,30 @@ if (isset($_SESSION['user_id'])) {
                         <li><a href="/documents/PSA Issued CENOMAR.php">Certificate of No Marriage Record (CENOMAR)</a></li>
                         <li><a href="/documents/Certificate of Residency.php">Certificate of Residency</a></li>
                         <li><a href="/documents/Community Tax Certificate.php">Community Tax Certificate (CEDULA)</a></li>
+                        <li><a href="#cucumber">Certificate of Death - Delayed Registration</a></li>
+                        <li><a href="#cucumber">Certificate of Death - Timely Registration</a></li>
+                        <li><a href="#cucumber">Certificate of Death (PSA)</a></li>
+                        <li><a href="#cucumber">Certificate of Indigency</a></li>
+                        <li><a href="#cucumber">Certificate of Live Birth - Delayed Registration</a></li>
+                        <li><a href="#cucumber">Certificate of Live Birth - Out of Town Registration</a></li>
+                        <li><a href="#cucumber">Certificate of Live Birth - Timely Registration</a></li>
+                        <li><a href="#">Certificate of Live Birth (PSA)</a></li>
                     </ul>
                 </div>
             </div>
             <div class="column">
+                <div class="letter-section">
+                    <h2>C</h2>
+                    <ul>
+                        <li><a href="#">Certificate of Marriage - Delayed Registration</a></li>
+                        <li><a href="#">Certificate of Marriage (PSA)</a></li>
+                        <li><a href="#">Certificate of Marriage - Timely Registration</a></li>
+                        <li><a href="#cherry">Certificate of No Marriage Record (CENOMAR)</a></li>
+                        <li><a href="#">Certificate of Residency</a></li>
+                        <li><a href="#cucumber">Community Tax Certificate (CEDULA)</a></li>
+                        <li><a href="#cucumber">Certificate of Tax Exemption</a></li>
+                    </ul>
+                </div>
                 <div class="letter-section">
                     <h2>F</h2>
                     <ul>
@@ -616,7 +684,9 @@ if (isset($_SESSION['user_id'])) {
                         <li><a href="/documents/Marriage License.php">Marriage License</a></li>
                     </ul>
                 </div>
-                <div class="letter-section">
+            </div>
+            <div class="column">
+            <div class="letter-section">
                     <h2>N</h2>
                     <ul>
                         <li><a href="#">NBI Clearance</a></li>
@@ -630,8 +700,6 @@ if (isset($_SESSION['user_id'])) {
                         <li><a href="/valid_id/OWWA ID.php">Overseas Workers Welfare Administration Card (OWWA)</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="column">
                 <div class="letter-section">
                     <h2>P</h2>
                     <ul>

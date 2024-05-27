@@ -32,7 +32,7 @@ $user_data = check_login($con);
   <title>DavHow: Admin Inbox</title>
 </head>
 <body>
-    <header class="header1">
+<header class="header1">
         <div class="top-bar">
           <div class="top-left">
             <div class="time">
@@ -63,7 +63,7 @@ $user_data = check_login($con);
             <?php else: ?>
             <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
             <?php endif; ?>
-          </nav>
+        </nav>
         </div>
       </header>
       <header class="header" id="header">
@@ -71,8 +71,8 @@ $user_data = check_login($con);
            <p class="nav_tag"><em>Official website of ART Solutions</em></p>
     
            <div class="nav_menu" id="nav-menu">
-            <ul class="nav_list">
-            <?php
+           <ul class="nav_list">
+           <?php
                 // Assume $isLoggedIn and $isAdmin are set based on authentication logic
                 $isLoggedIn = isset($_SESSION['user_id']); // Check if user is logged in
                 $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1; // Check if user is logged in as admin
@@ -132,7 +132,7 @@ $user_data = check_login($con);
     
            <div class="nav_actions">
               <!-- Search button -->
-              <i class="ri-search-line nav_search" id="search-btn"></i>
+              <a href="search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
     
               <!-- Toggle button -->
               <div class="nav_toggle" id="nav-toggle">
@@ -141,16 +141,7 @@ $user_data = check_login($con);
            </div>
         </nav>
       </header>
-    
-      <!--==================== SEARCH ====================-->
-      <div class="search" id="search">
-        <form action="" class="search__form">
-           <i class="ri-search-line search__icon"></i>
-           <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input">
-        </form>
-    
-        <i class="ri-close-circle-line search__close" id="search-close"></i>
-      </div>
+  
     <section class="messages-section" id="message">
       <div class="table-container">
         <table class="table">
@@ -188,8 +179,8 @@ $user_data = check_login($con);
                                 <td>{$row['first_name']} {$row['last_name']}</td>
                                 <td>{$row['title']}</td>
                                 <td>
-                                    <button class='view-button' onclick='viewMessage({$row['message_id']})'>View</button>
-                                    <button class='delete-button' onclick='deleteMessage({$row['message_id']})'>Delete</button>
+                                    <button class='view-button' onclick='viewMessage({$row['message_message_id']})'>View</button>
+                                    <button class='delete-button' onclick='deleteMessage({$row['message_message_id']})'>Delete</button>
                                 </td>
                             </tr>";
                         }
@@ -254,5 +245,6 @@ $user_data = check_login($con);
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
     <script src="index.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

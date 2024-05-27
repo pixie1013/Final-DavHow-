@@ -49,7 +49,7 @@ if (isset($_SESSION['user_id'])) {
       </div>
       
       <div class="logo">
-        <img src="/photos/logo.png" alt="DavHow: Unsaon ni Bai?">
+        <img src="photos/logo.png" alt="DavHow: Unsaon ni Bai?">
         <p class="Brand">DavHow</p>
         <p class="Tagline">UNSAON NI BAI?</p>
       </div>
