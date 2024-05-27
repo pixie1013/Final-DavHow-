@@ -20,14 +20,14 @@ $mobile_number = isset($_POST['mobile-number']) ? $_POST['mobile-number'] : '';
 $title = isset($_POST['title']) ? $_POST['title'] : '';
 $message = isset($_POST['message']) ? $_POST['message'] : '';
 
-if (!empty($email) && !empty($message) && (!empty($fname) || !empty($lname))) {
+if (!empty($email) && !empty($message)  && !empty($title) && (!empty($fname) || !empty($lname))) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Prepare SQL statement to prevent SQL injection
-        $stmt = $conn->prepare("INSERT INTO messages (first_name, last_name, email, mobile_number, message, title) VALUES (?, ?, ?, ?, ?, ?)");
+
+        $stmt = $conn->prepare("INSERT INTO user_messages (first_name, last_name, email, mobile_number, message, title) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $fname, $lname, $email, $mobile_number, $message, $title);
 
         if ($stmt->execute()) {
-            echo "Your message has been stored in the database";
+            echo "Your message has been successfully sent";
         } else {
             echo "Error: " . $stmt->error;
         }

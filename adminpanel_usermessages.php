@@ -29,7 +29,6 @@ $user_data = check_login($con);
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="admin.css">
   <title>DavHow: Admin Inbox</title>
 </head>
 <body>
@@ -123,7 +122,55 @@ $user_data = check_login($con);
                     </li>';
                 }
                 ?>
-            </ul>
+              
+                  $isAdmin = true;
+                  $isLoggedIn = false;
+
+                  if ($isAdmin) {
+                      echo '
+                      <li class="nav_item">
+                          <a href="homepage.html" class="nav_link">HOME</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="catalog.html" class="nav_link">CATALOG</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="about_us.html" class="nav_link">ABOUT US</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="discussionforum.php" class="nav_link">FORUM</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                      </li>';
+                  } else if ($isLoggedIn) {
+                      echo '
+                      <li class="nav_item">
+                          <a href="homepage.html" class="nav_link">HOME</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="catalog.html" class="nav_link">CATALOG</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="about_us.html" class="nav_link">ABOUT US</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="#" class="nav_link">FORUM</a>
+                      </li>';
+                  } else {
+                      echo '
+                      <li class="nav_item">
+                          <a href="homepage.html" class="nav_link">HOME</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="catalog.html" class="nav_link">CATALOG</a>
+                      </li>
+                      <li class="nav_item">
+                          <a href="about_us.html" class="nav_link">ABOUT US</a>
+                      </li>';
+                  }
+                  ?>
+             </ul>
     
               <!-- Close button -->
               <div class="nav_close" id="nav-close">
@@ -178,7 +225,7 @@ $user_data = check_login($con);
                         die("Connection failed: " . $conn->connect_error);
                     }
 
-                    $sql = "SELECT * FROM messages";
+                    $sql = "SELECT * FROM user_messages";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -211,7 +258,7 @@ $user_data = check_login($con);
               <p><strong>Email:</strong> <span id="modal-email"></span></p>
               <p><strong>Mobile Number:</strong> <span id="modal-mobile-number"></span></p><br><br>
               <p><strong>Title:</strong> <span id="modal-title"></span></p><br><br>
-              <p><strong>Message:</strong> <span id="modal-message"></span></p>
+              <p><strong>Message:</strong><br><br><span id="modal-message"></span></p>
           </div>
         </div>
     </section>    
