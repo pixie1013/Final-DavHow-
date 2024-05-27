@@ -1,3 +1,20 @@
+<?php 
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // If the user is not logged in, redirect to the login page
+    header("Location: login.php");
+    die;
+}
+
+// If the user is logged in, fetch their data
+$user_data = check_login($con);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,12 +52,18 @@
           </div>
           
           <div class="logo">
-            <img src="/New DavHow/photos/logo.png" alt="DavHow: Unsaon ni Bai?">
+            <img src="photos/logo.png" alt="DavHow: Unsaon ni Bai?">
             <p class="Brand">DavHow</p>
             <p class="Tagline">UNSAON NI BAI?</p>
           </div>
-          <!-- Login button -->
-          <ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon>
+          <nav class="nav1">
+            <?php if (isset($user_data)): ?>
+            <span class="greeting">Madayaw, <?php echo htmlspecialchars($user_data['user_name']); ?></span>
+            <a href="#" onclick="logout()" class="logout-button" id="logout-btn"><i class="ri-logout-box-r-line"></i></a>
+            <?php else: ?>
+            <a href="login.php"><ion-icon name="person-circle-outline" class="nav_login" id="login-btn"></ion-icon></a>
+            <?php endif; ?>
+          </nav>
         </div>
       </header>
       <header class="header" id="header">
@@ -50,6 +73,56 @@
            <div class="nav_menu" id="nav-menu">
             <ul class="nav_list">
             <?php
+                // Assume $isLoggedIn and $isAdmin are set based on authentication logic
+                $isLoggedIn = isset($_SESSION['user_id']); // Check if user is logged in
+                $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1; // Check if user is logged in as admin
+
+                // Check if the user is logged in as admin, user, or not logged in
+                if ($isAdmin) {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="discussionforum.php" class="nav_link">FORUM</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="adminpanel_usermessages.php" class="nav_link">MESSAGES</a>
+                    </li>';
+                } elseif ($isLoggedIn) {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="discussionforum.php" class="nav_link">FORUM</a>
+                    </li>';
+                } else {
+                    echo '
+                    <li class="nav_item">
+                        <a href="homepage.php" class="nav_link">HOME</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
+                    </li>';
+                }
+                ?>
+              
                   $isAdmin = true;
                   $isLoggedIn = false;
 
@@ -97,7 +170,7 @@
                       </li>';
                   }
                   ?>
-            </ul>
+             </ul>
     
               <!-- Close button -->
               <div class="nav_close" id="nav-close">
@@ -126,40 +199,6 @@
     
         <i class="ri-close-circle-line search__close" id="search-close"></i>
       </div>
-    
-      <!--==================== LOGIN ====================-->
-      <div class="login" id="login">
-        <form action="" class="login__form">
-          <h2 class="login__title">Log In</h2>
-         
-          <div class="login__group">
-            <div>
-               <label for="email" class="login__label">Email:</label>
-               <input type="email" placeholder="Write your email" id="email" class="login__input">
-            </div>
-            
-            <div>
-               <label for="password" class="login__label">Password:</label>
-               <input type="password" placeholder="Enter your password" id="password" class="login__input">
-            </div>
-          </div>
-    
-         <div>
-            <p class="login__signup">
-               Don't have an account? <a href="#">Sign up</a>
-            </p>
-    
-            <button type="submit" class="login__button">Log In</button>
-    
-            <a href="#" class="login__forgot">
-               Forgot password?
-            </a>
-         </div>
-        </form>
-    
-        <i class="ri-close-circle-line login__close" id="login-close"></i>
-      </div>
-    </div>
     <section class="messages-section" id="message">
       <div class="table-container">
         <table class="table">
