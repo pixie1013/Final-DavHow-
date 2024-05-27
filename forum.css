@@ -112,7 +112,7 @@
 }
 
 .comments-content .user-info .username {
-    margin: 0px 0 0 17px;
+    margin: 0px 0 0 20px;
 }
 
 .comments-content .content{
@@ -192,6 +192,34 @@
     border-radius: 0 10px 10px 0;
 }
 
-.content {
+.discussion .content {
     font-size: 18px;
+}
+
+.verify{
+    text-align: center;
+    margin-bottom: 10px;
+    color: #888686;
+    font-style: italic;
+}
+
+.verify-post{
+    color: #1a7906;
+    font-style: italic;
+    font-size: 10px;
+    margin-left: 4px;
+}
+
+
+.comment .content{
+    font-size: 15px;
+    margin-left: 28px;
+}
+
+.error{
+    font-size: 13px;
+    text-align: center;
+    margin: 15px 0 0 3px;
+    font-style: italic;
+    color: gray;
 }

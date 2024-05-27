@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "log_in";
+$dbname = "davhow";
 
 if (!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname))
 {

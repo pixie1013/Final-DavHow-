@@ -30,10 +30,8 @@ $user_data = check_login($con);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="forum.css">
     <link rel="stylesheet" href="/New DavHow/documents/header.css">
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>DavHow: Discussion Forum</title>
 </head>
@@ -213,15 +211,19 @@ $user_data = check_login($con);
                                     // Retrieve data from form fields
                                     $idType = $_POST['idType'];
                                     $content = $_POST['content'];
+
+                                    // Retrieve username from the users table
+                                    $user_name = $_SESSION['user_name'];
+                                    $username = getUsername($conn, $user_name);
                                     
                                     // Insert data into the database
-                                    $sql = "INSERT INTO posts (specified_concern, content, timestamp) VALUES (?, ?, NOW())";
+                                    $sql = "INSERT INTO posts (username, specified_concern, content, timestamp) VALUES (?, ?, ?, NOW())";
                                     $stmt = $conn->prepare($sql);
-                                    $stmt->bind_param("ss", $idType, $content);
+                                    $stmt->bind_param("sss", $username, $idType, $content);
                                     
                                     if ($stmt->execute()) {
                                         // Data inserted successfully
-                                        echo "Post submitted successfully!";
+                                        echo '<p class="verify-post">Post submitted successfully!</p>';
                                     } else {
                                         // Error inserting data
                                         echo "Error: " . $conn->error;
@@ -229,19 +231,38 @@ $user_data = check_login($con);
                                     
                                     // Close statement
                                     $stmt->close();
-                            
+                                    
                                     // Clear textarea value
                                     echo "<script>document.getElementById('content').value = '';</script>";
                                 }
                             }
+
+                                // Function to retrieve username from users table
+                                function getUsername($conn, $username) {
+                                    $sql = "SELECT user_name FROM users WHERE user_name = ?";
+                                    $stmt = $conn->prepare($sql);
+                                    $stmt->bind_param("s", $username);
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+                                    
+                                    if ($result->num_rows > 0) {
+                                        $row = $result->fetch_assoc();
+                                        return $row["user_name"];
+                                    } else {
+                                        return false;
+                                    }
+                                }
                             ?>
+
                     </div>
                 </div><hr>
             </form>
             <!-- POST AREA -->
             <div class="post-area">
             <?php
-                $sql = "SELECT post_id, username, content, specified_concern, timestamp FROM posts ORDER BY timestamp DESC";
+                $sql = "SELECT post_id, username, content, specified_concern, timestamp, time 
+                FROM posts 
+                ORDER BY time DESC";        
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
@@ -249,7 +270,7 @@ $user_data = check_login($con);
                         fetchPosts($conn, $row);
                     }
                 } else {
-                    echo "No posts found.";
+                    echo '<p class="verify">No posts found.</p>';
                 }
 
                 // Function to fetch posts
@@ -294,20 +315,25 @@ $user_data = check_login($con);
 
 
                 // Process comment submission
+                // Process comment submission
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_comment'])) {
                     // Retrieve data from the form
                     $postId = $_POST['post_id'];
-                    $username = "root"; // Assuming you want to use a default username for now
+                    
+                    // Retrieve the username of the logged-in user from the session or from wherever it's stored
+                    session_start();
+                    $username = $_SESSION['user_name']; // Assuming the username is stored in the session
+                    
                     $commentContent = $_POST['comment_content'];
 
                     // Insert the comment into the database
                     $sql = "INSERT INTO comments (post_id, username, comment_text, timestamp) VALUES (?, ?, ?, NOW())";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("iss", $postId, $username, $commentContent);
-
+                    
                     if ($stmt->execute()) {
                         // Comment inserted successfully
-                        echo "Comment submitted successfully!";
+                        echo '<p class="verify-comment">Comment submitted successfully!</p>';
                     } else {
                         // Error inserting comment
                         echo "Error: " . $conn->error;
@@ -318,28 +344,47 @@ $user_data = check_login($con);
                 }
 
 
-
                 // Function to fetch comments for a post
                 function fetchComments($conn, $postId) {
-                    $sql = "SELECT username, comment_text, timestamp FROM comments WHERE post_id = $postId ORDER BY timestamp DESC";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
+                    // Initialize username variable
+                    $username = "";
+                
+                    // Check if user is logged in
+                    if(isset($_SESSION['user_name'])) {
+                        $username = $_SESSION['user_name'];
+                    } else {
+                        echo '<p class="error">Error: User not logged in.</p>';
+                        return;
+                    }
+                    
+                    // Fetch comments for the post
+                    $sql_comments = "SELECT comment_text, timestamp FROM comments WHERE post_id = ? ORDER BY timestamp DESC";
+                    $stmt_comments = $conn->prepare($sql_comments);
+                    $stmt_comments->bind_param("i", $postId);
+                    $stmt_comments->execute();
+                    $result_comments = $stmt_comments->get_result();
+                    
+                    // Display comments
+                    if ($result_comments->num_rows > 0) {
+                        while ($row = $result_comments->fetch_assoc()) {
                             echo '<hr><div class="comment">';
                             echo '<div class="user-info">';
                             echo '<div class="user-icon">';
                             echo '<img src="valid_id/icons/user-icon.svg" alt="">';
                             echo '</div>';
-                            echo '<strong><p class="username"> ANONYMOUS </p></strong>';
+                            echo '<strong><p class="username">' . htmlspecialchars($username) . '</p></strong>'; // htmlspecialchars for safety
                             echo '</div>';
                             echo '<div class="content">';
-                            echo '<p>' . $row['comment_text'] . '</p>';
+                            echo '<p>' . htmlspecialchars($row['comment_text']) . '</p>'; // htmlspecialchars for safety
                             echo '</div>';
                             echo '</div>';
                         }
-                    } 
+                    } else {
+                        echo '<hr><p class="error">No comments found.</p>';
+                    }
                 }
+                
+                
             ?>
             </div>
         </div>
