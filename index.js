@@ -111,8 +111,6 @@ function submitCommentForm(postId) {
 }
 
 
-
-
 const form = document.querySelector(".contactUs form");
 const statusTxt = form.querySelector(".send-button span");
   
