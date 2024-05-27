@@ -179,8 +179,8 @@ $user_data = check_login($con);
                                 <td>{$row['first_name']} {$row['last_name']}</td>
                                 <td>{$row['title']}</td>
                                 <td>
-                                    <button class='view-button' onclick='viewMessage({$row['message_message_id']})'>View</button>
-                                    <button class='delete-button' onclick='deleteMessage({$row['message_message_id']})'>Delete</button>
+                                    <button class='view-button' onclick='viewMessage({$row['message_id']})'>View</button>
+                                    <button class='delete-button' onclick='deleteMessage({$row['message_id']})'>Delete</button>
                                 </td>
                             </tr>";
                         }

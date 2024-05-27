@@ -34,4 +34,4 @@ $conn->close();
 
 // Return document IDs as JSON
 echo json_encode($documentIds);
-?>
+

@@ -252,7 +252,7 @@ $user_data = check_login($con);
             <div class="post-area">
             <?php
                 $sql = "SELECT post_id, username, content, specified_concern, timestamp, time, is_admin 
-                FROM posts 
+                FROM posts
                 ORDER BY time DESC";        
                 $result = $conn->query($sql);
                 
