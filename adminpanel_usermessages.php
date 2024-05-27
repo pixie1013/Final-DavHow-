@@ -121,9 +121,8 @@ $user_data = check_login($con);
                         <a href="about_us.php" class="nav_link">ABOUT US</a>
                     </li>';
                 }
-                ?>
-
-          </ul>
+              ?>
+            </ul>
     
               <!-- Close button -->
               <div class="nav_close" id="nav-close">
@@ -180,8 +179,8 @@ $user_data = check_login($con);
                                 <td>{$row['first_name']} {$row['last_name']}</td>
                                 <td>{$row['title']}</td>
                                 <td>
-                                    <button class='view-button' onclick='viewMessage({$row['message_id']})'>View</button>
-                                    <button class='delete-button' onclick='deleteMessage({$row['message_id']})'>Delete</button>
+                                    <button class='view-button' onclick='viewMessage({$row['message_message_id']})'>View</button>
+                                    <button class='delete-button' onclick='deleteMessage({$row['message_message_id']})'>Delete</button>
                                 </td>
                             </tr>";
                         }
@@ -226,19 +225,19 @@ $user_data = check_login($con);
         <div class="col">
             <h3>Links</h3>
             <ul>
-            <li><a href="homepage.html">Home</a></li>
-            <li><a href="#">Catalog</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="homepage.php">Home</a></li>
+            <li><a href="catalog.php">Catalog</a></li>
+            <li><a href="about_us.php">About Us</a></li>
+            <li><a href="discussionforum.php">Forum</a></li>
             </ul>
         </div>
         <div class="col">
             <h3>About DavHow</h3>
             <ul>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Rationale</a></li>
-                <li><a href="#">Vision and Mission</a></li>
-                <li><a href="#">Objectives</a></li>
+                <li><a href="homepage.php#services1">Our Services</a></li>
+                <li><a href="homepage.php#rationale">Rationale</a></li>
+                <li><a href="homepage.php#vision1">Vision and Mission</a></li>
+                <li><a href="homepage.php#objectives">Objectives</a></li>
             </ul>
         </div>
         </div>

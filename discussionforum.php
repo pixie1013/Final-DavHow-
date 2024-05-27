@@ -30,10 +30,8 @@ $user_data = check_login($con);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="forum.css">
     <link rel="stylesheet" href="/New DavHow/documents/header.css">
-    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>DavHow: Discussion Forum</title>
 </head>
@@ -157,15 +155,7 @@ $user_data = check_login($con);
                 <input type="hidden" name="counter" value="your_counter_value_here">
                 <div class="create-post">
                     <div class="user-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 67 64">
-                            <path fill="url(#a)" d="M0 0h67v64H0z"/>
-                            <defs>
-                            <pattern id="a" width="1" height="1" patternContentUnits="objectBoundingBox">
-                                <use href="#b" transform="matrix(.00955 0 0 .01 .022 0)"/>
-                            </pattern>
-                            <image id="b" width="100" height="100" href="data:image/png;base64,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"/>
-                            </defs>
-                        </svg>                  
+                        <img src="valid_id/icons/user-icon.svg" alt="">                
                     </div>
                     <div class="input">
                         <div class="dropdown">
@@ -191,12 +181,12 @@ $user_data = check_login($con);
                             </select>
                           </div>
                         <textarea placeholder="What is your concern?" name="content"></textarea>
-                        <button type="submit" name="submit">Post</button>
+                        <button type="submit" name="submit">POST</button>
                         <?php
                             $servername = "localhost";
                             $username = "root";
                             $password = "";
-                            $dbname = "discussionforum";
+                            $dbname = "davhow";
 
                             // Create connection
                             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -212,15 +202,19 @@ $user_data = check_login($con);
                                     // Retrieve data from form fields
                                     $idType = $_POST['idType'];
                                     $content = $_POST['content'];
+
+                                    // Retrieve username from the users table
+                                    $user_name = $_SESSION['user_name'];
+                                    $username = getUsername($conn, $user_name);
                                     
                                     // Insert data into the database
-                                    $sql = "INSERT INTO posts (specified_concern, content, timestamp) VALUES (?, ?, NOW())";
+                                    $sql = "INSERT INTO posts (username, specified_concern, content, timestamp) VALUES (?, ?, ?, NOW())";
                                     $stmt = $conn->prepare($sql);
-                                    $stmt->bind_param("ss", $idType, $content);
+                                    $stmt->bind_param("sss", $username, $idType, $content);
                                     
                                     if ($stmt->execute()) {
                                         // Data inserted successfully
-                                        echo "Post submitted successfully!";
+                                        echo '<p class="verify-post">Post submitted successfully!</p>';
                                     } else {
                                         // Error inserting data
                                         echo "Error: " . $conn->error;
@@ -228,19 +222,38 @@ $user_data = check_login($con);
                                     
                                     // Close statement
                                     $stmt->close();
-                            
+                                    
                                     // Clear textarea value
                                     echo "<script>document.getElementById('content').value = '';</script>";
                                 }
                             }
+
+                                // Function to retrieve username from users table
+                                function getUsername($conn, $username) {
+                                    $sql = "SELECT user_name FROM users WHERE user_name = ?";
+                                    $stmt = $conn->prepare($sql);
+                                    $stmt->bind_param("s", $username);
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+                                    
+                                    if ($result->num_rows > 0) {
+                                        $row = $result->fetch_assoc();
+                                        return $row["user_name"];
+                                    } else {
+                                        return false;
+                                    }
+                                }
                             ?>
+
                     </div>
                 </div><hr>
             </form>
             <!-- POST AREA -->
             <div class="post-area">
             <?php
-                $sql = "SELECT post_id, username, content, specified_concern, timestamp FROM posts ORDER BY timestamp DESC";
+                $sql = "SELECT post_id, username, content, specified_concern, timestamp, time 
+                FROM posts 
+                ORDER BY time DESC";        
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
@@ -248,62 +261,70 @@ $user_data = check_login($con);
                         fetchPosts($conn, $row);
                     }
                 } else {
-                    echo "No posts found.";
+                    echo '<p class="verify">No posts found.</p>';
                 }
-                
+
                 // Function to fetch posts
                 function fetchPosts($conn, $row) {
                     echo '<div class="post-area">';
                     echo '<div class="post">';
                     echo '<div class="specified-concern">';
-                    echo '<strong><em><p>' . $row['specified_concern'] . '• </p></em></strong>';
-                    echo '<em><p class="date">' . $row['timestamp'] . '</p></em>';
+                    echo '<strong><em><p>r/' . $row['specified_concern'] . ' </p></em></strong>';
+                    echo '<em><p class="date">•' . $row['timestamp'] . '</p></em>';
                     echo '</div>';
                     echo '<div class="user-info">';
                     echo '<div class="user-icon">';
-                    echo '<img src="valid_id/icons/user-icon" alt="">';
+                    echo '<img src="valid_id/icons/user-icon.svg" alt="" style="width: 35px; height: 35px;">';
                     echo '</div>';
                     echo '<p class="username">' . $row['username'] . '</p>';
                     echo '</div>';
                     echo '<p class="content">' . $row['content'] . '</p>';
-                
-                    // Fetch comments for this post
-                    fetchComments($conn, $row['post_id']);
-                
+
                     // Comment input form
                     echo '<div class="comment-section" id="comment-section-' . $row['post_id'] . '">';
                     echo '<div class="comment-outline" onclick="toggleComments(' . $row['post_id'] . ')">';
                     echo '<img src="/New DavHow/valid_id/icons/speech_bubble.svg" alt="">';
                     echo '<p>COMMENTS</p>';
                     echo '</div>';
-                    echo '<div class="comments-content">';
-                    echo '<div class="comment-input">';
-                    echo '<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">';
-                    echo '<input type="hidden" name="post_id" value="' . $row['post_id'] . '">';
-                    echo '<input type="text" name="comment_content" placeholder="Type comment here">';
-                    echo '<button type="submit" name="submit_comment">Post</button>';
-                    echo '</form>';
+                    echo '<div class="comments-content" id="comments-content-' . $row['post_id'] . '" style="display: none;"> <hr>';
+                        echo '<div class="comment-input" id="comment-input-' . $row['post_id'] . '">';
+                            echo'<img src="valid_id/icons/user-icon.svg">';
+                            echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
+                            echo '<input type="hidden" name="post_id" value="' . $row['post_id'] . '">';
+                            echo '<input type="text" name="comment_content" placeholder="Type comment here">';
+                            echo '<button type="submit" onclick="submitCommentForm(' . $row['post_id'] . ')" name="submit_comment">POST</button>';
+                            echo '</form>';
                     echo '</div>';
+                    // Fetch comments for this post
+                    fetchComments($conn, $row['post_id']);
                     echo '</div>';
+                    
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
                 }
 
+
+                // Process comment submission
                 // Process comment submission
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_comment'])) {
                     // Retrieve data from the form
                     $postId = $_POST['post_id'];
+                    
+                    // Retrieve the username of the logged-in user from the session or from wherever it's stored
+                    session_start();
+                    $username = $_SESSION['user_name']; // Assuming the username is stored in the session
+                    
                     $commentContent = $_POST['comment_content'];
 
                     // Insert the comment into the database
-                    $sql = "INSERT INTO comments (post_id, content, timestamp) VALUES (?, ?, NOW())";
+                    $sql = "INSERT INTO comments (post_id, username, comment_text, timestamp) VALUES (?, ?, ?, NOW())";
                     $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("is", $postId, $commentContent);
-
+                    $stmt->bind_param("iss", $postId, $username, $commentContent);
+                    
                     if ($stmt->execute()) {
                         // Comment inserted successfully
-                        echo "Comment submitted successfully!";
+                        echo '<p class="verify-comment">Comment submitted successfully!</p>';
                     } else {
                         // Error inserting comment
                         echo "Error: " . $conn->error;
@@ -313,41 +334,62 @@ $user_data = check_login($con);
                     $stmt->close();
                 }
 
+
                 // Function to fetch comments for a post
                 function fetchComments($conn, $postId) {
-                    $sql = "SELECT username, comment_text, timestamp FROM comments WHERE post_id = $postId ORDER BY timestamp DESC";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo '<div class="comment">';
+                    // Initialize username variable
+                    $username = "";
+                
+                    // Check if user is logged in
+                    if(isset($_SESSION['user_name'])) {
+                        $username = $_SESSION['user_name'];
+                    } else {
+                        echo '<p class="error">Error: User not logged in.</p>';
+                        return;
+                    }
+                    
+                    // Fetch comments for the post
+                    $sql_comments = "SELECT comment_text, timestamp FROM comments WHERE post_id = ? ORDER BY timestamp DESC";
+                    $stmt_comments = $conn->prepare($sql_comments);
+                    $stmt_comments->bind_param("i", $postId);
+                    $stmt_comments->execute();
+                    $result_comments = $stmt_comments->get_result();
+                    
+                    // Display comments
+                    if ($result_comments->num_rows > 0) {
+                        while ($row = $result_comments->fetch_assoc()) {
+                            echo '<hr><div class="comment">';
                             echo '<div class="user-info">';
                             echo '<div class="user-icon">';
-                            echo '<img src="/valid_id/icons/user-icon.svg" alt="">';
+                            echo '<img src="valid_id/icons/user-icon.svg" alt="">';
                             echo '</div>';
-                            echo '<p class="username">' . $row['username'] . '</p>';
+                            echo '<strong><p class="username">' . htmlspecialchars($username) . '</p></strong>'; // htmlspecialchars for safety
                             echo '</div>';
                             echo '<div class="content">';
-                            echo '<p>' . $row['comment_text'] . '</p>';
+                            echo '<p>' . htmlspecialchars($row['comment_text']) . '</p>'; // htmlspecialchars for safety
                             echo '</div>';
                             echo '</div>';
                         }
-                    } 
+                    } else {
+                        echo '<hr><p class="error">No comments found.</p>';
+                    }
                 }
+                
+                
             ?>
             </div>
         </div>
     </div>
     <!-- FOOTER -->
     <footer>
-      <div class="footerrow">
+        <div class="footerrow">
         <div class="col">
             <h3>What is Davhow?</h3>
             <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
             <div class="socmeds1">
-            <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61560047196528"><i class="ri-facebook-circle-fill"></i></a>
             <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-            <a href="#"><i class="ri-mail-fill"></i></a>
+            <a href="mailto:artsolutions24@email.com"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
         <div class="col">
@@ -369,14 +411,14 @@ $user_data = check_login($con);
             <h3>About DavHow</h3>
             <ul>
                 <li><a href="homepage.php#services1">Our Services</a></li>
-                <li><a href="#rationale">Rationale</a></li>
-                <li><a href="#vision">Vision and Mission</a></li>
-                <li><a href="#objectives">Objectives</a></li>
+                <li><a href="homepage.php#rationale">Rationale</a></li>
+                <li><a href="homepage.php#vision">Vision and Mission</a></li>
+                <li><a href="homepage.php#objectives">Objectives</a></li>
             </ul>
         </div>
         </div>
         <hr>
-       <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
+        <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
     <script src="index.js"></script>
     <script src="script.js"></script>
