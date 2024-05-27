@@ -158,6 +158,7 @@ function viewMessage(id) {
           if (data.error) {
               alert(data.error);
           } else {
+              // Update UI with message details
               document.getElementById('modal-date').innerText = data.created_at;
               document.getElementById('modal-first-name').innerText = data.first_name;
               document.getElementById('modal-last-name').innerText = data.last_name;
@@ -166,10 +167,30 @@ function viewMessage(id) {
               document.getElementById('modal-title').innerText = data.title;
               document.getElementById('modal-message').innerText = data.message;
 
+              // Update read status in UI
+              const messageRow = document.getElementById('message_row_' + id);
+              if (messageRow) {
+                  messageRow.classList.remove('unread-message');
+                  messageRow.classList.add('read-message');
+                  const statusButton = messageRow.querySelector('.status-button');
+                  if (statusButton) {
+                      statusButton.innerText = 'Mark as Unread';
+                      statusButton.setAttribute('onclick', `toggleReadStatus(${id}, false)`);
+                  }
+              }
+
+              // Display modal
               document.getElementById('myModal').style.display = "block";
+
+              // Add event listener to the close button to reload the page when clicked
+              const closeButton = document.querySelector('#myModal .close');
+              if (closeButton) {
+                  closeButton.addEventListener('click', () => location.reload());
+              }
           }
       });
 }
+
 
 function deleteMessage(id) {
   if (confirm('Are you sure you want to delete this message?')) {
@@ -187,6 +208,20 @@ window.onclick = function(event) {
 function closeModal() {
   document.getElementById('myModal').style.display = "none";
 }
+
+
+function toggleReadStatus(id) {
+    fetch(`mark_as_read.php?id=${id}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Error updating status');
+            }
+        });
+}
+
 
 function logout() {
     // Perform logout actions here, such as clearing session data

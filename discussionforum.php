@@ -32,6 +32,7 @@ $user_data = check_login($con);
     <link rel="stylesheet" href="forum.css">
     <link rel="stylesheet" href="/New DavHow/documents/header.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="photos/logo.png">
     <title>DavHow: Discussion Forum</title>
 </head>
 <body>
