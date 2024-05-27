@@ -19,8 +19,8 @@ $(document).ready(function() {
             var $div = $(this).closest('.information-option').find('label[for="' + this.id + '"]').closest('div div');
             $div.css({
                 'background': 'linear-gradient(to top, #75AAE8, #0075FF)',
-                'box-shadow': '0 0px 0 0 rgba(0,0,0,0.3), 0  0 0 rgba(0,0,0,0.25)'
-            });   
+                'box-shadow': '0 0px 0 0 rgba(0,0,0,0.3), 0 0 0 rgba(0,0,0,0.25)'
+            });
         });
     }
 
@@ -50,169 +50,130 @@ $(document).ready(function() {
     updateBackground();
 });
 
-    // REFERENCE: W3SCHOOLS
-    function magnify(imgID, zoom) {
-        var img, glass, w, h, bw;
-        img = document.getElementById(imgID);
+// Magnify function
+function magnify(imgID, zoom) {
+    var img = document.getElementById(imgID);
+    var glass = document.createElement("DIV");
+    glass.setAttribute("class", "img-magnifier-glass");
+    img.parentElement.insertBefore(glass, img);
 
-        /*create magnifier glass:*/
-        glass = document.createElement("DIV");
-        glass.setAttribute("class", "img-magnifier-glass");
-        /*insert magnifier glass:*/
-        img.parentElement.insertBefore(glass, img);
+    glass.style.backgroundImage = "url('" + img.src + "')";
+    glass.style.backgroundRepeat = "no-repeat";
+    glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+    var bw = 3;
+    var w = glass.offsetWidth / 2;
+    var h = glass.offsetHeight / 2;
 
-        /*set background properties for the magnifier glass:*/
-        glass.style.backgroundImage = "url('" + img.src + "')";
-        glass.style.backgroundRepeat = "no-repeat";
-        glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
-        bw = 3;
-        w = glass.offsetWidth / 2;
-        h = glass.offsetHeight / 2;
+    glass.addEventListener("mousemove", moveMagnifier);
+    img.addEventListener("mousemove", moveMagnifier);
+    glass.addEventListener("touchmove", moveMagnifier);
+    img.addEventListener("touchmove", moveMagnifier);
 
-        /*execute a function when someone moves the magnifier glass over the image:*/
-        glass.addEventListener("mousemove", moveMagnifier);
-        img.addEventListener("mousemove", moveMagnifier);
-        /*and also for touch screens:*/
-        glass.addEventListener("touchmove", moveMagnifier);
-        img.addEventListener("touchmove", moveMagnifier);
-
-        function moveMagnifier(e) {
-            var pos, x, y;
-            /*prevent any other actions that may occur when moving over the image*/
-            e.preventDefault();
-            /*get the cursor's x and y positions:*/
-            pos = getCursorPos(e);
-            x = pos.x;
-            y = pos.y;
-            /*prevent the magnifier glass from being positioned outside the image:*/
-            if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
-            if (x < w / zoom) {x = w / zoom;}
-            if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
-            if (y < h / zoom) {y = h / zoom;}
-            /*set the position of the magnifier glass:*/
-            glass.style.left = (x - w) + "px";
-            glass.style.top = (y - h) + "px";
-            /*display what the magnifier glass "sees":*/
-            glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
-        }
-
-        function getCursorPos(e) {
-            var a, x = 0, y = 0;
-            e = e || window.event;
-            /*get the x and y positions of the image:*/
-            a = img.getBoundingClientRect();
-            /*calculate the cursor's x and y coordinates, relative to the image:*/
-            x = e.pageX - a.left;
-            y = e.pageY - a.top;
-            /*consider any page scrolling:*/
-            x = x - window.pageXOffset;
-            y = y - window.pageYOffset;
-            return {x : x, y : y};
-        }
+    function moveMagnifier(e) {
+        var pos = getCursorPos(e);
+        var x = pos.x;
+        var y = pos.y;
+        e.preventDefault();
+        if (x > img.width - (w / zoom)) { x = img.width - (w / zoom); }
+        if (x < w / zoom) { x = w / zoom; }
+        if (y > img.height - (h / zoom)) { y = img.height - (h / zoom); }
+        if (y < h / zoom) { y = h / zoom; }
+        glass.style.left = (x - w) + "px";
+        glass.style.top = (y - h) + "px";
+        glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
     }
 
-    document.getElementById("reference-photo").addEventListener("mouseenter", function() {
-        magnify('reference-photo', 3);
-    });
-
-    document.getElementById("reference-photo").addEventListener("mouseleave", function() {
-        var glass = document.querySelector(".img-magnifier-glass");
-        if (glass) {
-            glass.remove();
-        }
-    });
-
-    // Show Menu
-const navMenu = document.getElementById('nav-menu'),
-navToggle = document.getElementById('nav-toggle'),
-navClose = document.getElementById('nav-close')
-
-navToggle.addEventListener('click', () => {
-navMenu.classList.add('show-menu')
-})
-
-navClose.addEventListener('click', () => {
-navMenu.classList.remove('show-menu')
-})
-
-//Search
-const search = document.getElementById('search'),
-searchBtn = document.getElementById('search-btn'),
-searchClose = document.getElementById('search-close')
-
-searchBtn.addEventListener('click', () => {
-search.classList.add('show-search')
-})
-
-searchClose.addEventListener('click', () => {
-search.classList.remove('show-search')
-})
-
-const login = document.getElementById('login'),
-loginBtn = document.getElementById('login-btn'),
-loginClose = document.getElementById('login-close')
-
-loginBtn.addEventListener('click', () => {
-login.classList.add('show-login')
-})
-
-loginClose.addEventListener('click', () => {
-login.classList.remove('show-login')
-})
-
-const displayTime = document.querySelector(".display-time");
-// Time
-function showTime() {
-let time = new Date();
-displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
-setTimeout(showTime, 1000);
+    function getCursorPos(e) {
+        var a = img.getBoundingClientRect();
+        var x = e.pageX - a.left - window.pageXOffset;
+        var y = e.pageY - a.top - window.pageYOffset;
+        return { x: x, y: y };
+    }
 }
 
+document.getElementById("reference-photo").addEventListener("mouseenter", function() {
+    magnify('reference-photo', 3);
+});
+
+document.getElementById("reference-photo").addEventListener("mouseleave", function() {
+    var glass = document.querySelector(".img-magnifier-glass");
+    if (glass) {
+        glass.remove();
+    }
+});
+
+// Display Time
+const displayTime = document.querySelector(".display-time");
+function showTime() {
+    let time = new Date();
+    displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+    setTimeout(showTime, 1000);
+}
 showTime();
 
-// Date
+// Update Date
 function updateDate() {
-let today = new Date();
+    let today = new Date();
+    let dayName = today.getDay(),
+        dayNum = today.getDate(),
+        month = today.getMonth(),
+        year = today.getFullYear();
 
-// return number
-let dayName = today.getDay(),
-dayNum = today.getDate(),
-month = today.getMonth(),
-year = today.getFullYear();
-
-const months = [
-"January",
-"February",
-"March",
-"April",
-"May",
-"June",
-"July",
-"August",
-"September",
-"October",
-"November",
-"December",
-];
-const dayWeek = [
-"Sunday",
-"Monday",
-"Tuesday",
-"Wednesday",
-"Thursday",
-"Friday",
-"Saturday",
-];
-// value -> ID of the html element
-const IDCollection = ["day", "daynum", "month", "year"];
-// return value array with number as a index
-const val = [dayWeek[dayName], dayNum, months[month], year];
-for (let i = 0; i < IDCollection.length; i++) {
-document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
+    const months = [
+        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ];
+    const dayWeek = [
+        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    ];
+    const IDCollection = ["day", "daynum", "month", "year"];
+    const val = [dayWeek[dayName], dayNum, months[month], year];
+    for (let i = 0; i < IDCollection.length; i++) {
+        document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
+    }
 }
-}
-
 updateDate();
+
+// Magnify function repetition
+function magnify(imgID, zoom) {
+    var img = document.getElementById(imgID);
+    var glass = document.createElement("DIV");
+    glass.setAttribute("class", "img-magnifier-glass");
+    img.parentElement.insertBefore(glass, img);
+
+    glass.style.backgroundImage = "url('" + img.src + "')";
+    glass.style.backgroundRepeat = "no-repeat";
+    glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+    var bw = 3;
+    var w = glass.offsetWidth / 2;
+    var h = glass.offsetHeight / 2;
+
+    glass.addEventListener("mousemove", moveMagnifier);
+    img.addEventListener("mousemove", moveMagnifier);
+    glass.addEventListener("touchmove", moveMagnifier);
+    img.addEventListener("touchmove", moveMagnifier);
+
+    function moveMagnifier(e) {
+        var pos = getCursorPos(e);
+        var x = pos.x;
+        var y = pos.y;
+        e.preventDefault();
+        if (x > img.width - (w / zoom)) { x = img.width - (w / zoom); }
+        if (x < w / zoom) { x = w / zoom; }
+        if (y > img.height - (h / zoom)) { y = img.height - (h / zoom); }
+        if (y < h / zoom) { y = h / zoom; }
+        glass.style.left = (x - w) + "px";
+        glass.style.top = (y - h) + "px";
+        glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+    }
+
+    function getCursorPos(e) {
+        var a = img.getBoundingClientRect();
+        var x = e.pageX - a.left - window.pageXOffset;
+        var y = e.pageY - a.top - window.pageYOffset;
+        return { x: x, y: y };
+    }
+}
+
 
 // HIDDEN INFO BOX
 const categories = document.querySelectorAll('.category');
@@ -240,9 +201,6 @@ subtypeTexts.forEach(subtypeText => {
 });
 
 
-
-
-
 // ROTATE ICON
 document.addEventListener('DOMContentLoaded', () => {
     const categories = document.querySelectorAll('.category');
@@ -266,26 +224,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get all location details elements
-        const locationDetails = document.querySelectorAll('.location-details');
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all location details elements
+    const locationDetails = document.querySelectorAll('.location-details');
 
-        // Loop through each location details element
-        locationDetails.forEach(function(location, index) {
-            // Add click event listener to the location name
-            location.querySelector('p').addEventListener('click', function() {
-                // Hide all iframes
-                const iframes = document.querySelectorAll('.location-info iframe');
+    // Loop through each location details element
+    locationDetails.forEach(function(location, index) {
+       // Add click event listener to the location name
+        location.querySelector('p').addEventListener('click', function() {
+            // Hide all iframes
+            const iframes = document.querySelectorAll('.location-info iframe');
                 iframes.forEach(function(iframe) {
-                    iframe.hidden = true;
-                });
-
-                // Show the corresponding iframe
-                const iframeToShow = document.querySelector(`.location-info iframe:nth-child(${index + 1})`);
-                if (iframeToShow) {
-                    iframeToShow.hidden = false;
-                }
+                iframe.hidden = true;
             });
+
+            // Show the corresponding iframe
+            const iframeToShow = document.querySelector(`.location-info iframe:nth-child(${index + 1})`);
+            if (iframeToShow) {
+                iframeToShow.hidden = false;
+            }
         });
     });
+});
 
+function logout() {
+    fetch('../logout.php')
+        .then(response => {
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                console.error('Logout request failed.');
+            }
+        })
+        .catch(error => {
+            console.error('Error during logout:', error);
+        });
+}
