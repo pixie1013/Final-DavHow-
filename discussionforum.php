@@ -302,112 +302,156 @@ $user_data = check_login($con);
 
                 // Function to fetch posts
                 function fetchPosts($conn, $row) {
-                    // Check if user is admin based on the is_admin attribute in the posts table
-                    $is_admin = $row['is_admin'] == 1 ? true : false;
-                    echo '<div class="post-area">';
-                    echo '<div class="post">';
-                    echo '<div class="specified-concern">';
-                    echo '<strong><em><p>r/' . $row['specified_concern'] . ' </p></em></strong>';
-                    echo '<em><p class="date">•' . $row['timestamp'] . '</p></em>';
-                    echo '</div>';
-                    // Check if user is admin and provide delete option
-                    if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
-                        echo '<div class="delete">';
-                        echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
-                        echo '<input type="hidden" name="post_id" value="' . $row['post_id'] . '">';
-                        echo '<button type="submit" name="delete_post" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">';
-                        echo '<img src="valid_id/icons/remove.svg" alt="Delete">';
-                        echo '</button>';
-                        echo '</form>';
-                        echo '</div>'; //div for delete
-                    }
-                    echo '<div class="user-info">';
-                    echo '<div class="user-icon">';
-                    echo '<img src="valid_id/icons/user-icon.svg" alt="" style="width: 35px; height: 35px;">';
-                    echo '</div>';
-                    
-                    // Display username
-                    echo '<div class="username-container">';
-                    echo '<p class="username">@' . $row['username'] . '</p>';
-                    
-                    // Display admin tag if user is admin
-                    if ($is_admin) {
-                        echo '<p class="admin"> ADMIN </p>';
-                    } else {
-                        echo '<p class="admin"> USER </p>';
-                    }
+                    // Check if post is from admin
+    $is_admin = $row['is_admin'] == 1;
 
-                    echo '</div>'; // Close username-container
-                    echo '</div>';
-                    echo '<p class="content">' . $row['content'] . '</p>';
+    echo '<div class="post-area">';
+    echo '<div class="post">';
+    echo '<div class="specified-concern">';
+    echo '<strong><em><p>r/' . htmlspecialchars($row['specified_concern']) . ' </p></em></strong>';
+    echo '<em><p class="date">•' . htmlspecialchars($row['timestamp']) . '</p></em>';
+    echo '</div>';
 
-                    // Comment input form
-                    echo '<div class="comment-section" id="comment-section-' . $row['post_id'] . '">';
-                    echo '<div class="comment-outline" onclick="toggleComments(' . $row['post_id'] . ')">';
-                    echo '<img src="/New DavHow/valid_id/icons/speech_bubble.svg" alt="">';
-                    echo '<p>COMMENTS</p>';
-                    echo '</div>';
-                    echo '<div class="comments-content" id="comments-content-' . $row['post_id'] . '" style="display: none;"> <hr>';
-                        echo '<div class="comment-input" id="comment-input-' . $row['post_id'] . '">';
-                            echo'<img src="valid_id/icons/user-icon.svg">';
-                            echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
-                            echo '<input type="hidden" name="post_id" value="' . $row['post_id'] . '">';
-                            echo '<input type="text" name="comment_content" placeholder="Type comment here">';
-                            echo '<button type="submit" onclick="submitCommentForm(' . $row['post_id'] . ')" name="submit_comment">POST</button>';
-                            echo '</form>';
-                    echo '</div>';
-                    // Fetch comments for this post
-                    fetchComments($conn, $row['post_id']);
-                    echo '</div>';
-                    
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                }
+    // Check if the logged-in user is admin and if it's their own post
+    if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
+        echo '<div class="actions">';
+        echo '<div class="delete">';
+        echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
+        echo '<input type="hidden" name="post_id" value="' . htmlspecialchars($row['post_id']) . '">';
+        echo '<button type="submit" name="delete_post" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">';
+        echo '<img src="valid_id/icons/remove.svg" alt="Delete">';
+        echo '</button>';
+        echo '</form>';
+        echo '</div>'; // div for delete
+        echo '</div>'; // div for actions
+    }
 
-                // Process post deletion
-                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_post'])) {
-                    $postId = $_POST['post_id'];
-                    
-                    // Delete the post from the database
-                    $sql = "DELETE FROM posts WHERE post_id = ?";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("i", $postId);
-                    
-                    if ($stmt->execute()) {
-                        echo '<p class="verify-post">Post deleted successfully!</p>';
-                    } else {
-                        echo "Error: " . $conn->error;
-                    }
-                    
-                    $stmt->close();
-                }
+    echo '<div class="user-info">';
+    echo '<div class="user-icon">';
+    echo '<img src="valid_id/icons/user-icon.svg" alt="" style="width: 35px; height: 35px;">';
+    echo '</div>';
+    echo '<div class="username-container">';
+    echo '<p class="username">@' . htmlspecialchars($row['username']) . '</p>';
 
+    // Display admin tag if user is admin
+    if ($is_admin) {
+        echo '<p class="admin">ADMIN</p>';
+    } else {
+        echo '<p class="admin">USER</p>';
+    }
+    echo '</div>'; // Close username-container
+    echo '</div>'; // Close user-info
+    echo '<p class="content">' . htmlspecialchars($row['content']) . '</p>'; // Use htmlspecialchars for security
+    //EDIT
+    // Check if the logged-in user is admin and if it's their own post
+    if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1 && $_SESSION['user_name'] == $row['username']) {
+        // Edit post form
+        if ($is_admin) {
+            echo '<button onclick="toggleEditForm(' . htmlspecialchars($row['post_id']) . ')" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">';
+            echo '<img src="valid_id/icons/edit-icon.svg" alt="Edit">';
+            echo '</button>';
+            echo '<div class="edit-post-form" id="edit-post-form-' . htmlspecialchars($row['post_id']) . '" style="display: none;">';
+            echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
+            echo '<input type="hidden" name="post_id" value="' . htmlspecialchars($row['post_id']) . '">';
+            echo '<textarea name="edit_content">' . htmlspecialchars($row['content']) . '</textarea>';
+            echo '<button type="submit" name="edit_post">Update</button>';
+            echo '</form>';
+            echo '</div>';
+        }
+    }
+    echo '<div class="comment-section" id="comment-section-' . htmlspecialchars($row['post_id']) . '">';
+    echo '<div class="comment-outline" onclick="toggleComments(' . htmlspecialchars($row['post_id']) . ')">';
+    echo '<img src="valid_id/icons/speech_bubble.svg" alt="">';
+    echo '<p>COMMENTS</p>';
+    echo '</div>';
+    echo '<div class="comments-content" id="comments-content-' . htmlspecialchars($row['post_id']) . '" style="display: none;"> <hr>';
+    echo '<div class="comment-input" id="comment-input-' . htmlspecialchars($row['post_id']) . '">';
+    echo '<img src="valid_id/icons/user-icon.svg">';
+    echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
+    echo '<input type="hidden" name="post_id" value="' . htmlspecialchars($row['post_id']) . '">';
+    echo '<input type="text" name="comment_content" placeholder="Type comment here">';
+    echo '<button type="submit" name="submit_comment">POST</button>';
+    echo '</form>';
+    echo '</div>';
+    fetchComments($conn, $row['post_id']);
+    echo '</div>'; // comments-content
+    echo '</div>'; // comment-section
+    echo '</div>'; // post
+    echo '</div>'; // post-area
+}
 
-                // Process comment submission
-                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_comment'])) {
-                    // Retrieve data from the form
-                    $postId = $_POST['post_id'];
-                    
-                    // Retrieve username from the users table
-                    $username = $_SESSION['user_name'];
-                    $is_admin = $_SESSION['is_admin'];
+// Process post deletion
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_post'])) {
+    $postId = $_POST['post_id'];
+    
+    // Delete the post from the database
+    $sql = "DELETE FROM posts WHERE post_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $postId);
+    
+    if ($stmt->execute()) {
+        echo '<p class="verify-post">Post deleted successfully!</p>';
+    } else {
+        echo "Error: " . $conn->error;
+    }
+    
+    $stmt->close();
+}
 
-                    $commentContent = $_POST['comment_content'];
+// Process post editing
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit_post'])) {
+    $postId = $_POST['post_id'];
+    $editContent = $_POST['edit_content'];
+    
+    // Check if the user is admin and the post belongs to the logged-in user
+    $sql = "SELECT username FROM posts WHERE post_id = ? AND username = ? AND is_admin = 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("is", $postId, $_SESSION['user_name']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
+        // Update the post in the database
+        $sql = "UPDATE posts SET content = ? WHERE post_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("si", $editContent, $postId);
+        
+        if ($stmt->execute()) {
+            echo '<p class="verify-post">Post updated successfully!</p>';
+        } else {
+            echo "Error: " . $conn->error;
+        }
+        
+        $stmt->close();
+    } else {
+        echo '<p class="error">You are not authorized to edit this post.</p>';
+    }
+}
 
-                    // Insert the comment into the database
-                    $sql = "INSERT INTO comments (post_id, username, comment_text, timestamp, is_admin) VALUES (?, ?, ?, NOW(), ?)";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("isss", $postId, $username, $commentContent, $is_admin);
-                    
-                    // Execute the statement
-                    if (!$stmt->execute()) {
-                        echo "Commenting error: " . $conn->error;
-                    }
+// Process comment submission
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_comment'])) {
+    // Retrieve data from the form
+    $postId = $_POST['post_id'];
+    
+    // Retrieve username from the users table
+    $username = $_SESSION['user_name'];
+    $is_admin = $_SESSION['is_admin'];
 
-                    // Close the statement
-                    $stmt->close();
-                }
+    $commentContent = $_POST['comment_content'];
+
+    // Insert the comment into the database
+    $sql = "INSERT INTO comments (post_id, username, comment_text, timestamp, is_admin) VALUES (?, ?, ?, NOW(), ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("isss", $postId, $username, $commentContent, $is_admin);
+    
+    // Execute the statement
+    if (!$stmt->execute()) {
+        echo "Commenting error: " . $conn->error;
+    }
+
+    // Close the statement
+    $stmt->close();
+}
 
                 // Function to fetch comments for a post
                 function fetchComments($conn, $postId) {
@@ -535,4 +579,3 @@ $user_data = check_login($con);
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
-

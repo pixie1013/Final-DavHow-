@@ -168,7 +168,7 @@ $user_data = check_login($con);
                         die("Connection failed: " . $conn->connect_error);
                     }
 
-                    $sql = "SELECT * FROM user_messages";
+                    $sql = "SELECT * FROM contact";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {

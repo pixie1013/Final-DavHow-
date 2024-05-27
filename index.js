@@ -231,3 +231,12 @@ document.addEventListener("DOMContentLoaded", function() {
   // Replace this with your actual error handling logic
   showPopup("Invalid credentials. Please try again.");
 });
+
+function toggleEditForm(postId) {
+  var editForm = document.getElementById('edit-post-form-' + postId);
+  if (editForm.style.display === 'none') {
+      editForm.style.display = 'block';
+  } else {
+      editForm.style.display = 'none';
+  }
+}

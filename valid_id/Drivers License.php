@@ -47,6 +47,7 @@
                     <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
                     <a href="mailto:artsolutions24@email.com" target="_blank"><i class="ri-mail-fill"></i></a>
                 </div>
+            </div>
           
             <div class="logo">
                 <img src="../photos/logo.png" alt="DavHow: Unsaon ni Bai?">
