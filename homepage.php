@@ -141,14 +141,58 @@ if (isset($_SESSION['user_id'])) {
   </header>
 
   <!--==================== SEARCH ====================-->
-  <div class="search" id="search">
-    <form action="" class="search__form">
-       <i class="ri-search-line search__icon"></i>
-       <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input">
-    </form>
-
-    <i class="ri-close-circle-line search__close" id="search-close"></i>
-  </div>
+    <div class="search" id="search">
+      <form action="" class="search__form">
+        <i class="ri-search-line search__icon"></i>
+        <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input" onkeyup="search()">
+      </form>
+      
+      <i class="ri-close-circle-line search__close" id="search-close"></i>
+      <div class="container4">
+        <div class="product-list" id="product-list">
+          <div class="product1">
+            <div class="p-details">
+              <h2>Affidavit</h2>
+            </div>
+          </div>
+          <div class="product1">
+            <div class="p-details">
+              <h2>Affidavit1</h2>
+            </div>
+          </div>
+          <div class="product1">
+            <div class="p-details">
+              <h2>Affidavit2</h2>
+            </div>
+          </div>
+          <div class="product1">
+            <div class="p-details">
+              <h2>Affidavit</h2>
+            </div>
+          </div>
+          <div class="product1">
+            <div class="p-details">
+              <h2>Affidavit</h2>
+            </div>
+          </div>
+          <div class="product1">
+            <div class="p-details">
+              <h2>Affidavit</h2>
+            </div>
+          </div>
+          <div class="product1">
+            <div class="p-details">
+              <h2>Affidavit</h2>
+            </div>
+          </div>
+          <div class="product1">
+            <div class="p-details">
+              <h2>Affidavit</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   
   <!-- Welcoming Section -->
