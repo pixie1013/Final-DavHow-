@@ -110,17 +110,8 @@ function toggleComments(postId) {
   if (commentContent.style.display === 'none' || commentContent.style.display === '') {
       commentContent.style.display = 'block';
   } else {
-      commentContent.style.display = 'none';
+      commentInput.style.display = "none"; // Hide the comment input when it's visible
   }
-}
-
-// Function to handle form submission
-function submitCommentForm(postId) {
-  // Submit the form
-  document.getElementById('comment-form-' + postId).submit();
-  
-  // Hide comments after submitting
-  toggleComments(postId);
 }
 
 
@@ -128,7 +119,7 @@ function submitCommentForm(postId) {
 
 const form = document.querySelector(".contactUs form");
 const statusTxt = form.querySelector(".send-button span");
-  
+
 form.onsubmit = (e) => {
   e.preventDefault();
   statusTxt.style.display = "block";
@@ -141,25 +132,19 @@ form.onsubmit = (e) => {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         let response = xhr.responseText;
-        if (response.indexOf("Email, name, title and message fields are required") !== -1 || response.indexOf("Enter a valid email address!") !== -1) {
-          console.log("Bye");
-          statusTxt.style.color = "red"; 
-          statusTxt.innerText = response;
+        if (response.indexOf("Email, name, and message fields are required") != 1 || response.indexOf("Enter a valid email address!") != 1){
+            statusTxt.style.color = "red";
+            statusTxt.innerText = response;
         } else {
-          console.log("Hey");
-          statusTxt.style.color = "#023047"; 
-          statusTxt.innerText = response;
-          form.reset(); 
-          console.log("Hello");
+          form.reset();
         }
       } else {
-        statusTxt.style.color = "red"; 
-        statusTxt.innerText = "An error occurred. Please try again.";
+        statusTxt.innerText = response;
+        statusTxt.style.color = "#023047";
       }
     }
   };
   xhr.onerror = () => {
-    statusTxt.style.color = "red"; 
     statusTxt.innerText = "An error occurred. Please check your internet connection.";
   };
   let formData = new FormData(form);
@@ -203,6 +188,7 @@ function closeModal() {
   document.getElementById('myModal').style.display = "none";
 }
 
+
 function logout() {
     // Perform logout actions here, such as clearing session data
     // For example:
@@ -220,25 +206,4 @@ function logout() {
         .catch(error => {
             console.error('Error during logout:', error);
         });
-}
-
-// Search filter function
-const search1 = () => {
-  const searchbox = document.getElementById("searchInput").value.toUpperCase();
-  const storeitems = document.getElementById("product-list");
-  const products = storeitems.getElementsByClassName("product1");
-
-  for (let i = 0; i < products.length; i++) {
-    let h2 = products[i].getElementsByTagName('h2')[0];
-
-    if (h2) {
-      let textValue = h2.textContent || h2.innerText;
-
-      if (textValue.toUpperCase().indexOf(searchbox) > -1) {
-        products[i].style.display = "";
-      } else {
-        products[i].style.display = "none";
-      }
-    }
-  }
 }

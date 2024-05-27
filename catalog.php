@@ -386,7 +386,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/BRGYID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/BARANGAY ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Barangay ID</h2>
@@ -395,7 +395,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/GSIS ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/GSIS UMID ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">GSIS Unified Multi-Purpose ID</h2>
@@ -404,7 +404,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/IBP ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/IBP ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Integrated Bar of the Philippines ID (IBP)</h2>
@@ -413,7 +413,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/FIREARMS ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/Firearms License.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">License to Own and Possess Firearms (LTOPF)</h2>
@@ -422,7 +422,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/NON PROF  DL.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/Drivers License.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Non-Professional Driver's License</h2>
@@ -431,7 +431,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/OWWA ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/OWWA ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Overseas Workers Welfare Administration Card (OWWA)</h2>
@@ -440,7 +440,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/4Ps ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/4Ps ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Pantawid Pamilyang Pilipino Program I (4Ps)</h2>
@@ -449,7 +449,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/PASSPORT ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/Passport ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Passport ID</h2>
@@ -458,7 +458,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/PWD ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/PWD ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Persons with Disabilities ID (PWD)</h2>
@@ -467,7 +467,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/PhilHealth ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/PhilHealth ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">PhilHealth ID</h2>
@@ -476,7 +476,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/PRC ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/PRC ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Philippine Regulation Commission ID (PRC)</h2>
@@ -485,7 +485,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/PhilSys ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/PhilSys ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Philippine System ID</h2>
@@ -494,7 +494,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/POSTAL ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/POSTAL ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Postal ID</h2>
@@ -503,7 +503,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/PROF DL.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/Drivers License.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Professional Driver's License</h2>
@@ -512,7 +512,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/SNCT ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/Senior Citizen ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Senior Citizen ID</h2>
@@ -521,7 +521,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/SOLO PARENT ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/Solo Parent ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Solo Parent ID</h2>
@@ -530,7 +530,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/STUDENT PERMIT.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/Drivers License.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Student Driver's Permit</h2>
@@ -539,7 +539,7 @@ if (isset($_SESSION['user_id'])) {
             <div class="product-card">
                 <div class="product-image">
                     <img src="photos/ID Photos/TIN ID.png" class="product-thumb" alt="">
-                    <a href="#"><button class="card-btn">Know More</button></a>
+                    <a href="/valid_id/TIN ID.php"><button class="card-btn">Know More</button></a>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Taxpayer Identification Number ID (TIN)</h2>
@@ -667,43 +667,44 @@ if (isset($_SESSION['user_id'])) {
     </div>
     <footer>
         <div class="footerrow">
-            <div class="col">
-                <h3>What is Davhow?</h3>
-                <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
-                <div class="socmeds1">
-                <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-                <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-                <a href="#"><i class="ri-mail-fill"></i></a>
-                </div>
-            </div>
-            <div class="col">
-                <h3>Visit Us</h3>
-                <p>University of the Philippines Mindanao</p>
-                <p>Tugbok, Davao City</p>
-                <p>8000 Philippines</p>
-            </div>
-            <div class="col">
-                <h3>Links</h3>
-                <ul>
-                <li><a href="homepage.php">Home</a></li>
-                <li><a href="catalog.php">Catalog</a></li>
-                <li><a href="about_us.php">About Us</a></li>
-                <li><a href="discussionforum.php">Forum</a></li>
-                </ul>
-            </div>
-            <div class="col">
-            <h3>About DavHow</h3>
-            <ul>
-                <li><a href="#services1">Our Services</a></li>
-                <li><a href="#rationale">Rationale</a></li>
-                <li><a href="#vision">Vision and Mission</a></li>
-                <li><a href="#objectives">Objectives</a></li>
-            </ul>
+        <div class="col">
+            <h3>What is Davhow?</h3>
+            <p class="footertag">DavHow provides a comprehensive, user-friendly platform for accessing and acquiring various legal documents, complete with clear guidelines and requirements.</p>
+            <div class="socmeds1">
+            <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+            <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
+            <a href="#"><i class="ri-mail-fill"></i></a>
             </div>
         </div>
-       <hr>
-      <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
+        <div class="col">
+            <h3>Visit Us</h3>
+            <p>University of the Philippines Mindanao</p>
+            <p>Tugbok, Davao City</p>
+            <p>8000 Philippines</p>
+        </div>
+        <div class="col">
+            <h3>Links</h3>
+            <ul>
+            <li><a href="homepage.php">Home</a></li>
+            <li><a href="catalog.php">Catalog</a></li>
+            <li><a href="about_us.php">About Us</a></li>
+            <li><a href="discussionforum.php">Forum</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>About DavHow</h3>
+            <ul>
+                <li><a href="homepage.php#services1">Our Services</a></li>
+                <li><a href="homepage.php#rationale">Rationale</a></li>
+                <li><a href="homepage.php#vision1">Vision and Mission</a></li>
+                <li><a href="homepage.php#objectives">Objectives</a></li>
+            </ul>
+        </div>
+        </div>
+        <hr>
+        <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
+    
     <script src="index.js"></script>
 </body>
 </html>
