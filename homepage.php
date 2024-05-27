@@ -182,8 +182,8 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="card">
           <i class="ri-list-check-3"></i>
-          <h2>Necessity Tracker</h2>
-          <p>DavHow helps users to effortlessly track and manage the documents they plan to acquire in the future. By simply listing the desired documents on our platform, users can organize their needs and stay on top of their document requirements. Whether it's for professional, academic, or personal purposes, this website ensures you to never lose track of important documents you need to retrieve.</p>
+          <h2>Discussion Forum</h2>
+          <p>DavHow's forum feature allows users to engage in discussions, share insights, and seek advice on document management and acquisition. Connect with a community of like-minded individuals to exchange tips, troubleshoot issues, and stay updated on the latest best practices.</p>
       </div>
     </div>
   </section>
