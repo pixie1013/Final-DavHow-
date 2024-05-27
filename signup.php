@@ -67,8 +67,9 @@
           <div class="login__group">
             <label for="role" class="login__label">Select User Type:</label>
             <select id="role" class="login__input" name="role">
-                <option value="0">User</option>
-                <option value="1">Admin</option>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="0">User</option>
+                    <option value="1">Admin</option>
             </select>
           </div>
     
@@ -81,5 +82,9 @@
          </div>
         </form>
       </div>
+      <!-- Home button -->
+    <a href="homepage.php" class="home-button">
+        <ion-icon name="home-outline"></ion-icon>
+    </a>
 </body>
 </html>

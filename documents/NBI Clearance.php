@@ -490,6 +490,8 @@
         <hr>
         <p class="copyright">&copy; 2024 <i>ART Solutions. All rights reserved.</i></p>
     </footer>
+    <!-- Back to Top Button -->
+    <a href="#"><button id="back-to-top-btn" title="Back to top"><i class="ri-arrow-up-s-fill"></i></button></a>
 
     <script src="script.js"></script>
 </body>
