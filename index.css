@@ -1911,6 +1911,35 @@ hr {
     display: flex;
 }
 
-.scrollable-section {
-    scroll-margin-top: 20rem; 
+.container4 {
+    width: 375px;
+    height: 520px;
+    background-color: var(--third-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: auto;
+    padding: 20px;
+    box-shadow: 4px 4px 30px rgb(0, 0, 0, 0.06);
+    overflow-y: scroll;
+}
+
+.container4::-webkit-scrollbar {
+    display: none;
+}
+
+.product1 {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 15px;
+}
+
+.product-list {
+    padding: 20px 0;
+}
+
+.product1 .p-details h2 {
+    font-size: 20px;
+    color: var(--first-color);
 }

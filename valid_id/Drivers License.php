@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DavHow: Driver's License</title>
     <link rel="stylesheet" href="styles_validid.css">
-    <link rel="stylesheet" href="/documents/header.css">
+    <link rel="stylesheet" href="/New DavHow/documents/header.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,7 @@
                  </li>
     
                  <li class="nav_item">
-                    <a href="catalog.html" class="nav_link">CATALOG</a>
+                    <a href="../catalog.php" class="nav_link">CATALOG</a>
                  </li>
     
                  <li class="nav_item">

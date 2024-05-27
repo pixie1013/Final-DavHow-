@@ -58,7 +58,7 @@
                  </li>
     
                  <li class="nav_item">
-                    <a href="catalog.html" class="nav_link">CATALOG</a>
+                    <a href="../catalog.php" class="nav_link">CATALOG</a>
                  </li>
     
                  <li class="nav_item">

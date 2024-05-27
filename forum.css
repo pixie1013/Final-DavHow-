@@ -55,6 +55,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     height: 200px;
     width: 690px;
+    font-size: 16px;
 }
 
 .input textarea::placeholder {
@@ -78,10 +79,11 @@
 
 .user-info .username{
     margin: 5px 0 0 10px;
+    font-style: italic;
 }
 
 .post .comment{
-    margin-top: 5px;
+    margin-top: -15px;
 }
 
 .comment-section img{
@@ -109,10 +111,6 @@
 .comments-content .user-info  .user-icon{
     width: 10px;
     height: 10px;
-}
-
-.comments-content .user-info .username {
-    margin: 0px 0 0 17px;
 }
 
 .comments-content .content{
@@ -145,7 +143,7 @@
     background-color: #5ea5c6;
 }
 
-.create-post .user-icon img{
+ .user-icon img{
     width: 35px;
     height: 35px;
     margin-top: 8px;
@@ -192,6 +190,83 @@
     border-radius: 0 10px 10px 0;
 }
 
-.content {
+.discussion .content {
     font-size: 18px;
+    margin: 8px;
+}
+
+.verify{
+    text-align: center;
+    margin-bottom: 10px;
+    color: #888686;
+    font-style: italic;
+}
+
+.verify-post{
+    color: #1a7906;
+    font-style: italic;
+    font-size: 10px;
+    margin-left: 4px;
+}
+
+
+.comment .content{
+    font-size: 15px;
+    margin-left: 40px;
+}
+
+.error{
+    font-size: 13px;
+    text-align: center;
+    margin: 15px 0 0 3px;
+    font-style: italic;
+    color: gray;
+}
+
+.post .delete{
+    float: right;
+    margin: -28px -10px 0px 0px;
+}
+
+.post .delete img{
+    width: 30px;
+}
+
+.post .username-container .admin{
+    color: #023047;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.username-container .username,.username-container .admin{
+    margin-left: 5px;
+}
+
+.comment .username-container{
+    margin: 10px 0 0 5px ;
+}
+
+.comment .username-container {
+    margin: 2px 0 0 25px;
+}
+
+.comment .username-container .admin{
+    margin-top: -4px;
+}
+
+.comment-delete {
+    margin: 0 0 0 550px;
+}
+
+.comment-delete button, .delete button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.verify-comment{
+    color: red;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
 }
