@@ -135,18 +135,6 @@ navClose.addEventListener('click', () => {
 navMenu.classList.remove('show-menu')
 })
 
-//Search
-const search = document.getElementById('search'),
-searchBtn = document.getElementById('search-btn'),
-searchClose = document.getElementById('search-close')
-
-searchBtn.addEventListener('click', () => {
-search.classList.add('show-search')
-})
-
-searchClose.addEventListener('click', () => {
-search.classList.remove('show-search')
-})
 
 const login = document.getElementById('login'),
 loginBtn = document.getElementById('login-btn'),

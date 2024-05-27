@@ -31,9 +31,9 @@
                 </div>
                 </div>
                 <div class="socmeds">
-                <a href="#"><i class="ri-facebook-circle-fill"></i></a>
-                <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
-                <a href="#"><i class="ri-mail-fill"></i></a>
+                    <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+                    <a href="https://x.com/ART_Solutions23" target="_blank"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#"><i class="ri-mail-fill"></i></a>
                 </div>
             </div>
             
@@ -53,15 +53,15 @@
             <div class="nav_menu" id="nav-menu">
                 <ul class="nav_list">
                     <li class="nav_item">
-                        <a href="#" class="nav_link">HOME</a>
+                        <a href="homepage.php" class="nav_link">HOME</a>
                     </li>
         
                     <li class="nav_item">
-                        <a href="../catalog.php" class="nav_link">CATALOG</a>
+                        <a href="catalog.php" class="nav_link">CATALOG</a>
                     </li>
         
                     <li class="nav_item">
-                        <a href="#" class="nav_link">ABOUT US</a>
+                        <a href="about_us.php" class="nav_link">ABOUT US</a>
                     </li>
                 </ul>
         
@@ -73,7 +73,7 @@
         
             <div class="nav_actions">
                 <!-- Search button -->
-                <i class="ri-search-line nav_search" id="search-btn"></i>
+                <a href="../search/search_page.php"><i class="ri-search-line nav_search" id="search-btn"></i></a>
         
                 <!-- Toggle button -->
                 <div class="nav_toggle" id="nav-toggle">
@@ -82,16 +82,6 @@
             </div>
             </nav>
         </header>
-        
-        <!--==================== SEARCH ====================-->
-        <div class="search" id="search">
-            <form action="" class="search__form">
-            <i class="ri-search-line search__icon"></i>
-            <input type="search" placeholder="(e.g. NSO Birth Certificate)" class="search__input">
-            </form>
-        
-            <i class="ri-close-circle-line search__close" id="search-close"></i>
-        </div>
         
         <!--==================== LOGIN ====================-->
         <div class="login" id="login">
