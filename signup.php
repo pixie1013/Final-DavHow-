@@ -12,22 +12,30 @@
 
         if(!empty($user_name) && !empty($password) && $role !== ''){ // Check if role is set
             
-            // Save to database
-            $user_id = random_num(10);
-            $query = "INSERT INTO users (user_id, user_name, password, is_admin) VALUES ('$user_id', '$user_name', '$password', '$role')";
+            // Check if username already exists
+            $query = "SELECT * FROM users WHERE user_name = '$user_name' LIMIT 1";
+            $result = mysqli_query($con, $query);
 
-            if(mysqli_query($con, $query)){
-                // Redirect to login page after successful signup
-                header("Location: login.php");
-                die;
+            if(mysqli_num_rows($result) > 0) {
+                // Username already exists
+                $error_message = "Username already exists. Please choose another username.";
             } else {
-                echo "Error: " . mysqli_error($con);
+                // Save to database
+                $user_id = random_num(10);
+                $query = "INSERT INTO users (user_id, user_name, password, is_admin) VALUES ('$user_id', '$user_name', '$password', '$role')";
+
+                if(mysqli_query($con, $query)){
+                    // Redirect to login page after successful signup
+                    header("Location: login.php");
+                    die;
+                } else {
+                    $error_message = "Error: " . mysqli_error($con);
+                }
             }
         } else{
-            echo "Please enter some valid information!";
+            $error_message = "Please enter some valid information!";
         }
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../photos/logo.png">
     <title>Sign Up</title>
 </head>
@@ -52,7 +60,13 @@
     <div class="login" id="login">
         <form method="post" action="" class="login__form">
           <h2 class="login__title">Sign Up</h2>
-         
+          
+          <?php 
+          if(!empty($error_message)) {
+              echo '<div class="error_message" style="color:white;">' . $error_message . '</div>';
+          }
+          ?>
+
           <div class="login__group">
             <div>
                <label for="user_name" class="login__label" >Username:</label>

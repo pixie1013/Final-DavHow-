@@ -430,8 +430,7 @@ img{
     border-radius: 19px; 
     letter-spacing: 1px;
     margin-top: 10px;
-    color: white;
-    background-color: rgb(4 43 89) !important;
+    background-color: white !important;
 }
 
 .fee table {

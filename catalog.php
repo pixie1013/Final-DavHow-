@@ -217,11 +217,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Certificate of Death.png" class="product-thumb" alt="">
-<<<<<<< HEAD
                 <a href="documents/Certificate of Death - DROD.php"><button class="card-btn">Know More</button></a>
-=======
-                <a href="#"><button class="card-btn">Know More</button></a>
->>>>>>> 67b278af5ce9dac8308b4c329cce76bef1f5a07a
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Certificate of Death - Delayed Registration</h2>
@@ -292,7 +288,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="photos/DOCS Photos/Marriage Certificate.png" class="product-thumb" alt="">
                 <a href="documents/Certificate of Marriage - DROM.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
@@ -310,7 +306,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="photos/DOCS Photos/Marriage Certificate.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">

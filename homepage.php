@@ -256,9 +256,9 @@ if (isset($_SESSION['user_id'])) {
         </article>
         <article class="card__article">
           <div class="card__data">
-            <h3 class="card__name">Progress Checking</h3>
+            <h3 class="card__name">Empowering exchange</h3>
             <p class="card__description">
-              Provides users with a personalized checklist allowing them to keep track of their progress in acquiring valid ID and documents.
+              DavHow fosters an interactive community where users can engage, exchange insights, and seek advice on document management and acquisition processes. 
             </p>
           </div>
         </article>

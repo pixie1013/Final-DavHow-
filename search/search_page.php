@@ -307,7 +307,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="product-card" data-id="16">
             <div class="product-image">
-                <img src="../photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Marriage Certificate.png" class="product-thumb" alt="">
                 <a href="../documents/Certificate of Marriage - DROM.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
@@ -325,7 +325,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="product-card" data-id="18">
             <div class="product-image">
-                <img src="../photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Marriage Certificate.png" class="product-thumb" alt="">
                 <a href="../documents/Certificate of Marriage - TROM.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">

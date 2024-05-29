@@ -147,7 +147,7 @@
                 <div class="document-text">
                     <h1>PHILIPPINE PASSPORT</h1>
                     <p>
-                        The Philippine passport is a travel document and a primary national identity issued by the Department of Foreign Affairs valid for 
+                        The Philippine passport is a travel document and a primary national identity issued by the Department of Foreign Affairs <br> valid for 
                         ten (10) years to those 18 years or older holder and five (5) years validity for Filipinos under 18 years old.      
                     </p>
                 </div>

@@ -217,7 +217,7 @@ $user_data = check_login($con);
                     </select>
 
                           </div>
-                        <textarea placeholder="What is your concern?" name="content"></textarea>
+                        <textarea placeholder="What is your concern?" name="content" required></textarea>
                         <button type="submit" name="submit">POST</button>
                         <?php
                             $servername = "localhost";
@@ -370,7 +370,7 @@ $user_data = check_login($con);
                     echo '<img src="valid_id/icons/user-icon.svg">';
                     echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
                     echo '<input type="hidden" name="post_id" value="' . htmlspecialchars($row['post_id']) . '">';
-                    echo '<input type="text" name="comment_content" placeholder="Type comment here">';
+                    echo '<input type="text" name="comment_content" placeholder="Type comment here" required>';
                     echo '<button type="submit" name="submit_comment">POST</button>';
                     echo '</form>';
                     echo '</div>';
