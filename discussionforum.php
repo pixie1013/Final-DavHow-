@@ -214,7 +214,7 @@ $user_data = check_login($con);
                             <option value="Student Driver's Permit">Student Driver's Permit</option>
                             <option value="Taxpayer Identification Number ID (TIN)">Taxpayer Identification Number ID (TIN)</option>
                         </optgroup>
-                    </select>
+                        </select>
 
                           </div>
                         <textarea placeholder="What is your concern?" name="content" required></textarea>
@@ -281,7 +281,6 @@ $user_data = check_login($con);
                                     }
                                 }
                             ?>
-
                     </div>
                 </div><hr>
             </form>
