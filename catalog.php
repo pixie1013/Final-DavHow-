@@ -208,7 +208,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="product-card">
             <div class="product-image">
                 <img src="photos/DOCS Photos/Business Permit.png" class="product-thumb" alt="">
-                <a href="#"><button class="card-btn">Know More</button></a>
+                <a href="documents/Renewal of Business Permit.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
                 <h2 class="product-brand">Business Permit - Renewal</h2>

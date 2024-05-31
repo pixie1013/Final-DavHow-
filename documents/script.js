@@ -90,6 +90,34 @@ function magnify(imgID, zoom) {
         return { x: x, y: y };
     }
 }
+    document.getElementById("reference-photo").addEventListener("mouseenter", function() {
+        magnify('reference-photo', 3);
+    });
+
+    document.getElementById("reference-photo").addEventListener("mouseleave", function() {
+        var glass = document.querySelector(".img-magnifier-glass");
+        if (glass) {
+            glass.remove();
+        }
+    });
+
+    // Show Menu
+const navMenu = document.getElementById('nav-menu'),
+navToggle = document.getElementById('nav-toggle'),
+navClose = document.getElementById('nav-close')
+
+navToggle.addEventListener('click', () => {
+navMenu.classList.add('show-menu')
+})
+
+navClose.addEventListener('click', () => {
+navMenu.classList.remove('show-menu')
+})
+
+
+const login = document.getElementById('login'),
+loginBtn = document.getElementById('login-btn'),
+loginClose = document.getElementById('login-close')
 
 document.getElementById("reference-photo").addEventListener("mouseenter", function() {
     magnify('reference-photo', 3);
