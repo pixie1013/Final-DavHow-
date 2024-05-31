@@ -1836,6 +1836,11 @@ hr {
     color: #555;
 }
 
+.table tr td:nth-child(3){
+    overflow: hidden;
+    width: 300px;
+}
+
 .unread-message {
     font-weight: bold;
     color: #000;

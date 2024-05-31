@@ -306,7 +306,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="product-card">
             <div class="product-image">
-                <img src="photos/DOCS Photos//Marriage Certificate.png" class="product-thumb" alt="">
+                <img src="photos/DOCS Photos/Marriage Certificate.png" class="product-thumb" alt="">
                 <a href="#"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">

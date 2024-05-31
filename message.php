@@ -23,7 +23,7 @@ $message = isset($_POST['message']) ? $_POST['message'] : '';
 if (!empty($email) && !empty($message)  && !empty($title) && (!empty($fname) || !empty($lname))) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-        $stmt = $conn->prepare("INSERT INTO contact (first_name, last_name, email, mobile_number, message, title) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO user_messages (first_name, last_name, email, mobile_number, message, title) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssss", $fname, $lname, $email, $mobile_number, $message, $title);
 
         if ($stmt->execute()) {

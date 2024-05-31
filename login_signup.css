@@ -57,7 +57,7 @@ background-color: #ececec;
 color: var(--text-color);
 margin: 0 auto;
 align-items: center;
-background-image: url(/photos/Untitled\ design.png);
+background-image: url(./photos/Untitled\ design.png) !important;
 }
 
 html {

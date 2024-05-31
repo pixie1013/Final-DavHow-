@@ -17,8 +17,8 @@ $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $response = [];
 
 if ($id > 0) {
-    $selectSql = "SELECT * FROM contact WHERE message_id = ?";
-    $updateSql = "UPDATE contact SET is_read = 1 WHERE message_id = ?";
+    $selectSql = "SELECT * FROM user_messages WHERE message_id = ?";
+    $updateSql = "UPDATE user_messages SET is_read = 1 WHERE message_id = ?";
     
     // Prepare and execute SELECT query
     $stmtSelect = $conn->prepare($selectSql);
