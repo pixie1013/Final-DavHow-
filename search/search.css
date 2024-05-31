@@ -55,7 +55,7 @@
 
 .suggestions {
     position: absolute;
-    top: calc(100% + 10px); /* Position it below the input field */
+    top: calc(100% + 10px);
     left: 0;
     z-index: 999; 
     width: calc(100% - 20px);

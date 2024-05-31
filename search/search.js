@@ -98,81 +98,94 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("form").addEventListener("submit", handleFormSubmit);
 
   function handleFormSubmit(event) {
-    event.preventDefault();
-    var searchQuery = document.getElementById("form1").value;
-    performSearch(searchQuery);
-    document.getElementById("suggestions").innerHTML = "";
+      event.preventDefault();
+      var searchQuery = document.getElementById("form1").value;
+      performSearch(searchQuery);
+      hideSuggestions(); // Clear suggestions box
   }
 
   function performSearch(query) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "search.php?search=" + encodeURIComponent(query), true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        var documentIds = JSON.parse(xhr.responseText);
-        showDocuments(documentIds);
-      }
-    };
-    xhr.send();
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "search.php?search=" + encodeURIComponent(query), true);
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+              var documentIds = JSON.parse(xhr.responseText);
+              showDocuments(documentIds);
+          }
+      };
+      xhr.send();
   }
 
   function showDocuments(documentIds) {
-    var productCards = document.querySelectorAll(".product-card");
-    var hasMatches = false;
+      var productCards = document.querySelectorAll(".product-card");
+      var hasMatches = false;
 
-    productCards.forEach(function(card) {
-      var productId = card.getAttribute("data-id");
-      if (documentIds.includes(productId)) {
-        card.style.display = "block";
-        hasMatches = true;
+      productCards.forEach(function(card) {
+          var productId = card.getAttribute("data-id");
+          if (documentIds.includes(productId)) {
+              card.style.display = "block";
+              hasMatches = true;
+          } else {
+              card.style.display = "none";
+          }
+      });
+
+      var messageResult = document.querySelector(".message_result");
+      var productSection = document.querySelector(".product");
+
+      if (hasMatches) {
+          messageResult.style.display = "none";
+          productSection.style.display = "block";
       } else {
-        card.style.display = "none";
+          messageResult.style.display = "block";
+          productSection.style.display = "none";
       }
-    });
-
-    var messageResult = document.querySelector(".message_result");
-    var productSection = document.querySelector(".product");
-
-    if (hasMatches) {
-      messageResult.style.display = "none";
-      productSection.style.display = "block";
-    } else {
-      messageResult.style.display = "block";
-      productSection.style.display = "none";
-    }
   }
 
   window.hideSuggestions = function() {
-    var suggestionsBox = document.getElementById("suggestions");
-    suggestionsBox.innerHTML = "";
-    suggestionsBox.style.display = "none";
+      setTimeout(function() {
+          var suggestionsBox = document.getElementById("suggestions");
+          suggestionsBox.style.display = 'none';
+      }, 200);
   }
 
   window.showSuggestions = function(query) {
-    var inputField = document.getElementById("form1");
-    var suggestionsBox = document.getElementById("suggestions");
+      var suggestionsBox = document.getElementById("suggestions");
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "suggestions.php?query=" + encodeURIComponent(query), true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        var suggestions = JSON.parse(xhr.responseText);
-        var suggestionsList = suggestions.map(function(item) {
-          return "<div class='suggestion-item' onclick='selectSuggestion(\"" + item + "\")'>" + item + "</div>";
-        }).join("");
-        suggestionsBox.innerHTML = suggestionsList;
-        suggestionsBox.style.display = "block"; // Show the suggestions box after receiving and displaying suggestions
+      if (query.length > 0) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "suggestions.php?query=" + encodeURIComponent(query), true);
+          xhr.onreadystatechange = function() {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                  var suggestions = JSON.parse(xhr.responseText);
+                  var suggestionsList = suggestions.map(function(item) {
+                      return "<div class='suggestion-item'>" + item + "</div>";
+                  }).join("");
+                  suggestionsBox.innerHTML = suggestionsList;
+                  suggestionsBox.style.display = "block"; 
+              }
+          };
+          xhr.send();
+      } else {
+          suggestionsBox.style.display = 'none';
       }
-    };
-    xhr.send();
   }
+
+  document.getElementById("suggestions").addEventListener("mousedown", function(event) {
+      if (event.target.classList.contains("suggestion-item")) {
+          selectSuggestion(event.target.textContent);
+      }
+  });
 
   window.selectSuggestion = function(suggestion) {
-    document.getElementById("form1").value = suggestion;
-    document.getElementById("suggestions").innerHTML = "";
-    performSearch(suggestion);
+      document.getElementById("form1").value = suggestion;
+      performSearch(suggestion);
+      hideSuggestions(); 
   }
 });
+
+
+
 
 
 
