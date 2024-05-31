@@ -149,13 +149,13 @@ if (isset($_SESSION['user_id'])) {
             <form id="form">
                 <div class="input-group">
                     <div class="form-outline">
-                    <input autocomplete="off" type="text" id="form1" class="form-control" placeholder="What are you looking for?" oninput="showSuggestions(this.value)" onblur="hideSuggestions()" />
-                        <div id="suggestions" class="suggestions"></div>
+                    <input autocomplete="off" type="text" id="form1" class="form-control" placeholder="What are you looking for?" oninput="showSuggestions(this.value)" onfocus="showSuggestions(this.value)" onblur="hideSuggestions()" />
                         <button type="submit" class="btn btn-primary" id="searchButton">
                             <div class="search-label">
                                 <label class="form-label" for="form1">Search</label>
                             </div>
                         </button>
+                        <div id="suggestions" class="suggestions"></div>
                     </div>
                 </div>
             </form>
