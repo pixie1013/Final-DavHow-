@@ -1795,6 +1795,10 @@ hr {
     min-height: 200px;
 }
 
+.messages-section button {
+    margin-top: 3px;
+}
+
 .table-container {
     overflow-x: auto;
 }

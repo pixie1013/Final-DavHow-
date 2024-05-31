@@ -1,13 +1,15 @@
-#form1{
+#form1 {
     max-width: 500px;
     width: 100%;
     height: 40px;
-    border-top-left-radius: 10px 10px;
-    border-bottom-left-radius: 10px 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 10px;
 }
 
-.input-group{
+.input-group {
     margin-top: 30px;
+    position: relative; /* Ensure the suggestions box is positioned relative to this */
 }
 
 .form-outline {
@@ -17,6 +19,7 @@
     padding-right: 10px;
     display: flex;
     border-radius: 10px;
+    position: relative;
 }
 
 .search-label {
@@ -24,8 +27,8 @@
     padding: 10px;
     color: white;
     text-align: center;
-    border-top-right-radius: 10px 10px;
-    border-bottom-right-radius: 10px 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     display: flex;
 }
 
@@ -37,9 +40,9 @@
     background: none;
 }
 
-.search-label:hover{
-    background-color:#C2E5F5;
-    color:black;
+.search-label:hover {
+    background-color: #C2E5F5;
+    color: black;
 }
 
 .form-outline input {
@@ -50,8 +53,42 @@
     border: #023047 solid 1px;
 }
 
+.suggestions {
+    position: absolute;
+    top: calc(100% + 10px); /* Position it below the input field */
+    left: 0;
+    z-index: 999; 
+    width: calc(100% - 20px);
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.suggestion-item:hover {
+    background-color: #f1f1f1;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
 .product{
     display: none;
+}
+
+.product-container {
+    z-index: -1 !important;
+    position: relative;
 }
 
 .message_result img {
@@ -69,6 +106,7 @@
 .message_result h2, .message-result p {
     color: #023047;
 }
+
 
 footer {
     border-top-left-radius: 0px !important;

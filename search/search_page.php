@@ -149,7 +149,8 @@ if (isset($_SESSION['user_id'])) {
             <form id="form">
                 <div class="input-group">
                     <div class="form-outline">
-                        <input type="text" id="form1" class="form-control" placeholder="What are you looking for?"/>
+                    <input autocomplete="off" type="text" id="form1" class="form-control" placeholder="What are you looking for?" oninput="showSuggestions(this.value)" onblur="hideSuggestions()" />
+                        <div id="suggestions" class="suggestions"></div>
                         <button type="submit" class="btn btn-primary" id="searchButton">
                             <div class="search-label">
                                 <label class="form-label" for="form1">Search</label>
@@ -160,6 +161,7 @@ if (isset($_SESSION['user_id'])) {
             </form>
         </div>
     </div>
+
     <div class="message_result">
         <img src="../photos/no-results-found.svg">
         <h2>No Results Found</h2>
@@ -307,7 +309,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="product-card" data-id="16">
             <div class="product-image">
-                <img src="../photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Marriage Certificate.png" class="product-thumb" alt="">
                 <a href="../documents/Certificate of Marriage - DROM.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
@@ -325,7 +327,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
         <div class="product-card" data-id="18">
             <div class="product-image">
-                <img src="../photos/DOCS Photos/Certificate of Marriage.png" class="product-thumb" alt="">
+                <img src="../photos/DOCS Photos/Marriage Certificate.png" class="product-thumb" alt="">
                 <a href="../documents/Certificate of Marriage - TROM.php"><button class="card-btn">Know More</button></a>
             </div>
             <div class="product-info">
